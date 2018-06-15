@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[GitHub + Hexo 搭建]]></title>
+    <url>%2F2018%2F06%2F15%2FGitHub-Hexo-%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[说明这里还是简单的记录一下基于GitHub+Hexo+Next的个人博客搭建把，防止以后忘了… 搭建步骤1. Git下载与安装2. GitHub 账号注册3. Node.js 下载与安装4. Hexo下载与配置5. Next下载与配置]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>个人博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello Hexo]]></title>
     <url>%2F2018%2F06%2F15%2FHello-Hexo%2F</url>
     <content type="text"><![CDATA[Hexo简介：简而言之，Hexo 是一个基于 Node.js 的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。其作者是来自台湾的tommy351大神。Hexo 因其界面简洁、美观且对各类人群（不只是程序猿）友好而广受欢迎，声望不亚于大名鼎鼎的WordPress。 说明为什么需要一个博客对于个人网站来说,没有比博客更合适的形式了。在博客中,文章才是最主要的,一切都显得主次分明,干净利落。相比之下,论坛中主题和回复鱼龙混杂,阅读体验非常差。同时,博客比论坛的数据库小很多,便于维护。 为什么是静态博客很多人选择在虚拟主机或vps上面搭建动态博客。独立博客如此麻烦的维护工作,能不能减轻一些呢?正如阮一峰前辈所说,blogger分为三个阶段。最开始,是门户博客。之后,是独立博客。最后,觉得独立博客自己管理起来费劲,便找个别人来管的空间,自己负责写就好。如果我们能够找到这样的空间,在自己保留最大控制权前提下,由别人托管,会省去不少事情。 静态博客编译之后是纯html页面,优点就是支持它的环境十分好找,例如github、gitcafe等站点都支持静态页面托管,自然是我们的首选了。 但是静态博客并非没有缺点。动态博客更新文章时,脚本是不变的,只需要更新数据库。静态博客要频繁改动文件,不支持增量式上传的东西,比如ftp,就难于管理。此外,还要十分熟悉git各种命令,才能部署页面。]]></content>
       <categories>
         <category>Hexo</category>
+        <category>简介</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
