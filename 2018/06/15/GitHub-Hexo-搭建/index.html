@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Heng Bolg">
 <meta property="og:description" content="说明这里还是简单的记录一下基于GitHub+Hexo+Next的个人博客搭建把，防止以后忘了… 搭建步骤">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-15T10:28:49.495Z">
+<meta property="og:updated_time" content="2018-06-17T13:33:33.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub + Hexo 搭建">
 <meta name="twitter:description" content="说明这里还是简单的记录一下基于GitHub+Hexo+Next的个人博客搭建把，防止以后忘了… 搭建步骤">
@@ -382,12 +382,24 @@
                 
               
 
-              <time title="创建时间：2018-06-15 17:20:27 / 修改时间：18:28:49" itemprop="dateCreated datePublished" datetime="2018-06-15T17:20:27+08:00">2018-06-15</time>
+              <time title="创建时间：2018-06-15 17:20:27" itemprop="dateCreated datePublished" datetime="2018-06-15T17:20:27+08:00">2018-06-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-17 21:33:33" itemprop="dateModified" datetime="2018-06-17T21:33:33+08:00">2018-06-17</time>
               
             
           </span>
@@ -544,12 +556,123 @@
 </li>
 <li><p>然后在浏览器输入：<strong><a href="https://username.github.io/" target="_blank" rel="noopener">https://username.github.io/</a></strong> 访问，可以看到自己部署的博客</p>
 </li>
+<li><p>最后说一下Hexo全局配置文件，具体代码如下：<br>  <pre></pre></p>
+<h1 id="Hexo-Configuration"><a href="#Hexo-Configuration" class="headerlink" title="Hexo Configuration"></a>Hexo Configuration</h1><h2 id="Docs-https-hexo-io-docs-configuration-html"><a href="#Docs-https-hexo-io-docs-configuration-html" class="headerlink" title="Docs: https://hexo.io/docs/configuration.html"></a>Docs: <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="noopener">https://hexo.io/docs/configuration.html</a></h2><h2 id="Source-https-github-com-hexojs-hexo"><a href="#Source-https-github-com-hexojs-hexo" class="headerlink" title="Source: https://github.com/hexojs/hexo/"></a>Source: <a href="https://github.com/hexojs/hexo/" target="_blank" rel="noopener">https://github.com/hexojs/hexo/</a></h2></li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
-<h2 id="5-Next下载与配置"><a href="#5-Next下载与配置" class="headerlink" title="5. Next下载与配置"></a>5. Next下载与配置</h2><p>待更新…</p>
+<h1 id="Site-站点信息配置"><a href="#Site-站点信息配置" class="headerlink" title="Site 站点信息配置"></a>Site 站点信息配置</h1><p>title: Heng Bolg   #站点名<br>subtitle: 世上本没有路，走的人多了也就有了路…   #站点副标题<br>description: 主要记录自己的学习记录与心得，在校学生一枚…    #站点信息简介<br>keywords:<br>author: 恒        #站点作者<br>language: zh-CN       #站点语言，default 默认是英语， zh-CN 是中文<br>timezone:   #时区，不填<br>avatar: /images/logo.png   #图片</p>
+<h1 id="URL-博客地址"><a href="#URL-博客地址" class="headerlink" title="URL 博客地址"></a>URL 博客地址</h1><h2 id="If-your-site-is-put-in-a-subdirectory-set-url-as-‘http-yoursite-com-child-39-and-root-as-‘-child-‘"><a href="#If-your-site-is-put-in-a-subdirectory-set-url-as-‘http-yoursite-com-child-39-and-root-as-‘-child-‘" class="headerlink" title="If your site is put in a subdirectory, set url as ‘http://yoursite.com/child&#39; and root as ‘/child/‘"></a>If your site is put in a subdirectory, set url as ‘<a href="http://yoursite.com/child&#39;" target="_blank" rel="noopener">http://yoursite.com/child&#39;</a> and root as ‘/child/‘</h2><p>url: <a href="https://zqiheng.github.io">https://zqiheng.github.io</a><br>root: /<br>permalink: :year/:month/:day/:title/<br>permalink_defaults:</p>
+<h1 id="Directory-目录设置"><a href="#Directory-目录设置" class="headerlink" title="Directory  目录设置"></a>Directory  目录设置</h1><p>source_dir: source   #源文件<br>public_dir: public   #生成的网页文件<br>tag_dir: tags  #标签<br>archive_dir: archives  #归档<br>category_dir: categories  #分类<br>code_dir: downloads/code  #<br>i18n_dir: :lang  #国际化<br>skip_render:</p>
+<h1 id="Writing-文章布局"><a href="#Writing-文章布局" class="headerlink" title="Writing  文章布局"></a>Writing  文章布局</h1><p>new_post_name: :title.md # File name of new posts<br>default_layout: post  #默认模板<br>titlecase: false # 标题转换成大写<br>external_link: true # 新标签页里打开连接<br>filename_case: 0<br>render_drafts: false<br>post_asset_folder: false<br>relative_link: false<br>future: true<br>highlight:  #代码块设置<br>  enable: true  #语法高亮<br>  line_number: true  #显示行号<br>  auto_detect: false<br>  tab_replace:</p>
+<h1 id="Home-page-setting-页设置"><a href="#Home-page-setting-页设置" class="headerlink" title="Home page setting    页设置"></a>Home page setting    页设置</h1><h1 id="path-Root-path-for-your-blogs-index-page-default-‘’"><a href="#path-Root-path-for-your-blogs-index-page-default-‘’" class="headerlink" title="path: Root path for your blogs index page. (default = ‘’)"></a>path: Root path for your blogs index page. (default = ‘’)</h1><h1 id="per-page-Posts-displayed-per-page-0-disable-pagination"><a href="#per-page-Posts-displayed-per-page-0-disable-pagination" class="headerlink" title="per_page: Posts displayed per page. (0 = disable pagination)"></a>per_page: Posts displayed per page. (0 = disable pagination)</h1><h1 id="order-by-Posts-order-Order-by-date-descending-by-default"><a href="#order-by-Posts-order-Order-by-date-descending-by-default" class="headerlink" title="order_by: Posts order. (Order by date descending by default)"></a>order_by: Posts order. (Order by date descending by default)</h1><p>index_generator:<br>  path: ‘’<br>  per_page: 4   #每页文章数量<br>  order_by: page   #-date</p>
+<h1 id="Category-amp-Tag-分类和标签"><a href="#Category-amp-Tag-分类和标签" class="headerlink" title="Category &amp; Tag  分类和标签"></a>Category &amp; Tag  分类和标签</h1><p>default_category: uncategorized<br>category_map:<br>tag_map:</p>
+<h1 id="Date-Time-format-日期-格式"><a href="#Date-Time-format-日期-格式" class="headerlink" title="Date / Time format 日期/格式"></a>Date / Time format 日期/格式</h1><h2 id="Hexo-uses-Moment-js-to-parse-and-display-date"><a href="#Hexo-uses-Moment-js-to-parse-and-display-date" class="headerlink" title="Hexo uses Moment.js to parse and display date"></a>Hexo uses Moment.js to parse and display date</h2><h2 id="You-can-customize-the-date-format-as-defined-in"><a href="#You-can-customize-the-date-format-as-defined-in" class="headerlink" title="You can customize the date format as defined in"></a>You can customize the date format as defined in</h2><h2 id="http-momentjs-com-docs-displaying-format"><a href="#http-momentjs-com-docs-displaying-format" class="headerlink" title="http://momentjs.com/docs/#/displaying/format/"></a><a href="http://momentjs.com/docs/#/displaying/format/" target="_blank" rel="noopener">http://momentjs.com/docs/#/displaying/format/</a></h2><p>date_format: YYYY-MM-DD<br>time_format: HH:mm:ss</p>
+<h1 id="Pagination-归档显示"><a href="#Pagination-归档显示" class="headerlink" title="Pagination   归档显示"></a>Pagination   归档显示</h1><h2 id="Set-per-page-to-0-to-disable-pagination"><a href="#Set-per-page-to-0-to-disable-pagination" class="headerlink" title="Set per_page to 0 to disable pagination"></a>Set per_page to 0 to disable pagination</h2><p>per_page: 10<br>pagination_dir: page</p>
+<h1 id="Extensions-扩展"><a href="#Extensions-扩展" class="headerlink" title="Extensions  扩展"></a>Extensions  扩展</h1><h2 id="Plugins-https-hexo-io-plugins"><a href="#Plugins-https-hexo-io-plugins" class="headerlink" title="Plugins: https://hexo.io/plugins/"></a>Plugins: <a href="https://hexo.io/plugins/" target="_blank" rel="noopener">https://hexo.io/plugins/</a></h2><h2 id="Themes-https-hexo-io-themes"><a href="#Themes-https-hexo-io-themes" class="headerlink" title="Themes: https://hexo.io/themes/"></a>Themes: <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></h2><p>theme: next</p>
+<h1 id="Deployment-站点部署到GitHub上"><a href="#Deployment-站点部署到GitHub上" class="headerlink" title="Deployment   站点部署到GitHub上"></a>Deployment   站点部署到GitHub上</h1><h2 id="Docs-https-hexo-io-docs-deployment-html"><a href="#Docs-https-hexo-io-docs-deployment-html" class="headerlink" title="Docs: https://hexo.io/docs/deployment.html"></a>Docs: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">https://hexo.io/docs/deployment.html</a></h2><p>deploy:<br>  type: git        #部署的类型<br>  repository: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:zqiheng/zqiheng.github.io.git # 仓库地址<br>  branch: master        #分支名称<br>  message: hexo    #提交信息</p>
+<p>#查找<br>search:<br>  path: search.xml<br>  field: post<br>  format: html<br>  limit: 10000</p>
+<pre><code>&lt;/pre&gt;
+</code></pre><h2 id="5-Next下载与配置"><a href="#5-Next下载与配置" class="headerlink" title="5. Next下载与配置"></a>5. Next下载与配置</h2><hr>
+<h2 id="更新时间：2018-06-17"><a href="#更新时间：2018-06-17" class="headerlink" title="更新时间：2018.06.17"></a>更新时间：2018.06.17</h2><ol>
+<li><p>下载Next主题，在Hexo目录下右击进入Git Bash Here 窗口，输入下列命令</p>
+ <pre>
+     git clone https://github.com/iissnan/hexo-theme-next themes/next
+ </pre>
+</li>
+<li><p>启动主题</p>
+</li>
+</ol>
+<p>当克隆下载完成后，打开站点配置文件(hexo目录下的_config.yml)，找到 <strong>theme</strong>字段，并将其值更改为next</p>
+<pre><code>&lt;pre&gt;
+    # Extensions  扩展
+    ## Plugins: https://hexo.io/plugins/
+    ## Themes: https://hexo.io/themes/
+    theme: next
+&lt;/pre&gt;
+</code></pre><ol start="3">
+<li><p>重新启动服务器，在浏览器地址栏输入<strong><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></strong>访问，检测配置是否成功。</p>
+</li>
+<li><p>主题文件配置，目录为（<strong>hexo\themes\next</strong>）下的_config.yml文件。</p>
+</li>
+</ol>
+<p>我使用的主题样式是：</p>
+<pre>
+# Schemes
+#scheme: Muse
+#scheme: Mist
+scheme: Pisces
+#scheme: Gemini
+</pre>
+
+<ol start="5">
+<li>配置左侧导航栏菜单按钮，在主题配置文件中，找到menu属性，做如下配置：</li>
+</ol>
+<pre>
+menu:
+  home: / || home          #首页，后面的表示图标
+  categories: /categories/ || th   #分类
+  archives: /archives/ || archive #归档
+  tags: /tags/ || tags  #标签
+  about: /about/ || user  #关于
+  #schedule: /schedule/ || calendar
+  #sitemap: /sitemap.xml || sitemap
+  #commonweal: /404/ || heartbeat
+</pre>
+
+<ol start="6">
+<li>为标签<strong>categories、tags、about</strong>，创建相应的界面，代码如下：</li>
+</ol>
+<pre>
+hexo new page 'categories'
+hexo new page 'tags'
+hexo new page 'about'
+</pre>
+
+<ol start="7">
+<li><p>在 <strong>source</strong>目录下，会看到刚刚生成的三个文件夹，依次打开文件夹，给每个index.md文件添加上type字段。</p>
+</li>
+<li><p>配置左侧导航栏<strong>搜索</strong>按钮</p>
+<ul>
+<li><p>安装 hexo-generator-searchdb ，在Git Bash Here窗口执行以下代码：</p>
+<pre>
+  npm install hexo-generator-searchdb --save
+</pre>
+</li>
+<li><p>打开全局配置文件，在最后新增下面代码；</p>
+<pre>
+  search:
+      path: search.xml
+      field: post
+      format: html
+      limit: 10000
+</pre>
+</li>
+<li><p>打开主题配置文件，找到<strong>local_search</strong>属性，开启本地搜索功能</p>
+<pre>
+  local_search:
+      enable: true
+      # if auto, trigger search by changing input
+      # if manual, trigger search by pressing enter key or search button
+      trigger: auto
+      # show top n results per article, show all results by setting to -1
+      top_n_per_article: 1
+</pre>
+</li>
+<li><p>重新部署项目，并发布到GitHub上</p>
+<pre>
+  hexo clean
+  hexo g
+  hexo d
+</pre>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>基本配置就是这样，其它功能后面再补充</p>
 
       
     </div>
@@ -773,7 +896,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建步骤"><span class="nav-number">2.</span> <span class="nav-text">搭建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Git下载与安装"><span class="nav-number">2.1.</span> <span class="nav-text">1. Git下载与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-GitHub-账号注册"><span class="nav-number">2.2.</span> <span class="nav-text">2. GitHub 账号注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Node-js-下载与安装"><span class="nav-number">2.3.</span> <span class="nav-text">3. Node.js 下载与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-搭建个人博客Hexo"><span class="nav-number">2.4.</span> <span class="nav-text">4. 搭建个人博客Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Next下载与配置"><span class="nav-number">2.5.</span> <span class="nav-text">5. Next下载与配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建步骤"><span class="nav-number">2.</span> <span class="nav-text">搭建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Git下载与安装"><span class="nav-number">2.1.</span> <span class="nav-text">1. Git下载与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-GitHub-账号注册"><span class="nav-number">2.2.</span> <span class="nav-text">2. GitHub 账号注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Node-js-下载与安装"><span class="nav-number">2.3.</span> <span class="nav-text">3. Node.js 下载与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-搭建个人博客Hexo"><span class="nav-number">2.4.</span> <span class="nav-text">4. 搭建个人博客Hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-Configuration"><span class="nav-number">3.</span> <span class="nav-text">Hexo Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docs-https-hexo-io-docs-configuration-html"><span class="nav-number">3.1.</span> <span class="nav-text">Docs: https://hexo.io/docs/configuration.html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Source-https-github-com-hexojs-hexo"><span class="nav-number">3.2.</span> <span class="nav-text">Source: https://github.com/hexojs/hexo/</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Site-站点信息配置"><span class="nav-number">4.</span> <span class="nav-text">Site 站点信息配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#URL-博客地址"><span class="nav-number">5.</span> <span class="nav-text">URL 博客地址</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#If-your-site-is-put-in-a-subdirectory-set-url-as-‘http-yoursite-com-child-39-and-root-as-‘-child-‘"><span class="nav-number">5.1.</span> <span class="nav-text">If your site is put in a subdirectory, set url as ‘http://yoursite.com/child&#39; and root as ‘/child/‘</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Directory-目录设置"><span class="nav-number">6.</span> <span class="nav-text">Directory  目录设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Writing-文章布局"><span class="nav-number">7.</span> <span class="nav-text">Writing  文章布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Home-page-setting-页设置"><span class="nav-number">8.</span> <span class="nav-text">Home page setting    页设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#path-Root-path-for-your-blogs-index-page-default-‘’"><span class="nav-number">9.</span> <span class="nav-text">path: Root path for your blogs index page. (default = ‘’)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#per-page-Posts-displayed-per-page-0-disable-pagination"><span class="nav-number">10.</span> <span class="nav-text">per_page: Posts displayed per page. (0 = disable pagination)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#order-by-Posts-order-Order-by-date-descending-by-default"><span class="nav-number">11.</span> <span class="nav-text">order_by: Posts order. (Order by date descending by default)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Category-amp-Tag-分类和标签"><span class="nav-number">12.</span> <span class="nav-text">Category &amp; Tag  分类和标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Date-Time-format-日期-格式"><span class="nav-number">13.</span> <span class="nav-text">Date / Time format 日期/格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-uses-Moment-js-to-parse-and-display-date"><span class="nav-number">13.1.</span> <span class="nav-text">Hexo uses Moment.js to parse and display date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#You-can-customize-the-date-format-as-defined-in"><span class="nav-number">13.2.</span> <span class="nav-text">You can customize the date format as defined in</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-momentjs-com-docs-displaying-format"><span class="nav-number">13.3.</span> <span class="nav-text">http://momentjs.com/docs/#/displaying/format/</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pagination-归档显示"><span class="nav-number">14.</span> <span class="nav-text">Pagination   归档显示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-per-page-to-0-to-disable-pagination"><span class="nav-number">14.1.</span> <span class="nav-text">Set per_page to 0 to disable pagination</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Extensions-扩展"><span class="nav-number">15.</span> <span class="nav-text">Extensions  扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Plugins-https-hexo-io-plugins"><span class="nav-number">15.1.</span> <span class="nav-text">Plugins: https://hexo.io/plugins/</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Themes-https-hexo-io-themes"><span class="nav-number">15.2.</span> <span class="nav-text">Themes: https://hexo.io/themes/</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Deployment-站点部署到GitHub上"><span class="nav-number">16.</span> <span class="nav-text">Deployment   站点部署到GitHub上</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docs-https-hexo-io-docs-deployment-html"><span class="nav-number">16.1.</span> <span class="nav-text">Docs: https://hexo.io/docs/deployment.html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Next下载与配置"><span class="nav-number">16.2.</span> <span class="nav-text">5. Next下载与配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新时间：2018-06-17"><span class="nav-number">16.3.</span> <span class="nav-text">更新时间：2018.06.17</span></a></li></ol></li></ol></div>
             
 
           </div>
