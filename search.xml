@@ -3,14 +3,14 @@
   <entry>
     <title><![CDATA[（一）SpringMVC入门]]></title>
     <url>%2F2018%2F06%2F21%2F%EF%BC%88%E4%B8%80%EF%BC%89SpringMVC%E5%85%A5%E9%97%A8%2F</url>
-    <content type="text"><![CDATA[说明：本章主要介绍了springMVC的基础知识和简单的一个登陆过程小例子 初识SpringMVC 什么是MVC MVC是一种Web程序设计模式、软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑聚集到一个部件里面，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特的发展起来用于映射传统的输入、处理和输出功能在一个逻辑的图形化用户界面的结构中。 MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写 先给一张官网图： 再看下这张图： 什么是SpringMVC SpringMVC 是一个基于mvc的一种web应用框架，是Spring的一个模块。 与Spring无缝连接，不需要配。 再看这张图： 化重点： 前端控制器（DispatchServlet） 接收客户端请求，返回响应结果，相当于中央处理转发器。 映射器（HandleMapping） 根据请求的URL查找Handle。 适配器（HandleAdapter） 按照特定规则（HandleAdapter要求的规则）执行Handle。 处理器（Handle ） 处理业务逻辑，返回ModelAndView。 视图解析器（ViewResolve） 解析处理器返回的视图，然后返回View]]></content>
+    <content type="text"><![CDATA[说明：本章主要介绍了springMVC的基础知识和一个简单的登陆过程实例 初识SpringMVC 什么是MVC MVC是一种Web程序设计模式、软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑聚集到一个部件里面，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特的发展起来用于映射传统的输入、处理和输出功能在一个逻辑的图形化用户界面的结构中。 MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写 先给一张官网图： 再看下这张图： 什么是SpringMVC SpringMVC 是一个基于mvc的一种web应用框架，是Spring的一个模块。 与Spring无缝连接，不需要配。 再看这张图： 化重点： 前端控制器（DispatchServlet） 接收客户端请求，返回响应结果，相当于中央处理转发器。 映射器（HandleMapping） 根据请求的URL查找Handle。 适配器（HandleAdapter） 按照特定规则（HandleAdapter要求的规则）执行Handle。 处理器（Handle ） 处理业务逻辑，返回ModelAndView。 视图解析器（ViewResolve） 解析处理器返回的视图，然后返回View]]></content>
       <categories>
         <category>Java</category>
-        <category>JavaEE</category>
+        <category>Java EE</category>
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>JavaEE</tag>
+        <tag>Java EE</tag>
       </tags>
   </entry>
   <entry>
