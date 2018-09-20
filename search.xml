@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[系统重装后如何恢复Hexo博客]]></title>
+    <url>%2F2018%2F09%2F20%2F%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85%E5%90%8E%E5%A6%82%E4%BD%95%E6%81%A2%E5%A4%8DHexo%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[说明由于暑假电脑出了故障，重装了系统。导致本地电脑搭建的Github+Hexo博客不能正常使用，也由于时间原因到现在才有时间来恢复博客（不会断的）。现在简单记录下是如何恢复已有的Hexo博客。 恢复步骤 重点： 重装系统前的博客有备份（整个文件，也就是与最后一次上传到GitHub保持一致，包括配置文件。PS：养成备份的好习惯。）。 第一步：恢复本地按照搭建博客步骤重新安装Git,Node.js,Hexo。可参考《GitHub + Hexo 搭建》，执行到4-1操作步骤后，进入原有hexo文件目录内输入如下命名： hexo s 如果服务器启动成功，并在浏览器中输入http://localhost:4000可以看到博客，则表明本地恢复成功。如果不成功，检查Git,Node.js,Hexo安装是否正确，重来一遍。 第二步：恢复同步GitHub功能第一步正确执行后，接下来我们就要开始恢复博客上传到远程Github上的功能了。可参考《GitHub + Hexo 搭建》，从4.5步骤开始，从新配置用户名和邮箱。 在Blog文件夹目录内右击打开Git Bash Here窗口，输入以下命令： git config --global user.name "GitHub用户名" git config --global user.email "GitHub邮箱" 重点：重新生成SSH KEY（系统重装后是没有的，需要重新生成），GitHub需要一个密钥才能与本地相连接，执行以下命名，并且连续按3次回车生成密钥（注：C 为大写）： ssh-keygen -t rsa -C "邮箱地址" 后面会有一个地址，可以看到。就是我们生成的密钥保存地址。即：C:/Users/用户名/.ssh文件中。打开这个目录找到 id_rsa.pub 文件，复制全部内容。 在网页打开GitHub，依次点击 我的头像 - Settings - SSH and GPG keys - New SSH key，将刚刚复制的密钥内容粘贴到key的输入框（可以将原来的密钥删除），然后点击Add Key，配置成功。 最后，测试一下，按照以前的方式随便写一篇文章上传一下，如何成功了，那么我们就大功告成了！！！]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>个人博客搭建</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[IDEA 常用快捷键]]></title>
     <url>%2F2018%2F06%2F23%2FIDEA-%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
     <content type="text"><![CDATA[IDEA 现在是越来越火的一款开发工具，很多公司都在使用它来开发软件。具体简介就不讲了，下面说一些IDEA 开发工具常用的一些快捷键，能帮助我们高效地开发。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101Ctrl + Alt + S 打开设置选项Ctrl + / 注释 、 取消注释（单行注释）Ctrl + Shift + / 注释 、取消注释（多行注释）Ctrl + N 查找类文件Ctrl + Shift + N 查找文件Ctrl + Y 删除当前行Ctrl + D 复制当前行到下一行Ctrl + X 剪切当前行（也有删除当前行的作用）Ctrl + V 粘贴Ctrl + R 替换Ctrl + F 在当前文件中查找 （使用 F3 在查找到的多个结果中切换）Ctrl + Shift + F 在指定范围查找（更详细）Ctrl + P 查看一个函数可以使用的参数 / 查看一个属性有哪些可用的值 等等Ctrl + Shift + 1, 2, 3, 4 在某一行打标签。结合 Ctrl + 1, 2, 3, 4 可以快速定位到某一标记行。 适用于行数特别多的文件。Ctrl + delete 删除一个连续的单位。比如，单词、连在一起的单词、连在一起的汉字等。Ctrl + W 选择一个单位。连续按的话，会不断扩展选择的范围。Ctrl + 左右箭头（导航键左右键） 按照单位跳转。Ctrl + (-/+) 收起或者展开一段代码块（比如，一块注释或者一个方法太长，可以按Ctrl + - 将它收起来）Ctrl + E 打开最近的文件Ctrl + Shift + E 打开最近编辑过的文件Ctrl +Tab 直接打开最近的文件Ctrl + F12 查看当前文件的内部成员 或者说 查看本文档的结构Ctrl + G 跳转到指定行Ctrl + F4 关闭当前文件Ctrl + B 打开一个类（java）的声明，其他如html jsp文件也是类似。相当于在eclipse中编辑java类文件时，按住Ctrl键并单击类名从而进入类的声明。Ctrl + H 查看当前类的继承关系（按Shift + Esc 关闭）Ctrl + Shift 查看一个方法的继承关系（按Shift + Esc 关闭）Ctrl + Q 查看说明文档Ctrl + Alt + L 格式化代码Ctrl + Shift + I 查看类体或者方法体Ctrl + Alt + O 自动导包 Ctrl + Alt + Enter 在当前行上面开启新的一行Ctrl + Shift + 上下箭头 上下移动代码块（对比Alt + Shift + 上下箭头） Ctrl + Shift + U 切换大小写Ctrl + Shift + V 选择性粘贴（剪切板有多个选项）Ctrl + Shift + C 复制当前文件的路径Ctrl + Shift + J 合并下一行到当前行Ctrl + Shift + (-/+) 折叠或者展开所有代码块Ctrl + Shift + Space 自动提示Alt + Enter 根据提示自动导入包Alt + 左右箭头 在当前打卡的多个文件之间跳转Alt + / 自动补全Alt + 鼠标选区 可以选择方形区域（列模式）Alt + Home 锁定到导航栏目，按导航键可以直接打开文件Alt + Insert 插入构造方法、toString方法等Alt + F7 查看方法在哪里被调用了Shift + F6 重命名 （比如，选中名为 thread 的变量，按Shift + F6 进行重命名，可以对本类中所有原来名为thread的变量进行重命名）Shift + Enter 在当前行下面开启新的一行Shift + Home / End 选择光标到行首/行尾的区域Shift + 导航箭头 自由选择Shift + F11 查看书签]]></content>
