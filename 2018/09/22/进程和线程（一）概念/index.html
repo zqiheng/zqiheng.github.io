@@ -116,10 +116,12 @@
 <meta property="og:site_name" content="Heng Bolg">
 <meta property="og:description" content="引言：随着多核CPU的问世，使得多线程程序在开发中占有了更重要的位置。但是什么是进程？什么是线程？它们之间到底又有什么关系呢？下面就来详细的来介绍一下它们的概念。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-22T15:57:38.606Z">
+<meta property="og:image" content="https://zqiheng.github.io/images/thread/thread_zhuangtai.png">
+<meta property="og:updated_time" content="2018-09-25T12:00:34.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程和线程（一）概念">
 <meta name="twitter:description" content="引言：随着多核CPU的问世，使得多线程程序在开发中占有了更重要的位置。但是什么是进程？什么是线程？它们之间到底又有什么关系呢？下面就来详细的来介绍一下它们的概念。">
+<meta name="twitter:image" content="https://zqiheng.github.io/images/thread/thread_zhuangtai.png">
 
 
 
@@ -382,12 +384,24 @@
                 
               
 
-              <time title="创建时间：2018-09-22 22:00:00 / 修改时间：23:57:38" itemprop="dateCreated datePublished" datetime="2018-09-22T22:00:00+08:00">2018-09-22</time>
+              <time title="创建时间：2018-09-22 22:00:00" itemprop="dateCreated datePublished" datetime="2018-09-22T22:00:00+08:00">2018-09-22</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-25 20:00:34" itemprop="dateModified" datetime="2018-09-25T20:00:34+08:00">2018-09-25</time>
               
             
           </span>
@@ -467,9 +481,13 @@
 <p><strong>2）运行状态(Running)：</strong><br>进程占用处理器资源；处于此状态的进程的数目小于等于处理器的数目。在没有其他进程可以执行时(如所有进程都在阻塞状态)，通常会自动执行系统的空闲进程。</p>
 <p><strong>3）阻塞状态(Blocked)：</strong><br>由于进程等待某种条件（如I/O操作或进程同步），在条件满足之前无法继续执行。该事件发生前即使把处理器资源分配给该进程，也无法运行。</p>
 <hr>
-<h2 id="2-什么是线程？"><a href="#2-什么是线程？" class="headerlink" title="2.什么是线程？"></a>2.什么是线程？</h2><p>一个进程包含一个或多个线程。线程是程序运行最小的调度单位。线程是进程中的一个实体，是被系统独立调度和分派的基本单位，线程自己不拥有系统资源，只拥有一点儿在运行中必不可少的资源，但它可与同属一个进程的其它线程共享进程所拥有的全部资源。一个线程可以创建和撤消另一个线程，同一进程中的多个线程之间可以并发执行。</p>
+<h2 id="2-什么是线程？"><a href="#2-什么是线程？" class="headerlink" title="2.什么是线程？"></a>2.什么是线程？</h2><p><strong>线程的引入：</strong></p>
+<ul>
+<li>60年代，在OS中能拥有资源和独立运行的基本单位是进程，然而随着计算机技术的发展，进程出现了很多弊端，一是由于进程是资源拥有者，创建、撤消与切换存在较大的时空开销，因此需要引入轻型进程；二是由于对称多处理机（SMP）出现，可以满足多个运行单位，而多个进程并行开销过大。因此在80年代，出现了能独立运行的基本单位——线程（Threads）。</li>
+</ul>
+<p>一个进程包含一个或多个线程。线程是程序运行最小的调度单位。线程是进程中的一个实体，是被系统独立调度和分派的基本单位，线程自己不拥有系统资源，只拥有一点儿在运行中必不可少的资源，但它可与同属一个进程的其它线程共享进程所拥有的全部资源。一个线程可以创建和撤消另一个线程，同一进程中的多个线程之间可以并发执行。</p>
 <p>多线程编程可以是程序具有多条并发执行线索，就像日常工作中由多人同时合作完成一个任务。这在很多情况下可以改善程序的响应性能，提高资源的利用效率，在多核CPU年代，这显得尤为重要。然而滥用多线程也有可能给程序带来意想不到的错误，减低程序执行的效率。</p>
-<p>使用多线程开发优点：</p>
+<p>使用多线程开发<strong>优点</strong>：</p>
 <ul>
 <li>在多核CPU系统中，使用线程可以提高程序响应速度，提高CPU和内存的利用率；</li>
 <li>多线程开发可以将耗时操作放入子线程，提高效率；</li>
@@ -479,7 +497,7 @@
 <li>可以随时停止任务；</li>
 <li>等等…</li>
 </ul>
-<p>使用多线程开发缺点：</p>
+<p>使用多线程开发<strong>缺点</strong>：</p>
 <ul>
 <li>等候共享资源时造成程序的运行速度变缓慢。这些共享资源主要是独占性的资源，如打印机等；</li>
 <li>对线程进行管理要求额外的CPU开销。线程的使用会给系统带来上下文切换的额外负担；</li>
@@ -487,6 +505,12 @@
 <li>对共享变量同时进行读写的不可预测性错误等等。</li>
 </ul>
 <p>总之有优点肯定就会有缺点，毕竟谁也不能做到十全十美。后面会讲到Java开发中是如何避免这些缺点的。</p>
+<p><strong>线程的五种状态</strong><br><img src="/images/thread/thread_zhuangtai.png" alt=""></p>
+<p>1)新建状态<br>使用new运算符创建一个线程后，该线程仅仅是一个空对象，系统没有分配资源，称该线程处于创建状态（new thread）。</p>
+<p>2)可运行状态<br>使用<strong>start()</strong>方法启动一个线程后，系统为该线程分配了除CPU外的所需资源，是该线程处于可运行状态（Runnable）。</p>
+<p>3）运行中状态<br>Java运行系统通过调度选中一个Runnable的线程，使其占有CPU并转为运行中状态（Running）。此时，系统真正执行线程的<strong>run()</strong>方法。</p>
+<p>4）阻塞状态<br>一个正在运行的线程因某种原因不能继续运行时，进入阻塞状态（Blocked）。</p>
+<p>5）死亡状态<br>线程结束后是死亡状态（Dead）。</p>
 <hr>
 <p>OK，基础概念知识就先写到这里，后面会讲解到如何建立一个线程，以及多线程编程。    </p>
 
