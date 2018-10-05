@@ -108,20 +108,20 @@
 
 
 
-  <meta name="description" content="前言：前面讲到了线程的使用和创建，这篇主要介绍线程的调度、同步、安全以及其它相关方法。">
+  <meta name="description" content="&amp;emsp;&amp;emsp;前言：前面讲到了线程的使用和创建，这篇主要介绍线程的调度、同步、安全以及其它相关方法。">
 <meta name="keywords" content="Java,Java SE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="进程和线程（三）线程的同步、调度、安全">
 <meta property="og:url" content="https://zqiheng.github.io/2018/09/28/进程和线程（三）线程的同步、调度、安全/index.html">
 <meta property="og:site_name" content="Heng Bolg">
-<meta property="og:description" content="前言：前面讲到了线程的使用和创建，这篇主要介绍线程的调度、同步、安全以及其它相关方法。">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;前言：前面讲到了线程的使用和创建，这篇主要介绍线程的调度、同步、安全以及其它相关方法。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://zqiheng.github.io/images/thread/线程调度.png">
 <meta property="og:image" content="https://zqiheng.github.io/images/thread/线程同步.png">
-<meta property="og:updated_time" content="2018-09-28T08:30:59.203Z">
+<meta property="og:updated_time" content="2018-10-05T14:54:36.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程和线程（三）线程的同步、调度、安全">
-<meta name="twitter:description" content="前言：前面讲到了线程的使用和创建，这篇主要介绍线程的调度、同步、安全以及其它相关方法。">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;前言：前面讲到了线程的使用和创建，这篇主要介绍线程的调度、同步、安全以及其它相关方法。">
 <meta name="twitter:image" content="https://zqiheng.github.io/images/thread/线程调度.png">
 
 
@@ -385,12 +385,24 @@
                 
               
 
-              <time title="创建时间：2018-09-28 13:00:00 / 修改时间：16:30:59" itemprop="dateCreated datePublished" datetime="2018-09-28T13:00:00+08:00">2018-09-28</time>
+              <time title="创建时间：2018-09-28 13:00:00" itemprop="dateCreated datePublished" datetime="2018-09-28T13:00:00+08:00">2018-09-28</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-05 22:54:36" itemprop="dateModified" datetime="2018-10-05T22:54:36+08:00">2018-10-05</time>
               
             
           </span>
@@ -448,11 +460,11 @@
       
 
       
-        <p><strong>前言：</strong>前面讲到了线程的使用和创建，这篇主要介绍线程的调度、同步、安全以及其它相关方法。<br><a id="more"></a></p>
+        <p>&emsp;&emsp;<strong>前言：</strong>前面讲到了线程的使用和创建，这篇主要介绍线程的调度、同步、安全以及其它相关方法。<br><a id="more"></a></p>
 <hr>
-<h1 id="1-线程的调度"><a href="#1-线程的调度" class="headerlink" title="1. 线程的调度"></a>1. 线程的调度</h1><p>同一时刻如果有多个线程处于可以运行状态，则它们需要排队等待CPU资源。此时每个线程自动获得一个线程的优先级（priority），优先级高低反映线程的重要或紧急程度。可运行状态的线程按优先级排队，线程调度依据优先级基础上的“先到先服务”原则。</p>
-<p>Java中在对线程进行调度时，采用了优先级调度策略，具体策略为：“<strong>优先级高的线程应该有更大的获取CPU资源执行的概率，优先级低的线程并不是总不能执行</strong>”。也就是说，当前正在执行的线程优先级一般不会比正在准备状态等待执行的线程优先级低。</p>
-<p>Java中线程的优先级用1~10之间的整数表示，数值越大优先级越高，默认优先级为5.列如，在没有特别指定的情况下，主线程的优先级为5.另外，对于子线程，其初始优先级与其父线程的优先级相同。当需要改变线程的优先级时，可以通过调用<strong>setPriority()</strong>方法来实现，下面为该方法的声明：</p>
+<h1 id="1-线程的调度"><a href="#1-线程的调度" class="headerlink" title="1. 线程的调度"></a>1. 线程的调度</h1><p>&emsp;&emsp;同一时刻如果有多个线程处于可以运行状态，则它们需要排队等待CPU资源。此时每个线程自动获得一个线程的优先级（priority），优先级高低反映线程的重要或紧急程度。可运行状态的线程按优先级排队，线程调度依据优先级基础上的“先到先服务”原则。</p>
+<p>&emsp;&emsp;Java中在对线程进行调度时，采用了优先级调度策略，具体策略为：“<strong>优先级高的线程应该有更大的获取CPU资源执行的概率，优先级低的线程并不是总不能执行</strong>”。也就是说，当前正在执行的线程优先级一般不会比正在准备状态等待执行的线程优先级低。</p>
+<p>&emsp;&emsp;Java中线程的优先级用1~10之间的整数表示，数值越大优先级越高，默认优先级为5.列如，在没有特别指定的情况下，主线程的优先级为5.另外，对于子线程，其初始优先级与其父线程的优先级相同。当需要改变线程的优先级时，可以通过调用<strong>setPriority()</strong>方法来实现，下面为该方法的声明：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public final void setPriority(int newPriority);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>该方法时final的，所以在继承Thread类时不能重写该方法。参数newPriority表示需要设置的优先级别，应该是1~10之间的整数。为了便于记忆，Java中也提供了3个常量来表示比较常用的优先级别，如下表所示：</li>
@@ -479,25 +491,25 @@
 </tr>
 </tbody>
 </table>
-<p>下面给出一个利用优先级对线程进行调度的例子。</p>
+<p>&emsp;&emsp;下面给出一个利用优先级对线程进行调度的例子。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">package com.heng.thread;</span><br><span class="line"></span><br><span class="line">class MyThread1 extends Thread&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for(int i = 1;i &lt; 10;i++)&#123;</span><br><span class="line">            System.out.print(&quot;   &lt;MyThread1&gt;&quot;+Thread.currentThread().getName()+&quot;--&quot;+i);</span><br><span class="line">            if(i % 3 == 0)&#123;</span><br><span class="line">                System.out.print(&quot;\n&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyThread2 extends Thread&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for(int i = 1;i &lt; 10;i++)&#123;</span><br><span class="line">            System.out.print(&quot;   &lt;MyThread2&gt;&quot;+Thread.currentThread().getName()+&quot;--&quot;+i);</span><br><span class="line">            if(i % 3 == 0)&#123;</span><br><span class="line">                System.out.print(&quot;\n&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class test4&#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Thread thread1 = new MyThread1();</span><br><span class="line">        Thread thread2 = new MyThread2();</span><br><span class="line"></span><br><span class="line">        thread1.setPriority(Thread.MIN_PRIORITY);</span><br><span class="line">        thread2.setPriority(Thread.MAX_PRIORITY);</span><br><span class="line"></span><br><span class="line">        thread1.start();</span><br><span class="line">        thread2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码中将两个线程分别设置为最低、最高的优先级，然后分别启动执行。在启动时，首先启动优先级低的线程。编译并运行代码，运行结果：</p>
+<p>&emsp;&emsp;上述代码中将两个线程分别设置为最低、最高的优先级，然后分别启动执行。在启动时，首先启动优先级低的线程。编译并运行代码，运行结果：</p>
 <p><img src="/images/thread/线程调度.png" alt=""></p>
-<p>在上图中，优先级高的运行完毕，优先级低的才开始运行，这与前面说的“<strong>当前正在执行的线程优先级一般不会比正在准备状态等待执行的线程优先级低</strong>”是符合的，但要特别注意，这并不是一定的。</p>
-<h1 id="2-线程的其它方法"><a href="#2-线程的其它方法" class="headerlink" title="2. 线程的其它方法"></a>2. 线程的其它方法</h1><h2 id="1）线程睡眠"><a href="#1）线程睡眠" class="headerlink" title="1）线程睡眠"></a>1）线程睡眠</h2><p>在线程执行的过程中，调用<strong>sleep()</strong>方法可以让线程睡眠一段指定的时间，等指定时间到达后，该线程则会苏醒，并进入准备等待执行。这是使正在执行的线程让出CPU的最简单方法之一，其声明如下：</p>
+<p>&emsp;&emsp;在上图中，优先级高的运行完毕，优先级低的才开始运行，这与前面说的“<strong>当前正在执行的线程优先级一般不会比正在准备状态等待执行的线程优先级低</strong>”是符合的，但要特别注意，这并不是一定的。</p>
+<h1 id="2-线程的其它方法"><a href="#2-线程的其它方法" class="headerlink" title="2. 线程的其它方法"></a>2. 线程的其它方法</h1><h2 id="1）线程睡眠"><a href="#1）线程睡眠" class="headerlink" title="1）线程睡眠"></a>1）线程睡眠</h2><p>&emsp;&emsp;在线程执行的过程中，调用<strong>sleep()</strong>方法可以让线程睡眠一段指定的时间，等指定时间到达后，该线程则会苏醒，并进入准备等待执行。这是使正在执行的线程让出CPU的最简单方法之一，其声明如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public static void sleep(long millis)throws InterruptedException</span><br><span class="line">public static void sleep(long millis,int nanos)throws InterruptedException</span><br></pre></td></tr></table></figure>
-<p>sleep()方法被重载了，但上述两个方法都可以使线程进入睡眠状态。参数millis为指定线程将睡眠的毫秒数，参数namos为指定线程额外将睡眠的纳秒数。</p>
+<p>&emsp;&emsp;sleep()方法被重载了，但上述两个方法都可以使线程进入睡眠状态。参数millis为指定线程将睡眠的毫秒数，参数namos为指定线程额外将睡眠的纳秒数。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread.sleep(3*1000);  //调用方法：睡眠3秒</span><br></pre></td></tr></table></figure>
-<p><strong>要特别注意</strong></p>
+<p>&emsp;&emsp;<strong>要特别注意</strong></p>
 <ul>
 <li>线程醒来将进入准备状态，并不能保证立刻执行，因此指定的时间使线程暂停执行的最小时间。</li>
 <li>sleep()使得一个线程进入睡眠状态，但是线程所占有的资源并没有释放（例如：锁资源）。</li>
 </ul>
-<h2 id="2）线程等待"><a href="#2）线程等待" class="headerlink" title="2）线程等待"></a>2）线程等待</h2><p>Object类中的<strong>wait()</strong>方法，使线程转到阻塞状态，直到其他线程调用此对象的notify()方法或notifyAll()方法唤醒。当线程执行了一个特定对象的<strong>wait()</strong>调用时，那个线程被放到与那个对象相关的等待池中。此外，<strong>调用wait()方法的线程自动释放对象的锁标志。</strong></p>
-<p>注意：wait()和sleep()方法本质上来说是不一样的。sleep()没有释放锁标志、释放资源，而wait()实际上放弃了锁，将资源贡献出来，直到被唤醒。</p>
-<h2 id="3）线程让步"><a href="#3）线程让步" class="headerlink" title="3）线程让步"></a>3）线程让步</h2><p><strong>Thread.yield();</strong>方法，暂停当前正在执行的线程对象，把执行机会让给相同或者更高优先级的线程。</p>
-<h2 id="4）线程加入"><a href="#4）线程加入" class="headerlink" title="4）线程加入"></a>4）线程加入</h2><p><strong>join()</strong>方法，等待其他线程终止。在当前线程中调用另一个线程的join()方法，则当前线程转入阻塞状体，直到另一个线程运行结束，当前线程再由阻塞转为就绪状态。</p>
-<h2 id="5）线程唤醒"><a href="#5）线程唤醒" class="headerlink" title="5）线程唤醒"></a>5）线程唤醒</h2><p>Object类中的<strong>notify()和notifyAll()</strong>方法可唤醒在等待池中的线程。对一个特定对象执行<strong>notify()</strong>调用时，将从对象的等待池中移走一个任意的线程，并放到<strong>锁标志等待池</strong>中，那里的线程一直在等待，直到可以获得对象的<strong>锁标志</strong>。<strong>notifyAll()</strong>方法将从对象等待池中移走所有等待那个对象的线程并放到<strong>锁标志等待池</strong>中。只有<strong>锁标志等待池</strong>中的线程能获取对象的锁标志，锁标志允许线程从上次因调用wait()而中断的地方继续运行。</p>
+<h2 id="2）线程等待"><a href="#2）线程等待" class="headerlink" title="2）线程等待"></a>2）线程等待</h2><p>&emsp;&emsp;Object类中的<strong>wait()</strong>方法，使线程转到阻塞状态，直到其他线程调用此对象的notify()方法或notifyAll()方法唤醒。当线程执行了一个特定对象的<strong>wait()</strong>调用时，那个线程被放到与那个对象相关的等待池中。此外，<strong>调用wait()方法的线程自动释放对象的锁标志。</strong></p>
+<p>&emsp;&emsp;注意：wait()和sleep()方法本质上来说是不一样的。sleep()没有释放锁标志、释放资源，而wait()实际上放弃了锁，将资源贡献出来，直到被唤醒。</p>
+<h2 id="3）线程让步"><a href="#3）线程让步" class="headerlink" title="3）线程让步"></a>3）线程让步</h2><p>&emsp;&emsp;<strong>Thread.yield();</strong>方法，暂停当前正在执行的线程对象，把执行机会让给相同或者更高优先级的线程。</p>
+<h2 id="4）线程加入"><a href="#4）线程加入" class="headerlink" title="4）线程加入"></a>4）线程加入</h2><p>&emsp;&emsp;<strong>join()</strong>方法，等待其他线程终止。在当前线程中调用另一个线程的join()方法，则当前线程转入阻塞状体，直到另一个线程运行结束，当前线程再由阻塞转为就绪状态。</p>
+<h2 id="5）线程唤醒"><a href="#5）线程唤醒" class="headerlink" title="5）线程唤醒"></a>5）线程唤醒</h2><p>&emsp;&emsp;Object类中的<strong>notify()和notifyAll()</strong>方法可唤醒在等待池中的线程。对一个特定对象执行<strong>notify()</strong>调用时，将从对象的等待池中移走一个任意的线程，并放到<strong>锁标志等待池</strong>中，那里的线程一直在等待，直到可以获得对象的<strong>锁标志</strong>。<strong>notifyAll()</strong>方法将从对象等待池中移走所有等待那个对象的线程并放到<strong>锁标志等待池</strong>中。只有<strong>锁标志等待池</strong>中的线程能获取对象的锁标志，锁标志允许线程从上次因调用wait()而中断的地方继续运行。</p>
 <hr>
 <p>注：</p>
 <ul>
@@ -509,8 +521,8 @@
 </li>
 </ul>
 <hr>
-<h1 id="3-线程的同步（重点）"><a href="#3-线程的同步（重点）" class="headerlink" title="3. 线程的同步（重点）"></a>3. 线程的同步（重点）</h1><p>在多线程程序中，由于同时有多个线程并发运行，有时会带来严重的问题，甚至引发错误。例如，一个银行账号在同一时刻只能由一个用户操作，如果两个用户同时操作很可能会产出错误（线程安全问题）。为了解决这些问题，在多线程开发中就需要使用一些技术来避免这些错误的发生。下面就讲讲Java使用的同步技术。</p>
-<p><strong>同步方法</strong>是指用<strong>synchronized</strong>关键字修饰的方法，其与普通方法的不同是，进入同步方法执行的线程将获得同步方法所属对象的锁，一旦对象被锁，其他线程就不能执行被锁对象的任何同步方法。<strong>也就是说，线程在执行同步方法之前，首先试图获得方法所属对象的锁，如果不能获得锁就进入对象的锁等待池等待，直到别的线程释放锁，其获得锁才能执行。</strong></p>
+<h1 id="3-线程的同步（重点）"><a href="#3-线程的同步（重点）" class="headerlink" title="3. 线程的同步（重点）"></a>3. 线程的同步（重点）</h1><p>&emsp;&emsp;在多线程程序中，由于同时有多个线程并发运行，有时会带来严重的问题，甚至引发错误。例如，一个银行账号在同一时刻只能由一个用户操作，如果两个用户同时操作很可能会产出错误（线程安全问题）。为了解决这些问题，在多线程开发中就需要使用一些技术来避免这些错误的发生。下面就讲讲Java使用的同步技术。</p>
+<p>&emsp;&emsp;<strong>同步方法</strong>是指用<strong>synchronized</strong>关键字修饰的方法，其与普通方法的不同是，进入同步方法执行的线程将获得同步方法所属对象的锁，一旦对象被锁，其他线程就不能执行被锁对象的任何同步方法。<strong>也就是说，线程在执行同步方法之前，首先试图获得方法所属对象的锁，如果不能获得锁就进入对象的锁等待池等待，直到别的线程释放锁，其获得锁才能执行。</strong></p>
 <ul>
 <li>声明同步方法的基本语法。</li>
 </ul>
@@ -519,27 +531,27 @@
 <li>声明同步代码块的基本语法。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">synchronized(obj)&#123;</span><br><span class="line">	//代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在使用同步方法时要注意以下几点。</p>
+<p>&emsp;&emsp;在使用同步方法时要注意以下几点。</p>
 <ul>
 <li>关键字synchronized只能标识方法或代码块，不能标识成员变量，不存在同步的成员变量。</li>
 <li>一个对象可以同时由同步与非同步方法，只有进入同步方法执行才需要获得锁，每个对象只有一个锁。若一个对象中有多个同步方法，当某线程在访问其中之一时，其他线程不能访问该对象中的任何同步方法，但可以访问非同步方法。</li>
 <li>若线程获得锁后进入睡眠或进行让步，则将带着锁一起睡眠或让步，这种做法将严重影响等待锁的线程的执行，进而影响程序的整体性能。</li>
 <li>同步方法退出时，锁将被释放，其他等待的线程可以获得锁。</li>
 </ul>
-<p>同步方法实例代码：</p>
+<p>&emsp;&emsp;同步方法实例代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//标识为同步的方法</span><br><span class="line">public synchronized void myFunction()&#123;</span><br><span class="line">	System.out.println(&quot;我是一个同步的方法！&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* 标识静态的同步方法</span><br><span class="line">* 静态方法也允许同步，这样就保证了静态方法不会同时被多个线程使用</span><br><span class="line">**/</span><br><span class="line">public static synchronized void myFunnction1()&#123;</span><br><span class="line">	System.out.println(&quot;我是一个同步的静态方法！&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>其实静态同步方法在执行前，线程要获取的是方法所在类的锁，在道理上与非静态同步方法要获得方法所属对象的锁是相同的。同一时刻一个类也只能有一个静态同步方法被访问。</li>
 </ul>
-<p>同步代码块实例代码：</p>
+<p>&emsp;&emsp;同步代码块实例代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class myThread implements Runnable&#123;</span><br><span class="line"></span><br><span class="line">	private byte[] lock = new byte[0];        //特殊的instance变量</span><br><span class="line">	</span><br><span class="line">	public void fun()&#123;</span><br><span class="line">		synchronized(lock)&#123;</span><br><span class="line">			//doString</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码适用于没有明确的对象作为锁，只是想让一段代码块同步时，可以创建一个特殊的instance变量来充当锁，零长度的byte数组对象创建起来比任何对象都经济–查看编译后的字节码，生成零长度的byte[]数组对象只需要3条操作码，而Object lock = new Object();则需要7行操作码。</p>
-<p>下面用一断代码来展示前面所讲到的知识。</p>
+<p>&emsp;&emsp;上述代码适用于没有明确的对象作为锁，只是想让一段代码块同步时，可以创建一个特殊的instance变量来充当锁，零长度的byte数组对象创建起来比任何对象都经济–查看编译后的字节码，生成零长度的byte[]数组对象只需要3条操作码，而Object lock = new Object();则需要7行操作码。</p>
+<p>&emsp;&emsp;下面用一断代码来展示前面所讲到的知识。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">package com.heng.thread;</span><br><span class="line"></span><br><span class="line">class MyRunnbale implements Runnable&#123;</span><br><span class="line"></span><br><span class="line">    private int ticket;</span><br><span class="line"></span><br><span class="line">    public MyRunnbale(int ticket)&#123;</span><br><span class="line">        this.ticket = ticket;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 实现run()方法</span><br><span class="line">     */</span><br><span class="line">    public synchronized void run() &#123;</span><br><span class="line">        while (ticket &gt; 0)&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+&quot;===》出售一张，余票:&quot;+(--ticket));</span><br><span class="line">            try&#123;</span><br><span class="line">                //Thread.sleep(1*1000);</span><br><span class="line">                if(ticket % 2 == 0)&#123;</span><br><span class="line">                    this.wait();</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    this.notifyAll();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;catch (Exception e)&#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class test3&#123;</span><br><span class="line"></span><br><span class="line">    private static int  ticket_num = 90;</span><br><span class="line"></span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        System.out.println(&quot;====================总票数： &quot;+ticket_num+&quot;=====================&quot;);</span><br><span class="line"></span><br><span class="line">        Runnable thread = new MyRunnbale(ticket_num);</span><br><span class="line"></span><br><span class="line">        new Thread(thread,&quot;窗口--1&quot;).start();</span><br><span class="line">        new Thread(thread,&quot;窗口--2&quot;).start();</span><br><span class="line">        new Thread(thread,&quot;窗口--3&quot;).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果：</p>
+<p>&emsp;&emsp;运行结果：</p>
 <p><img src="/images/thread/线程同步.png" alt=""></p>
 <hr>
-<p>总结：</p>
+<p>&emsp;&emsp;总结：</p>
 <ul>
 <li><p>线程同步的目的是为了保护多个线程访问一个共享资源时对资源造成破坏（同步后只能一个一个操作）。</p>
 </li>
@@ -609,6 +621,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/01/JDBC/" rel="prev" title="JDBC">
+                JDBC <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -686,7 +702,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -717,7 +733,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -744,7 +762,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
