@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Heng Bolg">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;前言：JDBC的全称为Java DataBase Connectivity，是一套面向对象的应用程序接口（API），制定了统一的访问各类关系数据库的标准接口，为各个数据库厂商提供了标准接口的实现。通过JDBC技术，开发人员可以用纯Java语言和标准的SQL语句编写完整的数据库应用程序，并且真正地实现了软件地跨平台性。在JDBC技术问世之前，各家数据库厂商执行各自地一套API">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-05T14:46:20.038Z">
+<meta property="og:updated_time" content="2018-10-06T03:40:02.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;前言：JDBC的全称为Java DataBase Connectivity，是一套面向对象的应用程序接口（API），制定了统一的访问各类关系数据库的标准接口，为各个数据库厂商提供了标准接口的实现。通过JDBC技术，开发人员可以用纯Java语言和标准的SQL语句编写完整的数据库应用程序，并且真正地实现了软件地跨平台性。在JDBC技术问世之前，各家数据库厂商执行各自地一套API">
@@ -399,7 +399,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-05 22:46:20" itemprop="dateModified" datetime="2018-10-05T22:46:20+08:00">2018-10-05</time>
+                <time title="修改时间：2018-10-06 11:40:02" itemprop="dateModified" datetime="2018-10-06T11:40:02+08:00">2018-10-06</time>
               
             
           </span>
@@ -458,7 +458,7 @@
 
       
         <p>&emsp;&emsp;<strong>前言：JDBC</strong>的全称为<strong>Java DataBase Connectivity</strong>，是一套面向对象的应用程序接口（API），制定了统一的访问各类关系数据库的标准接口，为各个数据库厂商提供了标准接口的实现。通过JDBC技术，开发人员可以<strong>用纯Java语言和标准的SQL语句编写完整的数据库应用程序</strong>，并且真正地实现了软件地跨平台性。在JDBC技术问世之前，各家数据库厂商执行各自地一套API，使得开发人员访问数据库非常麻烦，特别是在更换数据库时，需要修改大量代码，十分不方便。JDBC地发布获得了巨大地成功，很快就成为了Java访问数据库地标准，并且获得了几乎所有数据库厂商地支持。<br><a id="more"></a></p>
-<p>&emsp;&emsp;JDBC是一种底层API，在访问数据库时需要在业务逻辑中直接嵌入SQL语句。由于SQL语句是面向关系的，依赖于关系模型，所以JDBC传承了简单直接地优点。需要注意的是，<strong>JDBC不能直接访问数据库，必须依赖于数据库厂商提供的JDBC驱动程序，</strong>通常情况下使用JDBC完成以下操作。</p>
+<h1 id="1-JDBC简介"><a href="#1-JDBC简介" class="headerlink" title="1. JDBC简介"></a>1. JDBC简介</h1><p>&emsp;&emsp;JDBC是一种底层API，在访问数据库时需要在业务逻辑中直接嵌入SQL语句。由于SQL语句是面向关系的，依赖于关系模型，所以JDBC传承了简单直接地优点。需要注意的是，<strong>JDBC不能直接访问数据库，必须依赖于数据库厂商提供的JDBC驱动程序，</strong>通常情况下使用JDBC完成以下操作。</p>
 <ul>
 <li>同数据库建立连接；</li>
 <li>向数据库发送SQL语句；</li>
@@ -477,6 +477,36 @@
 <li>虽然JDBC API时面向对象的，但通过JDBC访问数据库依然是面向关系的；</li>
 <li>JDBC提供了对不同厂家的产品的支持，这将对数据源带来影响。</li>
 </ul>
+<h1 id="2-JDBC中常用的接口"><a href="#2-JDBC中常用的接口" class="headerlink" title="2. JDBC中常用的接口"></a>2. JDBC中常用的接口</h1><p>&emsp;&emsp;JDBC提供了许多接口和类，通过这些类和接口，可以实现与各种数据库的连接和操作。</p>
+<h2 id="2-1-驱动程序接口Driver"><a href="#2-1-驱动程序接口Driver" class="headerlink" title="2.1 驱动程序接口Driver"></a>2.1 驱动程序接口Driver</h2><p>&emsp;&emsp;每种数据库的驱动程序都应该提供一个实现<strong>java.sql.Driver</strong>接口的类，简称<strong>Driver类</strong>，在加载Driver类时，应该创建自己的实例并向<strong>java.sql.DriverManager</strong>类注册该实例。通常情况下通过<strong>java.lang.Class类的静态方法forName(String className)，加载要连接数据库的Driver类，</strong>该方法的入口参数为要加载Driver类的完整包名。成功加载后，会将Driver类的实例注册到DriverManager类中，如果加载失败，将抛出ClassNotFoundException异常，即未找到指定Driver类的异常。</p>
+<h2 id="2-2-驱动程序管理器DriverManager"><a href="#2-2-驱动程序管理器DriverManager" class="headerlink" title="2.2 驱动程序管理器DriverManager"></a>2.2 驱动程序管理器DriverManager</h2><p>&emsp;&emsp;java.sql.DriverManager类负责管理JDBC驱动程序的基本服务，是JDBC的管理层，作用于用户和驱动程之间，负责跟踪可用的驱动程序，并在数据库和驱动程序之间建立连接。另外，DriverManager类也处理诸如驱动程序登陆时间限制及登陆和跟踪消息的显示等工作。成功加载Driver类并在DriverManager类中注册后，DriverManager类即可用来建立数据库连接。</p>
+<p>&emsp;&emsp;当调用DriverManager类的<strong>getConnection()</strong>方法请求建立数据库连接时，DriverManager类将试图定位一个适当的Driver类，并检查定位到Driver类是否可以建立连接。如果可以，则建立连接并返回，如果不可以，则抛出SQLException异常。DriverManager类提供的常用方法如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名称</th>
+<th style="text-align:center">功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">getConnection(String url,String user,String password)</td>
+<td style="text-align:center">静态方法，用来获得数据库连接，有3个入口参数，以此为要连接数据库的URL、用户名和密码，返回值类型为java.sql.Connection</td>
+</tr>
+<tr>
+<td style="text-align:center">setLoginTimeout(int seconds)</td>
+<td style="text-align:center">静态方法，用来设置每次等待建立数据库连接的最长时间</td>
+</tr>
+<tr>
+<td style="text-align:center">setLogWriter(java.io.PringWriter out)</td>
+<td style="text-align:center">静态方法，用来设置日志的输出对象</td>
+</tr>
+<tr>
+<td style="text-align:center">println(String message)</td>
+<td style="text-align:center">静态方法，用来输出指定消息到当前的JDBC日志流</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -583,8 +613,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -705,6 +744,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-JDBC简介"><span class="nav-number">1.</span> <span class="nav-text">1. JDBC简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-JDBC中常用的接口"><span class="nav-number">2.</span> <span class="nav-text">2. JDBC中常用的接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-驱动程序接口Driver"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 驱动程序接口Driver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-驱动程序管理器DriverManager"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 驱动程序管理器DriverManager</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
