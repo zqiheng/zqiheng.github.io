@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Heng Bolg">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;前言：JDBC的全称为Java DataBase Connectivity，是一套面向对象的应用程序接口（API），制定了统一的访问各类关系数据库的标准接口，为各个数据库厂商提供了标准接口的实现。通过JDBC技术，开发人员可以用纯Java语言和标准的SQL语句编写完整的数据库应用程序，并且真正地实现了软件地跨平台性。在JDBC技术问世之前，各家数据库厂商执行各自地一套API">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-06T03:40:02.416Z">
+<meta property="og:updated_time" content="2018-10-07T15:14:58.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;前言：JDBC的全称为Java DataBase Connectivity，是一套面向对象的应用程序接口（API），制定了统一的访问各类关系数据库的标准接口，为各个数据库厂商提供了标准接口的实现。通过JDBC技术，开发人员可以用纯Java语言和标准的SQL语句编写完整的数据库应用程序，并且真正地实现了软件地跨平台性。在JDBC技术问世之前，各家数据库厂商执行各自地一套API">
@@ -399,7 +399,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-06 11:40:02" itemprop="dateModified" datetime="2018-10-06T11:40:02+08:00">2018-10-06</time>
+                <time title="修改时间：2018-10-07 23:14:58" itemprop="dateModified" datetime="2018-10-07T23:14:58+08:00">2018-10-07</time>
               
             
           </span>
@@ -477,6 +477,7 @@
 <li>虽然JDBC API时面向对象的，但通过JDBC访问数据库依然是面向关系的；</li>
 <li>JDBC提供了对不同厂家的产品的支持，这将对数据源带来影响。</li>
 </ul>
+<hr>
 <h1 id="2-JDBC中常用的接口"><a href="#2-JDBC中常用的接口" class="headerlink" title="2. JDBC中常用的接口"></a>2. JDBC中常用的接口</h1><p>&emsp;&emsp;JDBC提供了许多接口和类，通过这些类和接口，可以实现与各种数据库的连接和操作。</p>
 <h2 id="2-1-驱动程序接口Driver"><a href="#2-1-驱动程序接口Driver" class="headerlink" title="2.1 驱动程序接口Driver"></a>2.1 驱动程序接口Driver</h2><p>&emsp;&emsp;每种数据库的驱动程序都应该提供一个实现<strong>java.sql.Driver</strong>接口的类，简称<strong>Driver类</strong>，在加载Driver类时，应该创建自己的实例并向<strong>java.sql.DriverManager</strong>类注册该实例。通常情况下通过<strong>java.lang.Class类的静态方法forName(String className)，加载要连接数据库的Driver类，</strong>该方法的入口参数为要加载Driver类的完整包名。成功加载后，会将Driver类的实例注册到DriverManager类中，如果加载失败，将抛出ClassNotFoundException异常，即未找到指定Driver类的异常。</p>
 <h2 id="2-2-驱动程序管理器DriverManager"><a href="#2-2-驱动程序管理器DriverManager" class="headerlink" title="2.2 驱动程序管理器DriverManager"></a>2.2 驱动程序管理器DriverManager</h2><p>&emsp;&emsp;java.sql.DriverManager类负责管理JDBC驱动程序的基本服务，是JDBC的管理层，作用于用户和驱动程之间，负责跟踪可用的驱动程序，并在数据库和驱动程序之间建立连接。另外，DriverManager类也处理诸如驱动程序登陆时间限制及登陆和跟踪消息的显示等工作。成功加载Driver类并在DriverManager类中注册后，DriverManager类即可用来建立数据库连接。</p>
@@ -507,7 +508,139 @@
 </tr>
 </tbody>
 </table>
-
+<h2 id="2-3-数据库连接接口Connection"><a href="#2-3-数据库连接接口Connection" class="headerlink" title="2.3 数据库连接接口Connection"></a>2.3 数据库连接接口Connection</h2><p>&emsp;&emsp;<strong>java.sql.Connection</strong>接口负责与特定数据库的连接，在连接的上下文中可以执行SQL语句并返回结果，还可以通过<strong>getMetaData()</strong>方法获得由数据库提供的相关信息，例如数据表、存储过程和连接功能等信息。Connection接口提供的常用方法如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名称</th>
+<th style="text-align:center">功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>createStatement()</strong></td>
+<td style="text-align:center">创建并返回一个Statement实例，<strong>通常在执行无参数的SQL语句时创建该实例</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>prepareStatement()</strong></td>
+<td style="text-align:center">创建并返回一个PreparedStatement实例，<strong>通常在执行包含参数的SQL语句时创建该实例，并对SQL语句进行了预编译处理</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>prepareCall()</strong></td>
+<td style="text-align:center">创建并返回一个CallableStatement实例，<strong>通常在调用数据库存储过程时创建该实例</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">setAutoCommit()</td>
+<td style="text-align:center">设置当前Connection实例的自动提交模式，默认为true，即自动将更改同步到数据库中，如果设置为false，需要通过执行commit()或rollback()方法手动将更改同步到数据库中</td>
+</tr>
+<tr>
+<td style="text-align:center">getAutoCommit()</td>
+<td style="text-align:center">查看当前的Connection实例是否处于自动提交模式，如果是则返回true，否则返回false</td>
+</tr>
+<tr>
+<td style="text-align:center">setSavepoint()</td>
+<td style="text-align:center">在当前事务中创建并返回一个Savepoint实例，前提条件是当前的Connection实例不能处于自动提交模式，否则将抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center">releaseSavepoint()</td>
+<td style="text-align:center">从当前事务中移除指定的Savepoint实例</td>
+</tr>
+<tr>
+<td style="text-align:center">setReadOnly()</td>
+<td style="text-align:center">设置当前Connection实例的读取模式，默认为非只读模式，不能在事务当中执行该操作，否则将抛出异常，有一个boolean型的入口参数，设为true则表示开启只读模式，设为false则表示关闭只读模式</td>
+</tr>
+<tr>
+<td style="text-align:center">isReadOnly()</td>
+<td style="text-align:center">查看当前的Connection实例对象是否为只读模式，如果是则返回true，否则返回false</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>isClosed()</strong></td>
+<td style="text-align:center">查看当前的Connection实例是否被关闭，如果被关闭则返回true，否则返回false</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>commit()</strong></td>
+<td style="text-align:center">将从上一次提交或回滚以来进行的所有更改同步到数据库，并释放Connection实例当前拥有的所有数据库锁定</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>rollback()</strong></td>
+<td style="text-align:center">取消当前事务中的所有更改，并释放当前Connection实例拥有的所有数据库锁定；该方法只能在非自动提交模式下使用，如果在自动提交模式下执行该方法，将抛出异常；有一个入口参数为Savepoint实例的重载方法，用来取消Savepoint实例之后的所有更改，并释放对应的数据库锁定</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>close()</strong></td>
+<td style="text-align:center">立即释放Connection实例占用的数据库和JDBC资源，即关闭数据库连接</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-4-执行SQL语句接口Statement"><a href="#2-4-执行SQL语句接口Statement" class="headerlink" title="2.4 执行SQL语句接口Statement"></a>2.4 执行SQL语句接口Statement</h2><p>&emsp;&emsp;<strong>java.sql.Statement</strong>接口用来执行静态的SQL语句，并返回执行结果。例如，对于insert、update和delete语句，调用executeUpdate(String sql)方法，而select语句则调用executeQuery(String sql)方法，并返回一个永远不能为Null的ResultSet实例。Statement接口提供的常用方法如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名称</th>
+<th style="text-align:center">功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>executeQuery(String sql)</strong></td>
+<td style="text-align:center"><strong>执行指定的静态SELECT语句，并返回一个不能为null的ResultSet实例</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>executeUpdate(String sql)</strong></td>
+<td style="text-align:center"><strong>指定指定的静态INSERT、UPDATE或DELETE语句，并返回一个int型数值，为同步更新记录条数</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">clearBatch()</td>
+<td style="text-align:center">清除位于Batch的所有SQL语句，如果驱动程序不支持批量处理将抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center">addBatch(String sql)</td>
+<td style="text-align:center">将指定的SQL命令添加到Batch中，String型入口参数通常为静态的INSERT或UPDATE语句，如果驱动程序不支持批量处理将抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center">executeBatch()</td>
+<td style="text-align:center">执行Batch中的所有SQL语句，如果全部执行成功，则返回由更新计数组成的数组，数组元素的排序与SQL语句的添加顺序对应，数组的元素有以下几种情况：1.大于或等于零的数，说明SQL语句执行成功，为影响数据库中行数的更新计数；2. -2，说明SQL语句执行成功，但未得到受影响的行数；3. -3，说明SQL语句执行失败，仅当执行失败后继续执行后面的SQL语句时出项。如果驱动程序不支持批量，或者未能成功执行Batch中的SQL语句之一，将抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>close()</strong></td>
+<td style="text-align:center">立即释放Statement实例占用的数据库和JDBC资源，即关闭Statement实例</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-5-执行动态SQL语句接口PreparedStatement"><a href="#2-5-执行动态SQL语句接口PreparedStatement" class="headerlink" title="2.5 执行动态SQL语句接口PreparedStatement"></a>2.5 执行动态SQL语句接口PreparedStatement</h2><p>&emsp;&emsp;<strong>java.sql.PreparedStatement</strong>接口继承于Statement接口，是Statement接口的扩展，用来执行动态的SQL语句，即包含参数的SQL语句。通过PreparedStatement实例执行的动态SQL语句，将被预编译并保存到PreparedStatement实例中，从而可以反复并且高效地执行该SQL语句。</p>
+<p>&emsp;&emsp;需要注意的是，在通过<strong>setXXX()</strong>方法为SQL语句中的参数赋值时，必须通过与输入参数的已定义SQL类型兼容的方法，也可以通过<strong>setObject()</strong>方法设置各种类型的输入参数。PreparedStatement的使用方法如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//...</span><br><span class="line"></span><br><span class="line">String sql = &quot;select * from table_name where id&gt;? and (name=? or name=?)&quot;;</span><br><span class="line"></span><br><span class="line">PreparedStatement ps = connection.prepareStatement(sql);</span><br><span class="line">ps.setInt(1,1);</span><br><span class="line">ps.setString(2,&quot;zhangsan&quot;);</span><br><span class="line">ps.setObject(3,&quot;lisi&quot;);</span><br><span class="line"></span><br><span class="line">ResultSet rs = ps.executeQuery();</span><br><span class="line"></span><br><span class="line">//...</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;PreparedStatement接口提供的常用方法如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名称</th>
+<th style="text-align:center">功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>executeQuery()</strong></td>
+<td style="text-align:center">执行前面包含参数的动态SELECT语句，并返回一个不能为null的ResultSertraline实例</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>executeUpdate()</strong></td>
+<td style="text-align:center">执行前面包含参数的动态INEERT、UPDATE或DELECT语句，并返回一个int整数值，为同步更新记录的条数</td>
+</tr>
+<tr>
+<td style="text-align:center">clearParameters()</td>
+<td style="text-align:center">清除当前所有参数的值</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>setXXX()</strong></td>
+<td style="text-align:center">为指定参数设置XXX型值</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>close()</strong></td>
+<td style="text-align:center">立即释放Statement实例所占用的数据库和JDBC资源，即关闭Statement实例</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-6-执行存储过程接口CallableStatement"><a href="#2-6-执行存储过程接口CallableStatement" class="headerlink" title="2.6 执行存储过程接口CallableStatement"></a>2.6 执行存储过程接口CallableStatement</h2><h1 id="更新中。。。"><a href="#更新中。。。" class="headerlink" title="更新中。。。"></a>更新中。。。</h1>
       
     </div>
 
@@ -754,7 +887,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-JDBC简介"><span class="nav-number">1.</span> <span class="nav-text">1. JDBC简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-JDBC中常用的接口"><span class="nav-number">2.</span> <span class="nav-text">2. JDBC中常用的接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-驱动程序接口Driver"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 驱动程序接口Driver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-驱动程序管理器DriverManager"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 驱动程序管理器DriverManager</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-JDBC简介"><span class="nav-number">1.</span> <span class="nav-text">1. JDBC简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-JDBC中常用的接口"><span class="nav-number">2.</span> <span class="nav-text">2. JDBC中常用的接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-驱动程序接口Driver"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 驱动程序接口Driver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-驱动程序管理器DriverManager"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 驱动程序管理器DriverManager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-数据库连接接口Connection"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 数据库连接接口Connection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-执行SQL语句接口Statement"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 执行SQL语句接口Statement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-执行动态SQL语句接口PreparedStatement"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 执行动态SQL语句接口PreparedStatement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-执行存储过程接口CallableStatement"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 执行存储过程接口CallableStatement</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新中。。。"><span class="nav-number">3.</span> <span class="nav-text">更新中。。。</span></a></li></ol></div>
             
 
           </div>
