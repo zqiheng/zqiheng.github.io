@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Heng Bolg">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;前言：JDBC的全称为Java DataBase Connectivity，是一套面向对象的应用程序接口（API），制定了统一的访问各类关系数据库的标准接口，为各个数据库厂商提供了标准接口的实现。通过JDBC技术，开发人员可以用纯Java语言和标准的SQL语句编写完整的数据库应用程序，并且真正地实现了软件地跨平台性。在JDBC技术问世之前，各家数据库厂商执行各自地一套API">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-07T15:14:58.233Z">
+<meta property="og:updated_time" content="2018-10-08T04:58:23.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;前言：JDBC的全称为Java DataBase Connectivity，是一套面向对象的应用程序接口（API），制定了统一的访问各类关系数据库的标准接口，为各个数据库厂商提供了标准接口的实现。通过JDBC技术，开发人员可以用纯Java语言和标准的SQL语句编写完整的数据库应用程序，并且真正地实现了软件地跨平台性。在JDBC技术问世之前，各家数据库厂商执行各自地一套API">
@@ -399,7 +399,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-07 23:14:58" itemprop="dateModified" datetime="2018-10-07T23:14:58+08:00">2018-10-07</time>
+                <time title="修改时间：2018-10-08 12:58:23" itemprop="dateModified" datetime="2018-10-08T12:58:23+08:00">2018-10-08</time>
               
             
           </span>
@@ -640,7 +640,90 @@
 </tr>
 </tbody>
 </table>
-<h2 id="2-6-执行存储过程接口CallableStatement"><a href="#2-6-执行存储过程接口CallableStatement" class="headerlink" title="2.6 执行存储过程接口CallableStatement"></a>2.6 执行存储过程接口CallableStatement</h2><h1 id="更新中。。。"><a href="#更新中。。。" class="headerlink" title="更新中。。。"></a>更新中。。。</h1>
+<h2 id="2-6-执行存储过程接口CallableStatement"><a href="#2-6-执行存储过程接口CallableStatement" class="headerlink" title="2.6 执行存储过程接口CallableStatement"></a>2.6 执行存储过程接口CallableStatement</h2><p>&emsp;&emsp;<strong>java.sql.CallableStatement</strong>接口继承于PreparedStatement接口，是PreparedStatement接口的扩展，用来执行SQL的存储过程。</p>
+<p>&emsp;&emsp;JDBC API定义了一套存储过程SQL转义语法，该语法允许对所有RDBMS通过标准方式调用存储过程。该语法定义了两种形式，分别是包含结果参数和不包含结果参数。如果使用结果参数，则必须将其注册为OUT型参数，参数是根据定义位置按顺序引用的，第一个参数索引为1。</p>
+<p>&emsp;&emsp;为参数赋值的方法使用从PreparedStatement中继承来的<strong>setXXX()</strong>方法。在执行存储过程之前，必须注册所有OUT参数的类型；它们的值是在执行后通过<strong>getXXX()</strong>方法检索的。</p>
+<p>&emsp;&emsp;CallableStatement可以返回一个或多个ResultSet实例。处理多个ResuletSet对象的方法是从Statement中继承来的。</p>
+<h2 id="2-7-访问结果集接口ResultSet"><a href="#2-7-访问结果集接口ResultSet" class="headerlink" title="2.7 访问结果集接口ResultSet"></a>2.7 访问结果集接口ResultSet</h2><p>&emsp;&emsp;<strong>java.sql.ResultSet</strong>接口类似于一个数据库，通过该接口的实例可以<strong>获得检索结果集，以及对数据表的相关信息，</strong>例如列名和类型等，ResultSet实例通过执行查询数据库的语句生成。</p>
+<p>&emsp;&emsp;<strong>ResultSet实例具有指向其当前数据行的指针。</strong>最初，指针指向第一行记录的前方，通过<strong>next()</strong>方法可以将指针移动到下一行，因为该方法在没有下一行时将返回false，所以可以通过<strong>while循环来迭代ResultSet结果集</strong>。在默认的情况下ResultSet对象不可以更新，只有一个可以向前移动的指针，因此，只能迭代它一次，并且只能按从第一行到最后一行的顺序进行。如果需要，可以生成可滚动和可更新的ResutlSet对象。</p>
+<hr>
+<ul>
+<li>ResultSet接口提供了从当前行检索不同类型列值的<strong>getXXX()</strong>方法，均有两个重载方法，可以通过列的索引编号或列的名称检索，通过列的索引编号较为高效，列的索引编号从1开始。对于不同的getXXX()方法，JDBC驱动程序尝试将基础数据转换为与getXXX()方法相应的Java类型，并返回适当的Java类型的值。</li>
+</ul>
+<hr>
+<p>&emsp;&emsp;ResultSet接口提供的常用方法如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名称</th>
+<th style="text-align:center">功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">first()</td>
+<td style="text-align:center">移动指针到第一行；如果结果集为空则返回false，否则返回true；如果结果集类型为TYPE_FORWARD_ONLY将抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center">last()</td>
+<td style="text-align:center">移动指针到最后一行；如果结果集为空则返回false，否则返回true；如果结果集类型为TYPE_FORWARD_ONLY将抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center">previous()</td>
+<td style="text-align:center">移动指针到上一行；如果存在上一行则返回true，否则返回false；如果结果集类型为TYPE_FORWARD_ONLY将抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>next()</strong></td>
+<td style="text-align:center">移动指针到下一行；指针最初位于第一行之前，第一次调用该方法将移动到第一行；如果存在下一行则返回true，否则返回false</td>
+</tr>
+<tr>
+<td style="text-align:center">beforeFirst()</td>
+<td style="text-align:center">移动指针到ResultSet实例的开头，即第一行之前；如果结果集类型为TYPE_FORWARD_ONLY将抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center">afterLast()</td>
+<td style="text-align:center">移动指针到ResultSet实例的末尾，即最后一行之后；如果结果集类型为TYPE_FORWARD_ONLY将抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center">absolute()</td>
+<td style="text-align:center">移动指针到指定行；有一个int型入口参数，正数表示从前向后编号，负数表示从后向前编号，编号均从1开始；如果存在指定行则返回true，否则返回false；如果结果集类型为TYPE_FORWARD_ONLY将抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center">relative()</td>
+<td style="text-align:center">移动指针到相对于当前行的指定行；有一个int型入口参数，正数表示向后移动，负数表示向前移动，视当前行为0；如果存在指定行则返回true，否则返回false；如果结果集类型为TYPE_FORWARD_ONLY将抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center">getRow()</td>
+<td style="text-align:center">查看当前行的索引编号；索引编号从1开始，如果位于有效记录行上则返回一个int型索引编号，否则返回0</td>
+</tr>
+<tr>
+<td style="text-align:center">findColumn()</td>
+<td style="text-align:center">查看指定列名的索引编号；该方法有一个String型的入口参数，为要查找列的名称，如果包含指定列，则返回int型索引编号，否则将抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center">isBeforeFirst()</td>
+<td style="text-align:center">查看指针是否位于ResultSet实例的开头，即第一行之前，如果是则返回true，否则返回false</td>
+</tr>
+<tr>
+<td style="text-align:center">isAfterLast()</td>
+<td style="text-align:center">查看指针是否位于ResultSet实例的末尾，即最后一行之后，如果是则返回true，否则返回false</td>
+</tr>
+<tr>
+<td style="text-align:center">isFirst()</td>
+<td style="text-align:center">查看指针是否位于ResultSet实例的第一行，如果是则返回true，否则返回false</td>
+</tr>
+<tr>
+<td style="text-align:center">isLast()</td>
+<td style="text-align:center">查看指针是否位于ResultSet实例的最后一行，如果是则返回true，否则返回false</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>close()</strong></td>
+<td style="text-align:center">立即释放ResultSet实例占用的数据库和JDBC资源，当关闭所属的Statement实例时也将执行此操作</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="3-JDBC访问数据库过程"><a href="#3-JDBC访问数据库过程" class="headerlink" title="3 JDBC访问数据库过程"></a>3 JDBC访问数据库过程</h1><h1 id="更新中。。。"><a href="#更新中。。。" class="headerlink" title="更新中。。。"></a>更新中。。。</h1>
       
     </div>
 
@@ -887,7 +970,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-JDBC简介"><span class="nav-number">1.</span> <span class="nav-text">1. JDBC简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-JDBC中常用的接口"><span class="nav-number">2.</span> <span class="nav-text">2. JDBC中常用的接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-驱动程序接口Driver"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 驱动程序接口Driver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-驱动程序管理器DriverManager"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 驱动程序管理器DriverManager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-数据库连接接口Connection"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 数据库连接接口Connection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-执行SQL语句接口Statement"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 执行SQL语句接口Statement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-执行动态SQL语句接口PreparedStatement"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 执行动态SQL语句接口PreparedStatement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-执行存储过程接口CallableStatement"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 执行存储过程接口CallableStatement</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新中。。。"><span class="nav-number">3.</span> <span class="nav-text">更新中。。。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-JDBC简介"><span class="nav-number">1.</span> <span class="nav-text">1. JDBC简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-JDBC中常用的接口"><span class="nav-number">2.</span> <span class="nav-text">2. JDBC中常用的接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-驱动程序接口Driver"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 驱动程序接口Driver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-驱动程序管理器DriverManager"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 驱动程序管理器DriverManager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-数据库连接接口Connection"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 数据库连接接口Connection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-执行SQL语句接口Statement"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 执行SQL语句接口Statement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-执行动态SQL语句接口PreparedStatement"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 执行动态SQL语句接口PreparedStatement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-执行存储过程接口CallableStatement"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 执行存储过程接口CallableStatement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-访问结果集接口ResultSet"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 访问结果集接口ResultSet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-JDBC访问数据库过程"><span class="nav-number">3.</span> <span class="nav-text">3 JDBC访问数据库过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新中。。。"><span class="nav-number">4.</span> <span class="nav-text">更新中。。。</span></a></li></ol></div>
             
 
           </div>
