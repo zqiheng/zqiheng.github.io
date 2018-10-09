@@ -117,7 +117,7 @@
 <meta property="og:description" content="&amp;emsp;&amp;emsp;前言：JDBC的全称为Java DataBase Connectivity，是一套面向对象的应用程序接口（API），制定了统一的访问各类关系数据库的标准接口，为各个数据库厂商提供了标准接口的实现。通过JDBC技术，开发人员可以用纯Java语言和标准的SQL语句编写完整的数据库应用程序，并且真正地实现了软件地跨平台性。在JDBC技术问世之前，各家数据库厂商执行各自地一套API">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://zqiheng.github.io/images/jdbc/jdbc连接数据库步骤.png">
-<meta property="og:updated_time" content="2018-10-08T14:06:26.038Z">
+<meta property="og:updated_time" content="2018-10-09T08:40:06.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;前言：JDBC的全称为Java DataBase Connectivity，是一套面向对象的应用程序接口（API），制定了统一的访问各类关系数据库的标准接口，为各个数据库厂商提供了标准接口的实现。通过JDBC技术，开发人员可以用纯Java语言和标准的SQL语句编写完整的数据库应用程序，并且真正地实现了软件地跨平台性。在JDBC技术问世之前，各家数据库厂商执行各自地一套API">
@@ -401,7 +401,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-08 22:06:26" itemprop="dateModified" datetime="2018-10-08T22:06:26+08:00">2018-10-08</time>
+                <time title="修改时间：2018-10-09 16:40:06" itemprop="dateModified" datetime="2018-10-09T16:40:06+08:00">2018-10-09</time>
               
             
           </span>
@@ -775,7 +775,10 @@
 </li>
 </ul>
 <hr>
-<h1 id="5-连接池技术"><a href="#5-连接池技术" class="headerlink" title="5.连接池技术"></a>5.连接池技术</h1><p>&emsp;&emsp;通常情况下，在每次访问数据库之前都要先建立与数据库的连接，这将消耗一定的资源，并延长了访问数据库的时间，如果是访问量相对较低的系统还可以，如果访问量较高，将严重影响系统的性能。为了解决这一问题，引入了连接池的概念。</p>
+<h1 id="5-连接池技术"><a href="#5-连接池技术" class="headerlink" title="5. 连接池技术"></a>5. 连接池技术</h1><p>&emsp;&emsp;通常情况下，在每次访问数据库之前都要先建立与数据库的连接，这将消耗一定的资源，并延长了访问数据库的时间，如果是访问量相对较低的系统还可以，如果访问量较高，将严重影响系统的性能。为了解决这一问题，引入了连接池的概念。</p>
+<ul>
+<li>数据库连接是一种关键的有限的昂贵的资源，这一点在多用户的网页应用程序中体现的尤为突出，对数据库连接的管理能显著影响到整个应用程序的伸缩性和健壮性，影响到程序的性能指标，数据库连接池正式针对这个问题提出来的，数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是重新建立一个。</li>
+</ul>
 <h2 id="5-1-连接池简介"><a href="#5-1-连接池简介" class="headerlink" title="5.1 连接池简介"></a>5.1 连接池简介</h2><p>&emsp;&emsp;<strong>所谓连接池，就是预先建立好一定数量的数据库连接，模拟存放在一个连接池中，由连接池负责对这些数据库连接进行管理。</strong>这样，当需要访问数据库时，就可以通过已经建立好的连接访问数据库了，从而避免了每次在访问数据库之前建立数据库连接的开销。</p>
 <p>&emsp;&emsp;连接池还解决了数据库连接数量限制的问题。由于数据库能够承受的连接数量是有限的，当达到一定程度时，数据库的性能就会下降，甚至崩溃，而池化管理机制，通过有效地使用和调度这些连接池中的连接，则解决了这个问题。</p>
 <p>&emsp;&emsp;数据库连接池的具体实施办法如下。</p>
@@ -798,8 +801,72 @@
 <li>连接池中可能存在多个与数据库保持连接但未被使用的连接，在一定程度上浪费了资源；</li>
 <li>要求开发人员和使用者准确估算系统需要提供的最大数据库连接的数量。</li>
 </ul>
+<h2 id="5-2-配置并使用连接池"><a href="#5-2-配置并使用连接池" class="headerlink" title="5.2 配置并使用连接池"></a>5.2 配置并使用连接池</h2><ul>
+<li>说明：现在项目开发中，使用第三方开源开源数据库连接池较多，例如DBCP、C3P0等，因此这里不再讲解纯Java代码编写的数据库连接池，别人已经给我们封装好了，直接使用就行。</li>
+<li>这里可以参考【孤傲苍狼】<a href="https://www.cnblogs.com/xdp-gacl/p/4002804.html" target="_blank" rel="noopener">https://www.cnblogs.com/xdp-gacl/p/4002804.html</a>这位技术大牛的博文。</li>
+</ul>
+<h2 id="5-3-使用服务器提供的数据库连接池"><a href="#5-3-使用服务器提供的数据库连接池" class="headerlink" title="5.3 使用服务器提供的数据库连接池"></a>5.3 使用服务器提供的数据库连接池</h2><p>&emsp;&emsp;在Web项目开发中，我们有时候会使用到服务器提供给我们的数据库连接池，这里简单介绍以下如何在Tomcat服务器中如何配置数据库连接池。</p>
+<p>&emsp;&emsp;在配置之前，介绍下<strong>JNDI</strong>技术，JNDI（Java Nameing and Directory Interface、Java命名和目录接口），它可以把Java对象放在一个容器中（JNDI容器），并为容器中的java对象取一个名称，以后程序想获得Java对象，只需通过名称检索即可。其核心API为Context，它代表JNDI容器，其lookup方法为检索容器中对应名称的对象。</p>
+<p>&emsp;&emsp;Tomcat服务器创建的数据源时以JNDI资源的形式发布的。在配置数据源时，可以将其配置到Tomcat安装目录下的conf\server.xml文件中，也可以将其配置到Web工程目录下的META-INF\context.xml文件中，建议采用后者，因为这样配置的数据源更有针对性，配置数据源的具体代码如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Context&gt;</span><br><span class="line">  &lt;Resource name=&quot;TestJNDI&quot; auth=&quot;Container&quot;</span><br><span class="line">            type=&quot;javax.sql.DataSource&quot;</span><br><span class="line">            driverClassName=&quot;com.mysql.jdbc.Driver&quot; </span><br><span class="line">            username=&quot;root&quot; password=&quot;root&quot;</span><br><span class="line">            url=&quot;jdbc:mysql://localhost:3306/jdbctest&quot;</span><br><span class="line">            maxActive=&quot;8&quot; maxIdle=&quot;2&quot; maxWait=&quot;6000&quot;/&gt;</span><br><span class="line">&lt;/Context&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在配置数据源时需要配置的<resource>元素的属性及其说明如下表所示。</resource></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名称</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">设置数据源的JNDI名</td>
+</tr>
+<tr>
+<td style="text-align:center">auth</td>
+<td style="text-align:center">设置数据源的管理者，有两个可选值Container和Application，Container表示由容器来创建和管理数据源，Application表示由Web应用来创建和管理数据源</td>
+</tr>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">设置数据源的类型</td>
+</tr>
+<tr>
+<td style="text-align:center">driverClassName</td>
+<td style="text-align:center">设置连接数据库的JDBC驱动程序</td>
+</tr>
+<tr>
+<td style="text-align:center">url</td>
+<td style="text-align:center">设置连接数据库的路径</td>
+</tr>
+<tr>
+<td style="text-align:center">username</td>
+<td style="text-align:center">设置数据库的用户名</td>
+</tr>
+<tr>
+<td style="text-align:center">password</td>
+<td style="text-align:center">设置连接数据库的密码</td>
+</tr>
+<tr>
+<td style="text-align:center">maxActive</td>
+<td style="text-align:center">设置连接池中处于活动状态的数据库连接的最大数目，0表示不受限制</td>
+</tr>
+<tr>
+<td style="text-align:center">maxIdle</td>
+<td style="text-align:center">设置连接池中处于空闲状态的数据库连接的最大数目，0表示不受限制</td>
+</tr>
+<tr>
+<td style="text-align:center">maxWait</td>
+<td style="text-align:center">设置连接池中没有处于空闲状态的连接时，请求数据库连接请求的最长等待时间（单位为ms），如果超出该时间将抛出异常，-1表示无限制等待</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>可通过下面代码来获取连接。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//部分省略</span><br><span class="line">try&#123;</span><br><span class="line">	</span><br><span class="line">	Context ctx = new InitialContext();</span><br><span class="line">	ctx = (Context)ctx.lookup(&quot;java:comp/env&quot;);</span><br><span class="line">	DataSource ds = (DataSource)ctx.lookup(&quot;TestJNDI&quot;);</span><br><span class="line">	</span><br><span class="line">	Connection conn = ds.getConnection();</span><br><span class="line">	Statement stmt = conn.createStatement();</span><br><span class="line">	ResultSet rs = stmt.executeQuery(&quot;select * from user&quot;);</span><br><span class="line">	while(rs.next())&#123;</span><br><span class="line">		//...</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//关闭资源...</span><br><span class="line">&#125;catch(Exception e)&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <hr>
-<h1 id="更新中。。。"><a href="#更新中。。。" class="headerlink" title="更新中。。。"></a>更新中。。。</h1>
+<p>&emsp;&emsp;JDBC就先记录这些，后面如有补充在更新。</p>
+
       
     </div>
 
@@ -1046,7 +1113,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-JDBC简介"><span class="nav-number">1.</span> <span class="nav-text">1. JDBC简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-JDBC中常用的接口"><span class="nav-number">2.</span> <span class="nav-text">2. JDBC中常用的接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-驱动程序接口Driver"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 驱动程序接口Driver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-驱动程序管理器DriverManager"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 驱动程序管理器DriverManager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-数据库连接接口Connection"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 数据库连接接口Connection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-执行SQL语句接口Statement"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 执行SQL语句接口Statement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-执行动态SQL语句接口PreparedStatement"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 执行动态SQL语句接口PreparedStatement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-执行存储过程接口CallableStatement"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 执行存储过程接口CallableStatement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-访问结果集接口ResultSet"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 访问结果集接口ResultSet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-JDBC访问数据库过程"><span class="nav-number">3.</span> <span class="nav-text">3. JDBC访问数据库过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-数据库操作技术"><span class="nav-number">4.</span> <span class="nav-text">4. 数据库操作技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-查询操作"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 查询操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-添加操作"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 添加操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-修改操作"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 修改操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-删除操作"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 删除操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-连接池技术"><span class="nav-number">5.</span> <span class="nav-text">5.连接池技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-连接池简介"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 连接池简介</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新中。。。"><span class="nav-number">6.</span> <span class="nav-text">更新中。。。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-JDBC简介"><span class="nav-number">1.</span> <span class="nav-text">1. JDBC简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-JDBC中常用的接口"><span class="nav-number">2.</span> <span class="nav-text">2. JDBC中常用的接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-驱动程序接口Driver"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 驱动程序接口Driver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-驱动程序管理器DriverManager"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 驱动程序管理器DriverManager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-数据库连接接口Connection"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 数据库连接接口Connection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-执行SQL语句接口Statement"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 执行SQL语句接口Statement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-执行动态SQL语句接口PreparedStatement"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 执行动态SQL语句接口PreparedStatement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-执行存储过程接口CallableStatement"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 执行存储过程接口CallableStatement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-访问结果集接口ResultSet"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 访问结果集接口ResultSet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-JDBC访问数据库过程"><span class="nav-number">3.</span> <span class="nav-text">3. JDBC访问数据库过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-数据库操作技术"><span class="nav-number">4.</span> <span class="nav-text">4. 数据库操作技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-查询操作"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 查询操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-添加操作"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 添加操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-修改操作"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 修改操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-删除操作"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 删除操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-连接池技术"><span class="nav-number">5.</span> <span class="nav-text">5. 连接池技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-连接池简介"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 连接池简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-配置并使用连接池"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 配置并使用连接池</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-使用服务器提供的数据库连接池"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 使用服务器提供的数据库连接池</span></a></li></ol></li></ol></div>
             
 
           </div>
