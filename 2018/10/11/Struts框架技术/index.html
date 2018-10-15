@@ -108,27 +108,32 @@
 
 
 
-  <meta name="description" content="&amp;emsp;&amp;emsp;引言：随着多核CPU的问世，使得多线程程序在开发中占有了更重要的位置。但是什么是进程？什么是线程？它们之间到底又有什么关系呢？下面就来详细的来介绍一下它们的概念。">
-<meta name="keywords" content="Java,Java SE">
+  <meta name="description" content="&amp;emsp;&amp;emsp;前言：Struts是Apache软件基金会赞助的一个开源项目，它最初是Jakarta项目中的一个子项目。Struts2是以Webwork设计思想为核心，吸收原Struts的优点而形成的，旨在帮助程序员更为方便地运用MVC模式来开发JavaEE应用。总之，Struts就是封装了Servlet中的各种对象以及请求/响应操作，减少对Web容器的依赖。">
+<meta name="keywords" content="Java,Java EE,Struts2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="进程和线程（一）概念">
-<meta property="og:url" content="https://zqiheng.github.io/2018/09/22/进程和线程（一）概念/index.html">
+<meta property="og:title" content="Struts框架技术（一）">
+<meta property="og:url" content="https://zqiheng.github.io/2018/10/11/Struts框架技术/index.html">
 <meta property="og:site_name" content="Heng Bolg">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;引言：随着多核CPU的问世，使得多线程程序在开发中占有了更重要的位置。但是什么是进程？什么是线程？它们之间到底又有什么关系呢？下面就来详细的来介绍一下它们的概念。">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;前言：Struts是Apache软件基金会赞助的一个开源项目，它最初是Jakarta项目中的一个子项目。Struts2是以Webwork设计思想为核心，吸收原Struts的优点而形成的，旨在帮助程序员更为方便地运用MVC模式来开发JavaEE应用。总之，Struts就是封装了Servlet中的各种对象以及请求/响应操作，减少对Web容器的依赖。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zqiheng.github.io/images/thread/thread_zhuangtai.png">
-<meta property="og:updated_time" content="2018-10-05T14:57:39.924Z">
+<meta property="og:image" content="https://zqiheng.github.io/images/struts/mvc官网图.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/struts/web-mvc详细图.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/struts/Servlet和Struts的MVC框架区别.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/struts/Struts2简单项目结构.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/struts/Struts2简单项目运行结果1.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/struts/Struts2简单项目运行结果2.png">
+<meta property="og:updated_time" content="2018-10-15T11:54:55.534Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="进程和线程（一）概念">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;引言：随着多核CPU的问世，使得多线程程序在开发中占有了更重要的位置。但是什么是进程？什么是线程？它们之间到底又有什么关系呢？下面就来详细的来介绍一下它们的概念。">
-<meta name="twitter:image" content="https://zqiheng.github.io/images/thread/thread_zhuangtai.png">
+<meta name="twitter:title" content="Struts框架技术（一）">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;前言：Struts是Apache软件基金会赞助的一个开源项目，它最初是Jakarta项目中的一个子项目。Struts2是以Webwork设计思想为核心，吸收原Struts的优点而形成的，旨在帮助程序员更为方便地运用MVC模式来开发JavaEE应用。总之，Struts就是封装了Servlet中的各种对象以及请求/响应操作，减少对Web容器的依赖。">
+<meta name="twitter:image" content="https://zqiheng.github.io/images/struts/mvc官网图.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqiheng.github.io/2018/09/22/进程和线程（一）概念/"/>
+  <link rel="canonical" href="https://zqiheng.github.io/2018/10/11/Struts框架技术/"/>
 
 
 
@@ -138,7 +143,7 @@
   };
 </script>
 
-  <title>进程和线程（一）概念 | Heng Bolg</title>
+  <title>Struts框架技术（一） | Heng Bolg</title>
   
 
 
@@ -342,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqiheng.github.io/2018/09/22/进程和线程（一）概念/">
+    <link itemprop="mainEntityOfPage" href="https://zqiheng.github.io/2018/10/11/Struts框架技术/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="恒">
@@ -359,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">进程和线程（一）概念
+          <h1 class="post-title" itemprop="name headline">Struts框架技术（一）
               
             
           </h1>
@@ -384,7 +389,7 @@
                 
               
 
-              <time title="创建时间：2018-09-22 22:00:00" itemprop="dateCreated datePublished" datetime="2018-09-22T22:00:00+08:00">2018-09-22</time>
+              <time title="创建时间：2018-10-11 14:00:00" itemprop="dateCreated datePublished" datetime="2018-10-11T14:00:00+08:00">2018-10-11</time>
             
 
             
@@ -401,7 +406,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-05 22:57:39" itemprop="dateModified" datetime="2018-10-05T22:57:39+08:00">2018-10-05</time>
+                <time title="修改时间：2018-10-15 19:54:55" itemprop="dateModified" datetime="2018-10-15T19:54:55+08:00">2018-10-15</time>
               
             
           </span>
@@ -425,7 +430,14 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-SE/" itemprop="url" rel="index"><span itemprop="name">Java SE</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-EE/" itemprop="url" rel="index"><span itemprop="name">Java EE</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-EE/Struts2/" itemprop="url" rel="index"><span itemprop="name">Struts2</span></a></span>
 
                 
                 
@@ -459,60 +471,80 @@
       
 
       
-        <p>&emsp;&emsp;<strong>引言：</strong>随着多核CPU的问世，使得多线程程序在开发中占有了更重要的位置。但是什么是进程？什么是线程？它们之间到底又有什么关系呢？下面就来详细的来介绍一下它们的概念。<br><a id="more"></a></p>
-<h2 id="1-什么是进程？"><a href="#1-什么是进程？" class="headerlink" title="1.什么是进程？"></a>1.什么是进程？</h2><p>&emsp;&emsp;简单一句话，进程是正在运行的程序的实例。进程是一个具有一定独立功能的程序关于某个数据集合的一次运行活动。它是操作系统动态执行的基本单元，在传统的操作系统中，进程是基本的分配单元，也是基本的执行单元。</p>
-<p>&emsp;&emsp;进程的概念主要有两点：</p>
+        <p>&emsp;&emsp;<strong>前言：</strong>Struts是Apache软件基金会赞助的一个开源项目，它最初是Jakarta项目中的一个子项目。Struts2是以Webwork设计思想为核心，吸收原Struts的优点而形成的，旨在帮助程序员更为方便地运用MVC模式来开发JavaEE应用。总之，<strong>Struts就是封装了Servlet中的各种对象以及请求/响应操作，减少对Web容器的依赖。</strong><br><a id="more"></a></p>
+<h1 id="1-MVC-基本思想"><a href="#1-MVC-基本思想" class="headerlink" title="1. MVC 基本思想"></a>1. MVC 基本思想</h1><h2 id="1-1-MVC思想概述"><a href="#1-1-MVC思想概述" class="headerlink" title="1.1 MVC思想概述"></a>1.1 MVC思想概述</h2><p>&emsp;&emsp;<strong>MVC并不是Java语言所特有的设计思想，也并不是Web应用所特有的思想，它是所有面向对象程序设计语言都应该遵守的规范。</strong></p>
+<p>&emsp;&emsp;MVC思想将一个应用分成三个基本部分：<strong>Model（模型）、View（视图）、Controller（控制器），</strong>这三个部分以最少的耦合来协同工作，从而提高应用的可扩展性和可维护性。</p>
+<p>&emsp;&emsp;在经典的MVC模式中，事件由控制器处理，控制器根据事件的类型改变模型或试图，反之亦然。具体地说，每个模型对应一系列的试图列表，这种对应关系通常采用注册来完成，即：把多个试图注册到同一个模型，当模型发生改变时，模型向所有注册过的视图发送通知，接下来，视图从对应的模型中获得信息，然后完成视图显示的更新。从设计模式的角度看，MVC思想非常类似于观察者模式，但与观察者模式存在少许差别：观察者模式下观察者和被观察者可以是两个互相对等的对象，但与MVC思想而言，被观察者往往只是单纯的数据体，而观察者则是单纯的视图页面。</p>
 <ul>
-<li>进程是一个实体，每一个进程都有它自己的地址空间。一般情况下，包括文本区域（text region）、数据区域（data region）和堆栈（stack region）。文本区域存储处理器执行的代码；数据区域存储变量和进程执行期间使用的动态分配的内存；堆栈区域存储着活动过程调用的指令和本地变量。</li>
-<li>进程是一个“执行中的程序”。程序是一个没有生命的实体，只有处理器赋予程序生命时（操作系统执行之），它才能成为一个活动的实体，我们称其为进程。</li>
+<li>相对于早期的MVC思想，Web模式下的MVC思想则又存在一些变化，对于一个普通应用程序，可以将视图注册给模型，当模型数据发生变化时，即时通知视图页面发生改变；而对于Web应用而言，即使将多个JSP页面注册给一个模型，当模型发生变化时，模型无法主动发送消息给JSP页面（因为Web应用都是基于请求/响应模式的），只有当用户请求浏览该页面时，控制器才负责调用模型数据来更新JSP页面。</li>
+</ul>
+<p>&emsp;&emsp;<strong>下图为经典MVC开发模式架构图。</strong><br><img src="/images/struts/mvc官网图.png" alt=""></p>
+<ul>
+<li>模型：用于封装与应用程序业务逻辑相关的数据及对数据的处理方法。</li>
+<li>视图：视图是用户看到并与之交互的界面。</li>
+<li>控制器：控制器起到不同层次间的组织作用，用于控制应用程序的流程。它处理事件并做出响应，“事件”包括用户的行为和数据模型上的改变。</li>
+</ul>
+<p>&emsp;&emsp;<strong>下图为Web模式下MVC开发模式架构图。</strong><br><img src="/images/struts/web-mvc详细图.png" alt=""></p>
+<hr>
+<p>MVC特点。</p>
+<ul>
+<li>多个视图可以对应一个模型。按MVC设计模式，一个模型对应多个视图，可以减少代码的复制及代码的维护量，一旦模型发生改变，也易于维护。</li>
+<li>模型返回的数据与显示逻辑分离。模型数据可以应用任何的显示技术，例如，使用JSP页面、Velocity模板或者直接产生Excel文档等。</li>
+<li>应用被分隔为三层，降低了各层之间的耦合，提供了应用的可扩展性。</li>
+<li>概念明确，层次清晰，编写方便。</li>
+<li>MVC更符合软件工程化管理的精神。不同的层各司其职，每一层的组件具有相同的特征，有利于通过工程化和工具化产生管理程序代码。</li>
+</ul>
+<p><strong>总结：</strong></p>
+<ul>
+<li>MVC 是一种开发模式。</li>
+<li>Web三层架构（Controller、Service、Dao）是一种开发习惯，是前人留下的<strong>经验的传承。</strong></li>
+<li>两种方式在开发Web应用中往往需要结合使用。</li>
 </ul>
 <hr>
-<p>&emsp;&emsp;<strong>特征</strong></p>
+<h2 id="1-2-MVC实现方式"><a href="#1-2-MVC实现方式" class="headerlink" title="1.2 MVC实现方式"></a>1.2 MVC实现方式</h2><p>&emsp;&emsp;传统的JavaEE开发采用JSP+Servlet+JavaBean的方式来实现MVC，但它有一个<strong>缺陷：程序员在编写程序时必须继承HttpServlet类、覆盖doGet()和doPost()方法，严格遵守Servlet代码规范编写程序。</strong>形如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package com.heng.srvlet;</span><br><span class="line">import java.io.*;</span><br><span class="line">import javax.servlet.*;</span><br><span class="line">import javax.servlet.http.*;</span><br><span class="line"></span><br><span class="line">public class LoginServlet extends HttpServlet&#123;</span><br><span class="line">	public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException&#123;</span><br><span class="line">		//...</span><br><span class="line">	&#125;</span><br><span class="line">	public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException&#123;</span><br><span class="line">		doGet(request,response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;以上这些繁琐的代码与程序本身要实现的功能无关，仅是Java语言Servlet编程接口（API）的一部分。在开发中一旦暴露Servlet API就会大大增加编程的难度，为了屏蔽这种不必要的复杂性，减少用MVC开发Java EE的工作量，人们发明了<strong>Struts2</strong>框架。用Struts2实现的MVC系统与传统的用Servlet编写的MVC系统相比，两者在结构上的区别如下图所示（注：此图为引用Java EE使用教程（第二版）中MVC系统的两种实现方式）。<br><img src="/images/struts/Servlet和Struts的MVC框架区别.png" alt=""></p>
+<p>&emsp;&emsp;由上图可见，Struts2的解决方案是：使用Struts2框架代替了原Servlet部分作为控制器，而业务逻辑处理的功能由用户自定义编写Action去实现，与Struts2的控制器核心相分离。这样就进一步降低了系统中各部分组件的耦合度，也大大降低了编程难度。</p>
+<h1 id="2-简单的Struts2项目开发过程"><a href="#2-简单的Struts2项目开发过程" class="headerlink" title="2. 简单的Struts2项目开发过程"></a>2. 简单的Struts2项目开发过程</h1><h2 id="2-1-新建JavaWeb项目，加载Struts2的包依赖"><a href="#2-1-新建JavaWeb项目，加载Struts2的包依赖" class="headerlink" title="2.1 新建JavaWeb项目，加载Struts2的包依赖"></a>2.1 新建JavaWeb项目，加载Struts2的包依赖</h2><p>&emsp;&emsp;传统的Java EE项目Struts2框架开发，需要自己手动导入Struts2的包支持依赖。大部分的时候，使用Struts2的Java EE应用并不需要用到Struts2的全部特性，开发Struts2程序只需要用到lib下的9个jar包，包括：</p>
 <ul>
-<li>动态性：进程的实质是程序在多道程序系统中的一次执行过程，进程是动态产生，动态消亡的；</li>
-<li>并发性：任何进程都可以同其他进程一起并发执行；</li>
-<li>独立性：进程是一个能独立运行的基本单位，同时也是系统分配资源和调度的独立单位；</li>
-<li>异步性：由于进程间的相互制约，使进程具有执行的间断性，即进程按各自独立的、不可预知的速度向前推进；</li>
-<li>结构特征：进程由程序、数据和进程控制块三部分组成。</li>
+<li>（1）传统的Struts2的5个基本类库。<ul>
+<li>struts2-core-XXX.jar：Struts2框架核心类库</li>
+<li>xwork-core-XXX.jar：Xwork项目，Struts2就是在它的基础上构建的</li>
+<li>ognl-XXX.jar：OGNL表达式语言</li>
+<li>commons-logging-XXX.jar：用于能够插入任何其他的日志系统</li>
+<li>freemarker-XXX.jar：所有的UI标记模板</li>
 </ul>
+</li>
+<li>（2）附加的4个库。<ul>
+<li>commons-io-XXX.jar</li>
+<li>commons-lang-XXX.jar</li>
+<li>javassist-XXX.GA.jar</li>
+<li>commons-fileupload-XXX.jar</li>
+</ul>
+</li>
+</ul>
+<p>&emsp;&emsp;<strong>注：本次实例程序开发采用的是Idea+Maven构建项目，因此我们不需要手动导包，在pom.xml中加入如下依赖即可。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;struts2-core&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.5.13&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-在web-xml中配置Struts2核心Filter"><a href="#2-2-在web-xml中配置Struts2核心Filter" class="headerlink" title="2.2 在web.xml中配置Struts2核心Filter"></a>2.2 在web.xml中配置Struts2核心Filter</h2><p>&emsp;&emsp;<strong>重点：由于Web应用是基于请求/响应架构的应用，所以不管哪个MVC Web框架，都需要在web.xml中配置该框架的核心Servlet或Filter，这样才可以让该框架加入Web应用中。</strong></p>
+<p>&emsp;&emsp;在web.xml中加入下面代码来配置Struts2的核心过滤器（Filter）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--定义Struts2的核心Filter--&gt;</span><br><span class="line">&lt;filter&gt;</span><br><span class="line">  &lt;filter-name&gt;struts2&lt;/filter-name&gt;</span><br><span class="line">  &lt;filter-class&gt;org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line">&lt;!--让Struts2的核心Filter拦截所有请求--&gt;</span><br><span class="line">&lt;filter-mapping&gt;</span><br><span class="line">  &lt;filter-name&gt;struts2&lt;/filter-name&gt;</span><br><span class="line">  &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span><br><span class="line">&lt;/filter-mapping&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-3-实现控制器Action"><a href="#2-3-实现控制器Action" class="headerlink" title="2.3 实现控制器Action"></a>2.3 实现控制器Action</h2><p>&emsp;&emsp;基于Struts2框架的Java EE应用程序使用自定义的Action（控制器）来处理深层业务逻辑，完成用户想要完成的功能。本例定义名为“login”的控制器，判断登陆用户和密码的正确性。</p>
+<p>LoginAction.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">package cn.zqiheng.action;</span><br><span class="line"></span><br><span class="line">public class LoginAction &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 属性驱动传值</span><br><span class="line">     */</span><br><span class="line">    private String username;</span><br><span class="line">    private String password;</span><br><span class="line"></span><br><span class="line">    public String execute() throws Exception&#123;</span><br><span class="line">        System.out.println(&quot;用户名：&quot;+username+&quot;   密码：&quot;+password);</span><br><span class="line"></span><br><span class="line">        if(username.equals(&quot;heng&quot;) &amp;&amp; password.equals(&quot;123&quot;))&#123;</span><br><span class="line">            return &quot;success&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        return &quot;error&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getUsername() &#123;</span><br><span class="line">        return username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setUsername(String username) &#123;</span><br><span class="line">        this.username = username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getPassword() &#123;</span><br><span class="line">        return password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setPassword(String password) &#123;</span><br><span class="line">        this.password = password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-4-配置struts-xml"><a href="#2-4-配置struts-xml" class="headerlink" title="2.4 配置struts.xml"></a>2.4 配置struts.xml</h2><p>&emsp;&emsp;在编写好了Action（控制器）的代码之后，还需要进行配置才能让Struts2识别Action。在resources中新建文件struts.xml。</p>
+<p>struts.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;struts&gt;</span><br><span class="line"></span><br><span class="line">    &lt;package name=&quot;user&quot; namespace=&quot;/&quot; extends=&quot;struts-default&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;action name=&quot;login&quot; class=&quot;cn.zqiheng.action.LoginAction&quot;&gt;</span><br><span class="line">            &lt;result name=&quot;success&quot;&gt;/welcome.jsp&lt;/result&gt;</span><br><span class="line">            &lt;result name=&quot;error&quot;&gt;/error.jsp&lt;/result&gt;</span><br><span class="line">        &lt;/action&gt;</span><br><span class="line">    &lt;/package&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/struts&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-5-编写JSP页面"><a href="#2-5-编写JSP页面" class="headerlink" title="2.5 编写JSP页面"></a>2.5 编写JSP页面</h2><p>index.jsp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;form action=&quot;login&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;</span><br><span class="line">    密&amp;nbsp;&amp;nbsp;&amp;nbsp;码：&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br&gt;</span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>welcome.jsp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;登陆成功界面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;您好！欢迎使用本系统。&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>error.jsp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;登陆失败&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;登陆失败&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-6-配置Tomcat服务器并启动应用"><a href="#2-6-配置Tomcat服务器并启动应用" class="headerlink" title="2.6 配置Tomcat服务器并启动应用"></a>2.6 配置Tomcat服务器并启动应用</h2><p>&emsp;&emsp;项目结构如下图所示。</p>
+<p><img src="/images/struts/Struts2简单项目结构.png" alt=""></p>
+<p>&emsp;&emsp;项目运行结果如下图所示。</p>
+<p><img src="/images/struts/Struts2简单项目运行结果1.png" alt=""></p>
+<p><img src="/images/struts/Struts2简单项目运行结果2.png" alt=""></p>
 <hr>
-<p>&emsp;&emsp;<strong>状态</strong><br>&emsp;&emsp;进程执行时的间断性，决定了进程可能具有多种状态。事实上，运行中的进程可能具有以下三种基本状态。</p>
-<p><strong>1）就绪状态（Ready）：</strong><br>&emsp;&emsp;进程已获得除处理器外的所需资源，等待分配处理器资源；只要分配了处理器进程就可执行。就绪进程可以按多个优先级来划分队列。例如，当一个进程由于时间片用完而进入就绪状态时，排入低优先级队列；当进程由I/O操作完成而进入就绪状态时，排入高优先级队列。</p>
-<p><strong>2）运行状态(Running)：</strong><br>&emsp;&emsp;进程占用处理器资源；处于此状态的进程的数目小于等于处理器的数目。在没有其他进程可以执行时(如所有进程都在阻塞状态)，通常会自动执行系统的空闲进程。</p>
-<p><strong>3）阻塞状态(Blocked)：</strong><br>&emsp;&emsp;由于进程等待某种条件（如I/O操作或进程同步），在条件满足之前无法继续执行。该事件发生前即使把处理器资源分配给该进程，也无法运行。</p>
-<hr>
-<h2 id="2-什么是线程？"><a href="#2-什么是线程？" class="headerlink" title="2.什么是线程？"></a>2.什么是线程？</h2><p>&emsp;&emsp;<strong>线程的引入：</strong></p>
-<ul>
-<li>60年代，在OS中能拥有资源和独立运行的基本单位是进程，然而随着计算机技术的发展，进程出现了很多弊端，一是由于进程是资源拥有者，创建、撤消与切换存在较大的时空开销，因此需要引入轻型进程；二是由于对称多处理机（SMP）出现，可以满足多个运行单位，而多个进程并行开销过大。因此在80年代，出现了能独立运行的基本单位——线程（Threads）。</li>
-</ul>
-<p>&emsp;&emsp;一个进程包含一个或多个线程。线程是程序运行最小的调度单位。线程是进程中的一个实体，是被系统独立调度和分派的基本单位，线程自己不拥有系统资源，只拥有一点儿在运行中必不可少的资源，但它可与同属一个进程的其它线程共享进程所拥有的全部资源。一个线程可以创建和撤消另一个线程，同一进程中的多个线程之间可以并发执行。</p>
-<p>&emsp;&emsp;多线程编程可以是程序具有多条并发执行线索，就像日常工作中由多人同时合作完成一个任务。这在很多情况下可以改善程序的响应性能，提高资源的利用效率，在多核CPU年代，这显得尤为重要。然而滥用多线程也有可能给程序带来意想不到的错误，减低程序执行的效率。</p>
-<p>&emsp;&emsp;使用多线程开发<strong>优点</strong>：</p>
-<ul>
-<li>在多核CPU系统中，使用线程可以提高程序响应速度，提高CPU和内存的利用率；</li>
-<li>多线程开发可以将耗时操作放入子线程，提高效率；</li>
-<li>资源利用率更好；</li>
-<li>程序设计在某些情况下更简单，改善程序结构，降低耦合性；</li>
-<li>程序响应更快；</li>
-<li>可以随时停止任务；</li>
-<li>等等…</li>
-</ul>
-<p>&emsp;&emsp;使用多线程开发<strong>缺点</strong>：</p>
-<ul>
-<li>等候共享资源时造成程序的运行速度变缓慢。这些共享资源主要是独占性的资源，如打印机等；</li>
-<li>对线程进行管理要求额外的CPU开销。线程的使用会给系统带来上下文切换的额外负担；</li>
-<li>在某些情况下可能会造成线程的死锁。即较长时间的等待或者资源竞争以及死锁等；</li>
-<li>对共享变量同时进行读写的不可预测性错误等等。</li>
-</ul>
-<p>&emsp;&emsp;总之有优点肯定就会有缺点，毕竟谁也不能做到十全十美。后面会讲到Java开发中是如何避免这些缺点的。</p>
-<p>&emsp;&emsp;<strong>线程的五种状态</strong><br><img src="/images/thread/thread_zhuangtai.png" alt=""></p>
-<p>1)新建状态<br>&emsp;&emsp;使用new运算符创建一个线程后，该线程仅仅是一个空对象，系统没有分配资源，称该线程处于创建状态（new thread）。</p>
-<p>2)可运行状态<br>&emsp;&emsp;使用<strong>start()</strong>方法启动一个线程后，系统为该线程分配了除CPU外的所需资源，是该线程处于可运行状态（Runnable）。</p>
-<p>3）运行中状态<br>&emsp;&emsp;Java运行系统通过调度选中一个Runnable的线程，使其占有CPU并转为运行中状态（Running）。此时，系统真正执行线程的<strong>run()</strong>方法。</p>
-<p>4）阻塞状态<br>&emsp;&emsp;一个正在运行的线程因某种原因不能继续运行时，进入阻塞状态（Blocked）。</p>
-<p>5）死亡状态<br>&emsp;&emsp;线程结束后是死亡状态（Dead）。</p>
-<hr>
-<p>&emsp;&emsp;OK，基础概念知识就先写到这里，后面会讲解到如何建立一个线程，以及多线程编程。    </p>
 
       
     </div>
@@ -534,7 +566,7 @@
     <strong>本文作者： </strong>恒</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://zqiheng.github.io/2018/09/22/进程和线程（一）概念/" title="进程和线程（一）概念">https://zqiheng.github.io/2018/09/22/进程和线程（一）概念/</a>
+    <a href="https://zqiheng.github.io/2018/10/11/Struts框架技术/" title="Struts框架技术（一）">https://zqiheng.github.io/2018/10/11/Struts框架技术/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -549,7 +581,9 @@
           
             <a href="/tags/Java/" rel="tag"> <i class="fa fa-tag"></i> Java</a>
           
-            <a href="/tags/Java-SE/" rel="tag"> <i class="fa fa-tag"></i> Java SE</a>
+            <a href="/tags/Java-EE/" rel="tag"> <i class="fa fa-tag"></i> Java EE</a>
+          
+            <a href="/tags/Struts2/" rel="tag"> <i class="fa fa-tag"></i> Struts2</a>
           
         </div>
       
@@ -562,8 +596,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/20/系统重装后如何恢复Hexo博客/" rel="next" title="系统重装后如何恢复Hexo博客">
-                <i class="fa fa-chevron-left"></i> 系统重装后如何恢复Hexo博客
+              <a href="/2018/10/01/JDBC/" rel="next" title="JDBC">
+                <i class="fa fa-chevron-left"></i> JDBC
               </a>
             
           </div>
@@ -571,10 +605,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/26/进程和线程（二）线程的创建/" rel="prev" title="进程和线程（二）线程的创建">
-                进程和线程（二）线程的创建 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -768,7 +798,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是进程？"><span class="nav-number">1.</span> <span class="nav-text">1.什么是进程？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-什么是线程？"><span class="nav-number">2.</span> <span class="nav-text">2.什么是线程？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-MVC-基本思想"><span class="nav-number">1.</span> <span class="nav-text">1. MVC 基本思想</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-MVC思想概述"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 MVC思想概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-MVC实现方式"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 MVC实现方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-简单的Struts2项目开发过程"><span class="nav-number">2.</span> <span class="nav-text">2. 简单的Struts2项目开发过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-新建JavaWeb项目，加载Struts2的包依赖"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 新建JavaWeb项目，加载Struts2的包依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-在web-xml中配置Struts2核心Filter"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 在web.xml中配置Struts2核心Filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-实现控制器Action"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 实现控制器Action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-配置struts-xml"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 配置struts.xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-编写JSP页面"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 编写JSP页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-配置Tomcat服务器并启动应用"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 配置Tomcat服务器并启动应用</span></a></li></ol></li></ol></div>
             
 
           </div>
