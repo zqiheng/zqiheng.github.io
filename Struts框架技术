@@ -108,25 +108,32 @@
 
 
 
-  <meta name="description" content="说明这里还是简单的记录一下基于GitHub+Hexo+Next的个人博客搭建把，防止以后忘了… 搭建步骤">
-<meta name="keywords" content="Hexo">
+  <meta name="description" content="&amp;emsp;&amp;emsp;前言：Struts是Apache软件基金会赞助的一个开源项目，它最初是Jakarta项目中的一个子项目。Struts2是以Webwork设计思想为核心，吸收原Struts的优点而形成的，旨在帮助程序员更为方便地运用MVC模式来开发JavaEE应用。总之，Struts就是封装了Servlet中的各种对象以及请求/响应操作，减少对Web容器的依赖。">
+<meta name="keywords" content="Java,Java EE,Struts2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub + Hexo 搭建">
-<meta property="og:url" content="http://www.zhangqiheng.cn/GitHub+Hexo搭建.html">
+<meta property="og:title" content="Struts框架技术（一）">
+<meta property="og:url" content="http://www.zhangqiheng.cn/Struts框架技术">
 <meta property="og:site_name" content="Heng Bolg">
-<meta property="og:description" content="说明这里还是简单的记录一下基于GitHub+Hexo+Next的个人博客搭建把，防止以后忘了… 搭建步骤">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;前言：Struts是Apache软件基金会赞助的一个开源项目，它最初是Jakarta项目中的一个子项目。Struts2是以Webwork设计思想为核心，吸收原Struts的优点而形成的，旨在帮助程序员更为方便地运用MVC模式来开发JavaEE应用。总之，Struts就是封装了Servlet中的各种对象以及请求/响应操作，减少对Web容器的依赖。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-19T06:42:04.704Z">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/struts/mvc官网图.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/struts/web-mvc详细图.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/struts/Servlet和Struts的MVC框架区别.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/struts/Struts2简单项目结构.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/struts/Struts2简单项目运行结果1.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/struts/Struts2简单项目运行结果2.png">
+<meta property="og:updated_time" content="2018-10-15T11:54:55.534Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GitHub + Hexo 搭建">
-<meta name="twitter:description" content="说明这里还是简单的记录一下基于GitHub+Hexo+Next的个人博客搭建把，防止以后忘了… 搭建步骤">
+<meta name="twitter:title" content="Struts框架技术（一）">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;前言：Struts是Apache软件基金会赞助的一个开源项目，它最初是Jakarta项目中的一个子项目。Struts2是以Webwork设计思想为核心，吸收原Struts的优点而形成的，旨在帮助程序员更为方便地运用MVC模式来开发JavaEE应用。总之，Struts就是封装了Servlet中的各种对象以及请求/响应操作，减少对Web容器的依赖。">
+<meta name="twitter:image" content="http://www.zhangqiheng.cn/images/struts/mvc官网图.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.zhangqiheng.cn/GitHub+Hexo搭建.html"/>
+  <link rel="canonical" href="http://www.zhangqiheng.cn/Struts框架技术"/>
 
 
 
@@ -136,7 +143,7 @@
   };
 </script>
 
-  <title>GitHub + Hexo 搭建 | Heng Bolg</title>
+  <title>Struts框架技术（一） | Heng Bolg</title>
   
 
 
@@ -340,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhangqiheng.cn/GitHub+Hexo搭建.html">
+    <link itemprop="mainEntityOfPage" href="http://www.zhangqiheng.cn/Struts框架技术">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="恒">
@@ -357,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">GitHub + Hexo 搭建
+          <h1 class="post-title" itemprop="name headline">Struts框架技术（一）
               
             
           </h1>
@@ -382,7 +389,7 @@
                 
               
 
-              <time title="创建时间：2018-06-15 17:20:27" itemprop="dateCreated datePublished" datetime="2018-06-15T17:20:27+08:00">2018-06-15</time>
+              <time title="创建时间：2018-10-11 14:00:00" itemprop="dateCreated datePublished" datetime="2018-10-11T14:00:00+08:00">2018-10-11</time>
             
 
             
@@ -399,7 +406,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-19 14:42:04" itemprop="dateModified" datetime="2018-06-19T14:42:04+08:00">2018-06-19</time>
+                <time title="修改时间：2018-10-15 19:54:55" itemprop="dateModified" datetime="2018-10-15T19:54:55+08:00">2018-10-15</time>
               
             
           </span>
@@ -416,14 +423,21 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/个人博客搭建/" itemprop="url" rel="index"><span itemprop="name">个人博客搭建</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-EE/" itemprop="url" rel="index"><span itemprop="name">Java EE</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-EE/Struts2/" itemprop="url" rel="index"><span itemprop="name">Struts2</span></a></span>
 
                 
                 
@@ -457,297 +471,80 @@
       
 
       
-        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>这里还是简单的记录一下基于GitHub+Hexo+Next的个人博客搭建把，防止以后忘了…</p>
-<h1 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h1><a id="more"></a>
-<h2 id="1-Git下载与安装"><a href="#1-Git下载与安装" class="headerlink" title="1. Git下载与安装"></a>1. Git下载与安装</h2><p>Git是目前非常受欢迎的一个开源的分布式版本控制系统，用于敏捷高效地处理任何或大或小的项目。具体的一些介绍和使用的不具体写了，自己看教程。</p>
+        <p>&emsp;&emsp;<strong>前言：</strong>Struts是Apache软件基金会赞助的一个开源项目，它最初是Jakarta项目中的一个子项目。Struts2是以Webwork设计思想为核心，吸收原Struts的优点而形成的，旨在帮助程序员更为方便地运用MVC模式来开发JavaEE应用。总之，<strong>Struts就是封装了Servlet中的各种对象以及请求/响应操作，减少对Web容器的依赖。</strong><br><a id="more"></a></p>
+<h1 id="1-MVC-基本思想"><a href="#1-MVC-基本思想" class="headerlink" title="1. MVC 基本思想"></a>1. MVC 基本思想</h1><h2 id="1-1-MVC思想概述"><a href="#1-1-MVC思想概述" class="headerlink" title="1.1 MVC思想概述"></a>1.1 MVC思想概述</h2><p>&emsp;&emsp;<strong>MVC并不是Java语言所特有的设计思想，也并不是Web应用所特有的思想，它是所有面向对象程序设计语言都应该遵守的规范。</strong></p>
+<p>&emsp;&emsp;MVC思想将一个应用分成三个基本部分：<strong>Model（模型）、View（视图）、Controller（控制器），</strong>这三个部分以最少的耦合来协同工作，从而提高应用的可扩展性和可维护性。</p>
+<p>&emsp;&emsp;在经典的MVC模式中，事件由控制器处理，控制器根据事件的类型改变模型或试图，反之亦然。具体地说，每个模型对应一系列的试图列表，这种对应关系通常采用注册来完成，即：把多个试图注册到同一个模型，当模型发生改变时，模型向所有注册过的视图发送通知，接下来，视图从对应的模型中获得信息，然后完成视图显示的更新。从设计模式的角度看，MVC思想非常类似于观察者模式，但与观察者模式存在少许差别：观察者模式下观察者和被观察者可以是两个互相对等的对象，但与MVC思想而言，被观察者往往只是单纯的数据体，而观察者则是单纯的视图页面。</p>
 <ul>
-<li><a href="http://www.runoob.com/git/git-tutorial.html" target="_blank" rel="noopener">菜鸟教程链接</a></li>
-<li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">官网下载链接</a></li>
+<li>相对于早期的MVC思想，Web模式下的MVC思想则又存在一些变化，对于一个普通应用程序，可以将视图注册给模型，当模型数据发生变化时，即时通知视图页面发生改变；而对于Web应用而言，即使将多个JSP页面注册给一个模型，当模型发生变化时，模型无法主动发送消息给JSP页面（因为Web应用都是基于请求/响应模式的），只有当用户请求浏览该页面时，控制器才负责调用模型数据来更新JSP页面。</li>
 </ul>
-<h2 id="2-GitHub-账号注册"><a href="#2-GitHub-账号注册" class="headerlink" title="2. GitHub 账号注册"></a>2. GitHub 账号注册</h2><p>gitHub是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，故名gitHub。作为一个程序猿，现在基本都有一个GitHub账号，来托管自己的代码，如果你没有那就Out了。</p>
+<p>&emsp;&emsp;<strong>下图为经典MVC开发模式架构图。</strong><br><img src="/images/struts/mvc官网图.png" alt=""></p>
 <ul>
-<li><a href="https://github.com/" target="_blank" rel="noopener">官方地址链接</a></li>
+<li>模型：用于封装与应用程序业务逻辑相关的数据及对数据的处理方法。</li>
+<li>视图：视图是用户看到并与之交互的界面。</li>
+<li>控制器：控制器起到不同层次间的组织作用，用于控制应用程序的流程。它处理事件并做出响应，“事件”包括用户的行为和数据模型上的改变。</li>
 </ul>
-<h2 id="3-Node-js-下载与安装"><a href="#3-Node-js-下载与安装" class="headerlink" title="3. Node.js 下载与安装"></a>3. Node.js 下载与安装</h2><p>Node.js也是目前特别火的一个后台服务端脚本语言。简单的说就是运行在服务端的JavaScript。基于Chrome JavaScript运行时建立的一个平台。运行速度快、性能非常好。</p>
-<ul>
-<li><a href="https://www.runoob.com/nodejs/nodejs-tutorial.html" target="_blank" rel="noopener">菜鸟教程链接</a></li>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">官网下载链接</a></li>
-</ul>
-<h2 id="4-搭建个人博客Hexo"><a href="#4-搭建个人博客Hexo" class="headerlink" title="4. 搭建个人博客Hexo"></a>4. 搭建个人博客Hexo</h2><ol>
-<li>安装Hexo，在本地电脑随一个磁盘新建一个文件夹，比如取名Blog来存放自己的博客。在文件夹内右击点击<strong>Git Bash Here</strong>进入命令行窗口，执行以下代码：</li>
-</ol>
-<pre>
-    npm install -g hexo-cli
-</pre>
-
-<ol start="2">
-<li>初始化Hexo，得到hexo文件夹，用于存放Hexo博客的所有文件。还是在刚刚那个窗口中执行以下代码：</li>
-</ol>
-<pre>
-    hexo init hexo
-</pre>
-
-<ol start="3">
-<li>配置Hexo，安装hexo依赖文件,生成部署文件，分别执行以下代码：</li>
-</ol>
-<pre>
-    cd hexo
-    npm install
-    hexo generate
-</pre>
-
-<ol start="3">
-<li>继续在命令行窗口输入以下代码，启动服务器(hexo server == hexo s)：</li>
-</ol>
-<pre>
-    hexo server
-</pre>
-
-<ol start="4">
-<li><p>随便打开一个浏览器，地址栏输入 <strong><a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></strong> ，如果成功显示Hexo页面，则搭建成功。</p>
-</li>
-<li><p>将Hexo 博客部署到GitHub中</p>
-<ul>
-<li>新建一个仓库，命名为：username.github.id</li>
-<li><p>在本地命令行配置Git：</p>
-<ul>
-<li><p>在Blog文件夹目录右击打开Git Bash窗口，输入以下命名</p>
-  <pre>
-      git config -- global user.name "GitHub 用户名"
-      git config -- global user.email "GitHub 邮箱"
-  </pre>
-</li>
-<li><p>重点：生成 SSH KEY，其实就是生成一个公钥和密钥，GitHub需要一个密钥才能与本地相连接，执行以下命名，并且连续按3次回车生成密钥（注：C 为大写）：</p>
-  <pre>
-      ssh-keygen -t rsa -C "邮箱地址"
-  </pre>
-</li>
-<li><p>后面会有一个地址，可以看到。就是我们生成的密钥保存地址。即：C:/Users/用户名/.ssh文件中。打开这个目录找到 id_rsa.pub 文件，复制全部内容。</p>
-</li>
-<li><p>在网页打开GitHub，依次点击 <strong>我的头像 - Settings - SSH and GPG keys - New SSH key</strong>，将刚刚复制的密钥内容粘贴到key的输入框，然后点击Add Key，配置成功。</p>
-</li>
-<li><p>修改hexo 文件下的_config.yml （站点配置文件）,修改 deploy 属性代码，将本地 hexo 项目托管到 GitHub 上，如下所示：</p>
-  <pre>
-      deploy:
-          type: git        #部署的类型
-          repository: git@github.com:zqiheng/zqiheng.github.io.git # 仓库地址
-          branch: master        #分支名称
-          message: hexo deploy    #提交信息
-  </pre>
-</li>
-<li><p>然后执行下面的命令，安装hexo-deployer-git插件，快速把代码托管到GitHub上面</p>
-  <pre>
-      npm install hexo-deployer-git --save
-  </pre>
-</li>
-<li><p>最后执行下列命令，将hexo项目托管到GitHub平台上</p>
-  <pre>
-      hexo clean
-      hexo generate
-      hexo deploy
-  </pre>
-
-<p>  或：</p>
-  <pre>
-      hexo clean
-      hexo g
-      hexo d
-  </pre>
-</li>
-<li><p>然后在浏览器输入：<strong><a href="https://username.github.io/" target="_blank" rel="noopener">https://username.github.io/</a></strong> 访问，可以看到自己部署的博客</p>
-</li>
-<li><p>最后说一下Hexo全局配置文件，具体代码如下：</p>
-  <pre>
-
-      # Hexo Configuration
-      ## Docs: https://hexo.io/docs/configuration.html
-      ## Source: https://github.com/hexojs/hexo/
-
-      # Site 站点信息配置
-      title: Heng Bolg   #站点名
-      subtitle: 世上本没有路，走的人多了也就有了路...   #站点副标题
-      description: 主要记录自己的学习记录与心得，在校学生一枚...    #站点信息简介
-      keywords:
-      author: 恒        #站点作者
-      language: zh-CN       #站点语言，default 默认是英语， zh-CN 是中文
-      timezone:   #时区，不填
-      avatar: /images/logo.png   #图片
-
-      # URL 博客地址
-      ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-      url: https://zqiheng.github.io
-      root: /
-      permalink: :year/:month/:day/:title/
-      permalink_defaults:
-
-      # Directory  目录设置
-      source_dir: source   #源文件
-      public_dir: public   #生成的网页文件
-      tag_dir: tags  #标签
-      archive_dir: archives  #归档
-      category_dir: categories  #分类
-      code_dir: downloads/code  #
-      i18n_dir: :lang  #国际化
-      skip_render:
-
-      # Writing  文章布局
-      new_post_name: :title.md # File name of new posts
-      default_layout: post  #默认模板
-      titlecase: false # 标题转换成大写
-      external_link: true # 新标签页里打开连接
-      filename_case: 0
-      render_drafts: false
-      post_asset_folder: false
-      relative_link: false
-      future: true
-      highlight:  #代码块设置
-        enable: true  #语法高亮
-         line_number: true  #显示行号
-        auto_detect: false
-        tab_replace:
-
-      # Home page setting    页设置
-      # path: Root path for your blogs index page. (default = '')
-      # per_page: Posts displayed per page. (0 = disable pagination)
-      # order_by: Posts order. (Order by date descending by default)
-      index_generator:
-        path: ''
-        per_page: 4   #每页文章数量
-        order_by: page   #-date
-
-      # Category & Tag  分类和标签
-      default_category: uncategorized
-      category_map:
-      tag_map:
-
-      # Date / Time format 日期/格式
-      ## Hexo uses Moment.js to parse and display date
-      ## You can customize the date format as defined in
-      ## http://momentjs.com/docs/#/displaying/format/
-      date_format: YYYY-MM-DD
-      time_format: HH:mm:ss
-
-      # Pagination   归档显示
-      ## Set per_page to 0 to disable pagination
-      per_page: 10
-      pagination_dir: page
-
-      # Extensions  扩展
-      ## Plugins: https://hexo.io/plugins/
-      ## Themes: https://hexo.io/themes/
-      theme: next
-
-      # Deployment   站点部署到GitHub上
-      ## Docs: https://hexo.io/docs/deployment.html
-      deploy:
-        type: git        #部署的类型
-        repository: git@github.com:zqiheng/zqiheng.github.io.git # 仓库地址
-        branch: master        #分支名称
-        message: hexo    #提交信息
-
-      #查找
-      search:
-        path: search.xml
-        field: post
-        format: html
-        limit: 10000
-  </pre>
-
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="5-Next下载与配置"><a href="#5-Next下载与配置" class="headerlink" title="5. Next下载与配置"></a>5. Next下载与配置</h2><p>—更新时间：2018.06.17—</p>
-<ol>
-<li><p>下载Next主题，在Hexo目录下右击进入Git Bash Here 窗口，输入下列命令</p>
- <pre>
-     git clone https://github.com/iissnan/hexo-theme-next themes/next
- </pre>
-</li>
-<li><p>启动主题</p>
-<p> 当克隆下载完成后，打开站点配置文件(hexo目录下的_config.yml)，找到 <strong>theme</strong>字段，并将其值更改为next</p>
- <pre>
-     # Extensions  扩展
-     ## Plugins: https://hexo.io/plugins/
-     ## Themes: https://hexo.io/themes/
-     theme: next
- </pre>
-</li>
-<li><p>重新启动服务器，在浏览器地址栏输入<strong><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></strong>访问，检测配置是否成功。</p>
-</li>
-<li><p>主题文件配置，目录为（<strong>hexo\themes\next</strong>）下的_config.yml文件。</p>
-<p> 我使用的主题样式是：</p>
- <pre>
-     # Schemes
-     #scheme: Muse
-     #scheme: Mist
-     scheme: Pisces
-     #scheme: Gemini
- </pre>
-</li>
-<li><p>配置左侧导航栏菜单按钮，在主题配置文件中，找到menu属性，做如下配置：</p>
- <pre>
- menu:
-     home: / || home          #首页，后面的表示图标
-     categories: /categories/ || th   #分类
-     archives: /archives/ || archive #归档
-     tags: /tags/ || tags  #标签
-     about: /about/ || user  #关于
-     #schedule: /schedule/ || calendar
-     #sitemap: /sitemap.xml || sitemap
-     #commonweal: /404/ || heartbeat
- </pre>
-</li>
-<li><p>为标签<strong>categories、tags、about</strong>，创建相应的界面，代码如下：</p>
- <pre>
-     hexo new page 'categories'
-     hexo new page 'tags'
-     hexo new page 'about'
- </pre>
-</li>
-<li><p>在 <strong>source</strong>目录下，会看到刚刚生成的三个文件夹，依次打开文件夹，给每个index.md文件添加上type字段。</p>
-</li>
-<li><p>配置左侧导航栏<strong>搜索</strong>按钮</p>
-<ul>
-<li><p>安装 hexo-generator-searchdb ，在Git Bash Here窗口执行以下代码：</p>
-<pre>
-  npm install hexo-generator-searchdb --save
-</pre>
-</li>
-<li><p>打开全局配置文件，在最后新增下面代码；</p>
-<pre>
-  search:
-      path: search.xml
-      field: post
-      format: html
-      limit: 10000
-</pre>
-</li>
-<li><p>打开主题配置文件，找到<strong>local_search</strong>属性，开启本地搜索功能</p>
-<pre>
-  local_search:
-      enable: true
-      # if auto, trigger search by changing input
-      # if manual, trigger search by pressing enter key or search button
-      trigger: auto
-      # show top n results per article, show all results by setting to -1
-      top_n_per_article: 1
-</pre>
-</li>
-<li><p>重新部署项目，并发布到GitHub上</p>
-<pre>
-  hexo clean
-  hexo g
-  hexo d
-</pre>
-</li>
-</ul>
-</li>
-</ol>
+<p>&emsp;&emsp;<strong>下图为Web模式下MVC开发模式架构图。</strong><br><img src="/images/struts/web-mvc详细图.png" alt=""></p>
 <hr>
-<p>基本配置就是这样，其它功能后面再补充</p>
+<p>MVC特点。</p>
+<ul>
+<li>多个视图可以对应一个模型。按MVC设计模式，一个模型对应多个视图，可以减少代码的复制及代码的维护量，一旦模型发生改变，也易于维护。</li>
+<li>模型返回的数据与显示逻辑分离。模型数据可以应用任何的显示技术，例如，使用JSP页面、Velocity模板或者直接产生Excel文档等。</li>
+<li>应用被分隔为三层，降低了各层之间的耦合，提供了应用的可扩展性。</li>
+<li>概念明确，层次清晰，编写方便。</li>
+<li>MVC更符合软件工程化管理的精神。不同的层各司其职，每一层的组件具有相同的特征，有利于通过工程化和工具化产生管理程序代码。</li>
+</ul>
+<p><strong>总结：</strong></p>
+<ul>
+<li>MVC 是一种开发模式。</li>
+<li>Web三层架构（Controller、Service、Dao）是一种开发习惯，是前人留下的<strong>经验的传承。</strong></li>
+<li>两种方式在开发Web应用中往往需要结合使用。</li>
+</ul>
+<hr>
+<h2 id="1-2-MVC实现方式"><a href="#1-2-MVC实现方式" class="headerlink" title="1.2 MVC实现方式"></a>1.2 MVC实现方式</h2><p>&emsp;&emsp;传统的JavaEE开发采用JSP+Servlet+JavaBean的方式来实现MVC，但它有一个<strong>缺陷：程序员在编写程序时必须继承HttpServlet类、覆盖doGet()和doPost()方法，严格遵守Servlet代码规范编写程序。</strong>形如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package com.heng.srvlet;</span><br><span class="line">import java.io.*;</span><br><span class="line">import javax.servlet.*;</span><br><span class="line">import javax.servlet.http.*;</span><br><span class="line"></span><br><span class="line">public class LoginServlet extends HttpServlet&#123;</span><br><span class="line">	public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException&#123;</span><br><span class="line">		//...</span><br><span class="line">	&#125;</span><br><span class="line">	public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException&#123;</span><br><span class="line">		doGet(request,response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;以上这些繁琐的代码与程序本身要实现的功能无关，仅是Java语言Servlet编程接口（API）的一部分。在开发中一旦暴露Servlet API就会大大增加编程的难度，为了屏蔽这种不必要的复杂性，减少用MVC开发Java EE的工作量，人们发明了<strong>Struts2</strong>框架。用Struts2实现的MVC系统与传统的用Servlet编写的MVC系统相比，两者在结构上的区别如下图所示（注：此图为引用Java EE使用教程（第二版）中MVC系统的两种实现方式）。<br><img src="/images/struts/Servlet和Struts的MVC框架区别.png" alt=""></p>
+<p>&emsp;&emsp;由上图可见，Struts2的解决方案是：使用Struts2框架代替了原Servlet部分作为控制器，而业务逻辑处理的功能由用户自定义编写Action去实现，与Struts2的控制器核心相分离。这样就进一步降低了系统中各部分组件的耦合度，也大大降低了编程难度。</p>
+<h1 id="2-简单的Struts2项目开发过程"><a href="#2-简单的Struts2项目开发过程" class="headerlink" title="2. 简单的Struts2项目开发过程"></a>2. 简单的Struts2项目开发过程</h1><h2 id="2-1-新建JavaWeb项目，加载Struts2的包依赖"><a href="#2-1-新建JavaWeb项目，加载Struts2的包依赖" class="headerlink" title="2.1 新建JavaWeb项目，加载Struts2的包依赖"></a>2.1 新建JavaWeb项目，加载Struts2的包依赖</h2><p>&emsp;&emsp;传统的Java EE项目Struts2框架开发，需要自己手动导入Struts2的包支持依赖。大部分的时候，使用Struts2的Java EE应用并不需要用到Struts2的全部特性，开发Struts2程序只需要用到lib下的9个jar包，包括：</p>
+<ul>
+<li>（1）传统的Struts2的5个基本类库。<ul>
+<li>struts2-core-XXX.jar：Struts2框架核心类库</li>
+<li>xwork-core-XXX.jar：Xwork项目，Struts2就是在它的基础上构建的</li>
+<li>ognl-XXX.jar：OGNL表达式语言</li>
+<li>commons-logging-XXX.jar：用于能够插入任何其他的日志系统</li>
+<li>freemarker-XXX.jar：所有的UI标记模板</li>
+</ul>
+</li>
+<li>（2）附加的4个库。<ul>
+<li>commons-io-XXX.jar</li>
+<li>commons-lang-XXX.jar</li>
+<li>javassist-XXX.GA.jar</li>
+<li>commons-fileupload-XXX.jar</li>
+</ul>
+</li>
+</ul>
+<p>&emsp;&emsp;<strong>注：本次实例程序开发采用的是Idea+Maven构建项目，因此我们不需要手动导包，在pom.xml中加入如下依赖即可。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;struts2-core&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.5.13&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-在web-xml中配置Struts2核心Filter"><a href="#2-2-在web-xml中配置Struts2核心Filter" class="headerlink" title="2.2 在web.xml中配置Struts2核心Filter"></a>2.2 在web.xml中配置Struts2核心Filter</h2><p>&emsp;&emsp;<strong>重点：由于Web应用是基于请求/响应架构的应用，所以不管哪个MVC Web框架，都需要在web.xml中配置该框架的核心Servlet或Filter，这样才可以让该框架加入Web应用中。</strong></p>
+<p>&emsp;&emsp;在web.xml中加入下面代码来配置Struts2的核心过滤器（Filter）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--定义Struts2的核心Filter--&gt;</span><br><span class="line">&lt;filter&gt;</span><br><span class="line">  &lt;filter-name&gt;struts2&lt;/filter-name&gt;</span><br><span class="line">  &lt;filter-class&gt;org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line">&lt;!--让Struts2的核心Filter拦截所有请求--&gt;</span><br><span class="line">&lt;filter-mapping&gt;</span><br><span class="line">  &lt;filter-name&gt;struts2&lt;/filter-name&gt;</span><br><span class="line">  &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span><br><span class="line">&lt;/filter-mapping&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-3-实现控制器Action"><a href="#2-3-实现控制器Action" class="headerlink" title="2.3 实现控制器Action"></a>2.3 实现控制器Action</h2><p>&emsp;&emsp;基于Struts2框架的Java EE应用程序使用自定义的Action（控制器）来处理深层业务逻辑，完成用户想要完成的功能。本例定义名为“login”的控制器，判断登陆用户和密码的正确性。</p>
+<p>LoginAction.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">package cn.zqiheng.action;</span><br><span class="line"></span><br><span class="line">public class LoginAction &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 属性驱动传值</span><br><span class="line">     */</span><br><span class="line">    private String username;</span><br><span class="line">    private String password;</span><br><span class="line"></span><br><span class="line">    public String execute() throws Exception&#123;</span><br><span class="line">        System.out.println(&quot;用户名：&quot;+username+&quot;   密码：&quot;+password);</span><br><span class="line"></span><br><span class="line">        if(username.equals(&quot;heng&quot;) &amp;&amp; password.equals(&quot;123&quot;))&#123;</span><br><span class="line">            return &quot;success&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        return &quot;error&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getUsername() &#123;</span><br><span class="line">        return username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setUsername(String username) &#123;</span><br><span class="line">        this.username = username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getPassword() &#123;</span><br><span class="line">        return password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setPassword(String password) &#123;</span><br><span class="line">        this.password = password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-4-配置struts-xml"><a href="#2-4-配置struts-xml" class="headerlink" title="2.4 配置struts.xml"></a>2.4 配置struts.xml</h2><p>&emsp;&emsp;在编写好了Action（控制器）的代码之后，还需要进行配置才能让Struts2识别Action。在resources中新建文件struts.xml。</p>
+<p>struts.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;struts&gt;</span><br><span class="line"></span><br><span class="line">    &lt;package name=&quot;user&quot; namespace=&quot;/&quot; extends=&quot;struts-default&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;action name=&quot;login&quot; class=&quot;cn.zqiheng.action.LoginAction&quot;&gt;</span><br><span class="line">            &lt;result name=&quot;success&quot;&gt;/welcome.jsp&lt;/result&gt;</span><br><span class="line">            &lt;result name=&quot;error&quot;&gt;/error.jsp&lt;/result&gt;</span><br><span class="line">        &lt;/action&gt;</span><br><span class="line">    &lt;/package&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/struts&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-5-编写JSP页面"><a href="#2-5-编写JSP页面" class="headerlink" title="2.5 编写JSP页面"></a>2.5 编写JSP页面</h2><p>index.jsp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;form action=&quot;login&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;</span><br><span class="line">    密&amp;nbsp;&amp;nbsp;&amp;nbsp;码：&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br&gt;</span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>welcome.jsp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;登陆成功界面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;您好！欢迎使用本系统。&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>error.jsp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;登陆失败&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;登陆失败&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-6-配置Tomcat服务器并启动应用"><a href="#2-6-配置Tomcat服务器并启动应用" class="headerlink" title="2.6 配置Tomcat服务器并启动应用"></a>2.6 配置Tomcat服务器并启动应用</h2><p>&emsp;&emsp;项目结构如下图所示。</p>
+<p><img src="/images/struts/Struts2简单项目结构.png" alt=""></p>
+<p>&emsp;&emsp;项目运行结果如下图所示。</p>
+<p><img src="/images/struts/Struts2简单项目运行结果1.png" alt=""></p>
+<p><img src="/images/struts/Struts2简单项目运行结果2.png" alt=""></p>
+<hr>
 
       
     </div>
@@ -769,7 +566,7 @@
     <strong>本文作者： </strong>恒</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.zhangqiheng.cn/GitHub+Hexo搭建.html" title="GitHub + Hexo 搭建">http://www.zhangqiheng.cn/GitHub+Hexo搭建.html</a>
+    <a href="http://www.zhangqiheng.cn/Struts框架技术" title="Struts框架技术（一）">http://www.zhangqiheng.cn/Struts框架技术</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -782,7 +579,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"> <i class="fa fa-tag"></i> Hexo</a>
+            <a href="/tags/Java/" rel="tag"> <i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/Java-EE/" rel="tag"> <i class="fa fa-tag"></i> Java EE</a>
+          
+            <a href="/tags/Struts2/" rel="tag"> <i class="fa fa-tag"></i> Struts2</a>
           
         </div>
       
@@ -795,8 +596,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Hello-Hexo.html" rel="next" title="Hello Hexo">
-                <i class="fa fa-chevron-left"></i> Hello Hexo
+              <a href="/JDBC" rel="next" title="JDBC">
+                <i class="fa fa-chevron-left"></i> JDBC
               </a>
             
           </div>
@@ -805,8 +606,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/IDEA开发工具安装与破解.html" rel="prev" title="IDEA开发工具安装与破解">
-                IDEA开发工具安装与破解 <i class="fa fa-chevron-right"></i>
+              <a href="/MyBatis学习总结（一）" rel="prev" title="MyBatis学习总结（一）">
+                MyBatis学习总结（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1005,7 +806,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建步骤"><span class="nav-number">2.</span> <span class="nav-text">搭建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Git下载与安装"><span class="nav-number">2.1.</span> <span class="nav-text">1. Git下载与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-GitHub-账号注册"><span class="nav-number">2.2.</span> <span class="nav-text">2. GitHub 账号注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Node-js-下载与安装"><span class="nav-number">2.3.</span> <span class="nav-text">3. Node.js 下载与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-搭建个人博客Hexo"><span class="nav-number">2.4.</span> <span class="nav-text">4. 搭建个人博客Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Next下载与配置"><span class="nav-number">2.5.</span> <span class="nav-text">5. Next下载与配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-MVC-基本思想"><span class="nav-number">1.</span> <span class="nav-text">1. MVC 基本思想</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-MVC思想概述"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 MVC思想概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-MVC实现方式"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 MVC实现方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-简单的Struts2项目开发过程"><span class="nav-number">2.</span> <span class="nav-text">2. 简单的Struts2项目开发过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-新建JavaWeb项目，加载Struts2的包依赖"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 新建JavaWeb项目，加载Struts2的包依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-在web-xml中配置Struts2核心Filter"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 在web.xml中配置Struts2核心Filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-实现控制器Action"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 实现控制器Action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-配置struts-xml"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 配置struts.xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-编写JSP页面"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 编写JSP页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-配置Tomcat服务器并启动应用"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 配置Tomcat服务器并启动应用</span></a></li></ol></li></ol></div>
             
 
           </div>

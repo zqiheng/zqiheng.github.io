@@ -108,27 +108,25 @@
 
 
 
-  <meta name="description" content="&amp;emsp;&amp;emsp;前面简单的介绍了Servlet相关的技术特点以及生命周期，下面介绍Servlet常用的开发方法及步骤。">
-<meta name="keywords" content="Java,Java EE,Servlet">
+  <meta name="description" content="说明这里还是简单的记录一下基于GitHub+Hexo+Next的个人博客搭建把，防止以后忘了… 搭建步骤">
+<meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Servlet（二）之HttpServlet开发">
-<meta property="og:url" content="http://www.zhangqiheng.cn/Servlet（二）之HttpServlet开发.html">
+<meta property="og:title" content="GitHub + Hexo 搭建">
+<meta property="og:url" content="http://www.zhangqiheng.cn/GitHub+Hexo搭建">
 <meta property="og:site_name" content="Heng Bolg">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;前面简单的介绍了Servlet相关的技术特点以及生命周期，下面介绍Servlet常用的开发方法及步骤。">
+<meta property="og:description" content="说明这里还是简单的记录一下基于GitHub+Hexo+Next的个人博客搭建把，防止以后忘了… 搭建步骤">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/Servlet/HttpServlet结果1.png">
-<meta property="og:updated_time" content="2018-10-05T15:08:12.177Z">
+<meta property="og:updated_time" content="2018-06-19T06:42:04.704Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Servlet（二）之HttpServlet开发">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;前面简单的介绍了Servlet相关的技术特点以及生命周期，下面介绍Servlet常用的开发方法及步骤。">
-<meta name="twitter:image" content="http://www.zhangqiheng.cn/images/Servlet/HttpServlet结果1.png">
+<meta name="twitter:title" content="GitHub + Hexo 搭建">
+<meta name="twitter:description" content="说明这里还是简单的记录一下基于GitHub+Hexo+Next的个人博客搭建把，防止以后忘了… 搭建步骤">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.zhangqiheng.cn/Servlet（二）之HttpServlet开发.html"/>
+  <link rel="canonical" href="http://www.zhangqiheng.cn/GitHub+Hexo搭建"/>
 
 
 
@@ -138,7 +136,7 @@
   };
 </script>
 
-  <title>Servlet（二）之HttpServlet开发 | Heng Bolg</title>
+  <title>GitHub + Hexo 搭建 | Heng Bolg</title>
   
 
 
@@ -342,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhangqiheng.cn/Servlet（二）之HttpServlet开发.html">
+    <link itemprop="mainEntityOfPage" href="http://www.zhangqiheng.cn/GitHub+Hexo搭建">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="恒">
@@ -359,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Servlet（二）之HttpServlet开发
+          <h1 class="post-title" itemprop="name headline">GitHub + Hexo 搭建
               
             
           </h1>
@@ -384,7 +382,7 @@
                 
               
 
-              <time title="创建时间：2018-09-27 14:00:00" itemprop="dateCreated datePublished" datetime="2018-09-27T14:00:00+08:00">2018-09-27</time>
+              <time title="创建时间：2018-06-15 17:20:27" itemprop="dateCreated datePublished" datetime="2018-06-15T17:20:27+08:00">2018-06-15</time>
             
 
             
@@ -401,7 +399,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-05 23:08:12" itemprop="dateModified" datetime="2018-10-05T23:08:12+08:00">2018-10-05</time>
+                <time title="修改时间：2018-06-19 14:42:04" itemprop="dateModified" datetime="2018-06-19T14:42:04+08:00">2018-06-19</time>
               
             
           </span>
@@ -418,21 +416,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-EE/" itemprop="url" rel="index"><span itemprop="name">Java EE</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-EE/Servlet/" itemprop="url" rel="index"><span itemprop="name">Servlet</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/个人博客搭建/" itemprop="url" rel="index"><span itemprop="name">个人博客搭建</span></a></span>
 
                 
                 
@@ -466,37 +457,297 @@
       
 
       
-        <p>&emsp;&emsp;前面简单的介绍了Servlet相关的技术特点以及生命周期，下面介绍Servlet常用的开发方法及步骤。<br><a id="more"></a></p>
-<p>&emsp;&emsp;<strong>说明：</strong>在实际的开发的Web项目中，大多数我们采用Servlet技术开发时，是通过<strong>继承的HttpServlet类，而不是实现Servlet接口。</strong>HttpServlet类存放在javax.servlet.http包内，是针对使用HTTP协议的Web服务器的Servlet类。HttpServlet类通过执行Servlet接口，能够提供HTTP协议的功能。</p>
-<h1 id="1-Servlet创建"><a href="#1-Servlet创建" class="headerlink" title="1.Servlet创建"></a>1.Servlet创建</h1><p>&emsp;&emsp;创建一个Servlet，通常涉及下列4个步骤。</p>
+        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>这里还是简单的记录一下基于GitHub+Hexo+Next的个人博客搭建把，防止以后忘了…</p>
+<h1 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h1><a id="more"></a>
+<h2 id="1-Git下载与安装"><a href="#1-Git下载与安装" class="headerlink" title="1. Git下载与安装"></a>1. Git下载与安装</h2><p>Git是目前非常受欢迎的一个开源的分布式版本控制系统，用于敏捷高效地处理任何或大或小的项目。具体的一些介绍和使用的不具体写了，自己看教程。</p>
 <ul>
-<li>1）继承HttpServlet抽象类。</li>
-<li>2）重载适当的方法，如覆盖（重写）doGet()方法或doPost()方法。</li>
-<li>3）如果有HTTP请求信息的话，获取该信息。可通过调用HttpServletRequest类对象的以下3个方法获取。</li>
+<li><a href="http://www.runoob.com/git/git-tutorial.html" target="_blank" rel="noopener">菜鸟教程链接</a></li>
+<li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">官网下载链接</a></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getParameterNames()     //获取请求中所有参数的名字</span><br><span class="line">getParameter()          //获取请求中指定参数的值</span><br><span class="line">getParameterValues()    //获取请求中所有参数的值</span><br></pre></td></tr></table></figure>
+<h2 id="2-GitHub-账号注册"><a href="#2-GitHub-账号注册" class="headerlink" title="2. GitHub 账号注册"></a>2. GitHub 账号注册</h2><p>gitHub是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，故名gitHub。作为一个程序猿，现在基本都有一个GitHub账号，来托管自己的代码，如果你没有那就Out了。</p>
 <ul>
-<li>4）生成HTTP响应。HttpServletResponse类对象生成响应，并将它返回到发出请求的客户机上。它的方法允许设置“请求”标题和“响应”主体。“响应”对象还包含有getWriter()方法以返回一个PringWriter类对象。</li>
+<li><a href="https://github.com/" target="_blank" rel="noopener">官方地址链接</a></li>
 </ul>
-<p>&emsp;&emsp;以下为按照上述步骤创建的Servlet类。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">package com.heng.servlet;</span><br><span class="line"></span><br><span class="line">import javax.servlet.ServletException;</span><br><span class="line">import javax.servlet.annotation.WebServlet;</span><br><span class="line">import javax.servlet.http.HttpServlet;</span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.PrintWriter;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 第一步：继承HttpServlet类</span><br><span class="line"> */</span><br><span class="line">@WebServlet(&quot;/helloHttpServlet&quot;)</span><br><span class="line">public class MyHttpServelt extends HttpServlet &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 第二步：重写doGet()或doPost()方法</span><br><span class="line">     * @param request</span><br><span class="line">     * @param response</span><br><span class="line">     * @throws ServletException</span><br><span class="line">     * @throws IOException</span><br><span class="line">     */</span><br><span class="line">    @Override</span><br><span class="line">    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line">        /**</span><br><span class="line">         * 第三步：获取HTTP请求信息</span><br><span class="line">         */</span><br><span class="line">        String myName = request.getParameter(&quot;myName&quot;);</span><br><span class="line">        /**</span><br><span class="line">         * 第四步：生成HTTP响应</span><br><span class="line">         */</span><br><span class="line">        response.setContentType(&quot;text/html;charset=gb2312&quot;);</span><br><span class="line">        response.setHeader(&quot;Pragma&quot;,&quot;No-cache&quot;);</span><br><span class="line">        response.setDateHeader(&quot;Expires&quot;,0);</span><br><span class="line">        response.setHeader(&quot;Cache-Control&quot;,&quot;no-cache&quot;);</span><br><span class="line"></span><br><span class="line">        PrintWriter out = response.getWriter();</span><br><span class="line">        out.println(&quot;&lt;html&gt;&quot;);</span><br><span class="line">        out.println(&quot;&lt;head&gt;&lt;title&gt;一个简单的Servlet程序&lt;/title&gt;&lt;/head&gt;&quot;);</span><br><span class="line">        out.println(&quot;&lt;body&gt;&quot;);</span><br><span class="line">        out.println(&quot;&lt;h1&gt;Servlet程序&lt;/h1&gt;&quot;);</span><br><span class="line">        out.println(&quot;&lt;p style=&apos;color:red&apos;&gt;&quot;+myName+&quot;您好，欢迎使用本程序！！！&quot;);</span><br><span class="line">        out.println(&quot;&lt;/body&gt;&quot;);</span><br><span class="line">        out.println(&quot;&lt;/html&gt;&quot;);</span><br><span class="line">        out.flush();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">        this.doGet(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果：</p>
-<p><img src="/images/Servlet/HttpServlet结果1.png" alt=""></p>
-<h1 id="2-Servlet的配置"><a href="#2-Servlet的配置" class="headerlink" title="2.Servlet的配置"></a>2.Servlet的配置</h1><p>创建了Servlet类后，还需要对Servlet进行配置。配置的目的是为了将创建的Servlet注册到Servlet容器之中，以方便Servlet容器对Servlet的调用。</p>
-<h2 id="2-1-在web-xml文件中配置Servlet"><a href="#2-1-在web-xml文件中配置Servlet" class="headerlink" title="2.1 在web.xml文件中配置Servlet"></a>2.1 在web.xml文件中配置Servlet</h2><p>1）Servlet的名称、类和其他选项的配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">	&lt;!--Servlet名称--&gt;</span><br><span class="line">    &lt;servlet-name&gt;myServlet&lt;/servlet-name&gt;</span><br><span class="line">    &lt;!--Servlet类的全路径--&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.heng.servlet.MyServelt&lt;/servlet-class&gt;</span><br><span class="line">    &lt;!--Servlet描述信息--&gt;</span><br><span class="line">    &lt;description&gt;Simple Servlet&lt;/description&gt;</span><br><span class="line">    &lt;!--指定发布时Servlet的名称--&gt;</span><br><span class="line">    &lt;display-name&gt;Servlet&lt;/display-name&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br></pre></td></tr></table></figure>
-<p>2）Servlet的映射<br>&emsp;&emsp;在web.xml配置文件中<strong>可以给一个Servlet做多个映射，</strong>因此，可以通过不同的方法访问这个Servlet。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;!--与上面的Servlet名称一定要保持一致--&gt;</span><br><span class="line">    &lt;servlet-name&gt;myServlet&lt;/servlet-name&gt;</span><br><span class="line">    &lt;!--请求路径，格式较多。例如/*、/helloServlet、/one/*、*.do、*.action等等--&gt;</span><br><span class="line">    &lt;url-pattern&gt;/helloServlet&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
-<p>3）初始化参数<br>&emsp;&emsp;Servlet可以配置一些初始化参数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;init-param&gt;</span><br><span class="line">        &lt;param-name&gt;number&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;10000&lt;/param-value&gt;</span><br><span class="line">    &lt;/init-param&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;在上述代码中，指定number的参数值为10000.在Servlet中可以在init()方法体中通过getInitParameter()方法访问这些初始化参数。</p>
-<p>4）启动装入优先权<br>&emsp;&emsp;启动装入优先权通过<strong><load-on-startup></load-on-startup></strong>元素指定。</p>
+<h2 id="3-Node-js-下载与安装"><a href="#3-Node-js-下载与安装" class="headerlink" title="3. Node.js 下载与安装"></a>3. Node.js 下载与安装</h2><p>Node.js也是目前特别火的一个后台服务端脚本语言。简单的说就是运行在服务端的JavaScript。基于Chrome JavaScript运行时建立的一个平台。运行速度快、性能非常好。</p>
+<ul>
+<li><a href="https://www.runoob.com/nodejs/nodejs-tutorial.html" target="_blank" rel="noopener">菜鸟教程链接</a></li>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">官网下载链接</a></li>
+</ul>
+<h2 id="4-搭建个人博客Hexo"><a href="#4-搭建个人博客Hexo" class="headerlink" title="4. 搭建个人博客Hexo"></a>4. 搭建个人博客Hexo</h2><ol>
+<li>安装Hexo，在本地电脑随一个磁盘新建一个文件夹，比如取名Blog来存放自己的博客。在文件夹内右击点击<strong>Git Bash Here</strong>进入命令行窗口，执行以下代码：</li>
+</ol>
+<pre>
+    npm install -g hexo-cli
+</pre>
+
+<ol start="2">
+<li>初始化Hexo，得到hexo文件夹，用于存放Hexo博客的所有文件。还是在刚刚那个窗口中执行以下代码：</li>
+</ol>
+<pre>
+    hexo init hexo
+</pre>
+
+<ol start="3">
+<li>配置Hexo，安装hexo依赖文件,生成部署文件，分别执行以下代码：</li>
+</ol>
+<pre>
+    cd hexo
+    npm install
+    hexo generate
+</pre>
+
+<ol start="3">
+<li>继续在命令行窗口输入以下代码，启动服务器(hexo server == hexo s)：</li>
+</ol>
+<pre>
+    hexo server
+</pre>
+
+<ol start="4">
+<li><p>随便打开一个浏览器，地址栏输入 <strong><a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></strong> ，如果成功显示Hexo页面，则搭建成功。</p>
+</li>
+<li><p>将Hexo 博客部署到GitHub中</p>
+<ul>
+<li>新建一个仓库，命名为：username.github.id</li>
+<li><p>在本地命令行配置Git：</p>
+<ul>
+<li><p>在Blog文件夹目录右击打开Git Bash窗口，输入以下命名</p>
+  <pre>
+      git config -- global user.name "GitHub 用户名"
+      git config -- global user.email "GitHub 邮箱"
+  </pre>
+</li>
+<li><p>重点：生成 SSH KEY，其实就是生成一个公钥和密钥，GitHub需要一个密钥才能与本地相连接，执行以下命名，并且连续按3次回车生成密钥（注：C 为大写）：</p>
+  <pre>
+      ssh-keygen -t rsa -C "邮箱地址"
+  </pre>
+</li>
+<li><p>后面会有一个地址，可以看到。就是我们生成的密钥保存地址。即：C:/Users/用户名/.ssh文件中。打开这个目录找到 id_rsa.pub 文件，复制全部内容。</p>
+</li>
+<li><p>在网页打开GitHub，依次点击 <strong>我的头像 - Settings - SSH and GPG keys - New SSH key</strong>，将刚刚复制的密钥内容粘贴到key的输入框，然后点击Add Key，配置成功。</p>
+</li>
+<li><p>修改hexo 文件下的_config.yml （站点配置文件）,修改 deploy 属性代码，将本地 hexo 项目托管到 GitHub 上，如下所示：</p>
+  <pre>
+      deploy:
+          type: git        #部署的类型
+          repository: git@github.com:zqiheng/zqiheng.github.io.git # 仓库地址
+          branch: master        #分支名称
+          message: hexo deploy    #提交信息
+  </pre>
+</li>
+<li><p>然后执行下面的命令，安装hexo-deployer-git插件，快速把代码托管到GitHub上面</p>
+  <pre>
+      npm install hexo-deployer-git --save
+  </pre>
+</li>
+<li><p>最后执行下列命令，将hexo项目托管到GitHub平台上</p>
+  <pre>
+      hexo clean
+      hexo generate
+      hexo deploy
+  </pre>
+
+<p>  或：</p>
+  <pre>
+      hexo clean
+      hexo g
+      hexo d
+  </pre>
+</li>
+<li><p>然后在浏览器输入：<strong><a href="https://username.github.io/" target="_blank" rel="noopener">https://username.github.io/</a></strong> 访问，可以看到自己部署的博客</p>
+</li>
+<li><p>最后说一下Hexo全局配置文件，具体代码如下：</p>
+  <pre>
+
+      # Hexo Configuration
+      ## Docs: https://hexo.io/docs/configuration.html
+      ## Source: https://github.com/hexojs/hexo/
+
+      # Site 站点信息配置
+      title: Heng Bolg   #站点名
+      subtitle: 世上本没有路，走的人多了也就有了路...   #站点副标题
+      description: 主要记录自己的学习记录与心得，在校学生一枚...    #站点信息简介
+      keywords:
+      author: 恒        #站点作者
+      language: zh-CN       #站点语言，default 默认是英语， zh-CN 是中文
+      timezone:   #时区，不填
+      avatar: /images/logo.png   #图片
+
+      # URL 博客地址
+      ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+      url: https://zqiheng.github.io
+      root: /
+      permalink: :year/:month/:day/:title/
+      permalink_defaults:
+
+      # Directory  目录设置
+      source_dir: source   #源文件
+      public_dir: public   #生成的网页文件
+      tag_dir: tags  #标签
+      archive_dir: archives  #归档
+      category_dir: categories  #分类
+      code_dir: downloads/code  #
+      i18n_dir: :lang  #国际化
+      skip_render:
+
+      # Writing  文章布局
+      new_post_name: :title.md # File name of new posts
+      default_layout: post  #默认模板
+      titlecase: false # 标题转换成大写
+      external_link: true # 新标签页里打开连接
+      filename_case: 0
+      render_drafts: false
+      post_asset_folder: false
+      relative_link: false
+      future: true
+      highlight:  #代码块设置
+        enable: true  #语法高亮
+         line_number: true  #显示行号
+        auto_detect: false
+        tab_replace:
+
+      # Home page setting    页设置
+      # path: Root path for your blogs index page. (default = '')
+      # per_page: Posts displayed per page. (0 = disable pagination)
+      # order_by: Posts order. (Order by date descending by default)
+      index_generator:
+        path: ''
+        per_page: 4   #每页文章数量
+        order_by: page   #-date
+
+      # Category & Tag  分类和标签
+      default_category: uncategorized
+      category_map:
+      tag_map:
+
+      # Date / Time format 日期/格式
+      ## Hexo uses Moment.js to parse and display date
+      ## You can customize the date format as defined in
+      ## http://momentjs.com/docs/#/displaying/format/
+      date_format: YYYY-MM-DD
+      time_format: HH:mm:ss
+
+      # Pagination   归档显示
+      ## Set per_page to 0 to disable pagination
+      per_page: 10
+      pagination_dir: page
+
+      # Extensions  扩展
+      ## Plugins: https://hexo.io/plugins/
+      ## Themes: https://hexo.io/themes/
+      theme: next
+
+      # Deployment   站点部署到GitHub上
+      ## Docs: https://hexo.io/docs/deployment.html
+      deploy:
+        type: git        #部署的类型
+        repository: git@github.com:zqiheng/zqiheng.github.io.git # 仓库地址
+        branch: master        #分支名称
+        message: hexo    #提交信息
+
+      #查找
+      search:
+        path: search.xml
+        field: post
+        format: html
+        limit: 10000
+  </pre>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="5-Next下载与配置"><a href="#5-Next下载与配置" class="headerlink" title="5. Next下载与配置"></a>5. Next下载与配置</h2><p>—更新时间：2018.06.17—</p>
+<ol>
+<li><p>下载Next主题，在Hexo目录下右击进入Git Bash Here 窗口，输入下列命令</p>
+ <pre>
+     git clone https://github.com/iissnan/hexo-theme-next themes/next
+ </pre>
+</li>
+<li><p>启动主题</p>
+<p> 当克隆下载完成后，打开站点配置文件(hexo目录下的_config.yml)，找到 <strong>theme</strong>字段，并将其值更改为next</p>
+ <pre>
+     # Extensions  扩展
+     ## Plugins: https://hexo.io/plugins/
+     ## Themes: https://hexo.io/themes/
+     theme: next
+ </pre>
+</li>
+<li><p>重新启动服务器，在浏览器地址栏输入<strong><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></strong>访问，检测配置是否成功。</p>
+</li>
+<li><p>主题文件配置，目录为（<strong>hexo\themes\next</strong>）下的_config.yml文件。</p>
+<p> 我使用的主题样式是：</p>
+ <pre>
+     # Schemes
+     #scheme: Muse
+     #scheme: Mist
+     scheme: Pisces
+     #scheme: Gemini
+ </pre>
+</li>
+<li><p>配置左侧导航栏菜单按钮，在主题配置文件中，找到menu属性，做如下配置：</p>
+ <pre>
+ menu:
+     home: / || home          #首页，后面的表示图标
+     categories: /categories/ || th   #分类
+     archives: /archives/ || archive #归档
+     tags: /tags/ || tags  #标签
+     about: /about/ || user  #关于
+     #schedule: /schedule/ || calendar
+     #sitemap: /sitemap.xml || sitemap
+     #commonweal: /404/ || heartbeat
+ </pre>
+</li>
+<li><p>为标签<strong>categories、tags、about</strong>，创建相应的界面，代码如下：</p>
+ <pre>
+     hexo new page 'categories'
+     hexo new page 'tags'
+     hexo new page 'about'
+ </pre>
+</li>
+<li><p>在 <strong>source</strong>目录下，会看到刚刚生成的三个文件夹，依次打开文件夹，给每个index.md文件添加上type字段。</p>
+</li>
+<li><p>配置左侧导航栏<strong>搜索</strong>按钮</p>
+<ul>
+<li><p>安装 hexo-generator-searchdb ，在Git Bash Here窗口执行以下代码：</p>
+<pre>
+  npm install hexo-generator-searchdb --save
+</pre>
+</li>
+<li><p>打开全局配置文件，在最后新增下面代码；</p>
+<pre>
+  search:
+      path: search.xml
+      field: post
+      format: html
+      limit: 10000
+</pre>
+</li>
+<li><p>打开主题配置文件，找到<strong>local_search</strong>属性，开启本地搜索功能</p>
+<pre>
+  local_search:
+      enable: true
+      # if auto, trigger search by changing input
+      # if manual, trigger search by pressing enter key or search button
+      trigger: auto
+      # show top n results per article, show all results by setting to -1
+      top_n_per_article: 1
+</pre>
+</li>
+<li><p>重新部署项目，并发布到GitHub上</p>
+<pre>
+  hexo clean
+  hexo g
+  hexo d
+</pre>
+</li>
+</ul>
+</li>
+</ol>
 <hr>
-<p><strong>重点</strong></p>
-<h2 id="2-2-采用注解配置Servlet"><a href="#2-2-采用注解配置Servlet" class="headerlink" title="2.2 采用注解配置Servlet"></a>2.2 采用注解配置Servlet</h2><p>&emsp;&emsp;采用注解配置Servlet的基本语法如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import javax.servlet.annotation.WebServlet;</span><br><span class="line"></span><br><span class="line">@WebServlet(</span><br><span class="line">urlPatterns = &#123;&quot;/映射地址&quot;&#125;,asyncSupported=true|false,loadOnStartup = -1,</span><br><span class="line">name = &quot;Servlet名称&quot;,displayName = &quot;显示名称&quot;,</span><br><span class="line">initParams = &#123;@WebInitParam(name = &quot;username&quot;,value = &quot;值&quot;)&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;在上面的语法中，urlPatterns属性用于指定映射地址；asyncSupported属性用于指定是否支持异步操作模式；loadOnStartup属性用于指定Servlet的加载顺序；name属性用于指定Servlet的name属性；displayName属性用于指定该Servlet的显示名；initParams属性用于指定一组Servlet初始化参数。</p>
-<hr>
+<p>基本配置就是这样，其它功能后面再补充</p>
 
       
     </div>
@@ -518,7 +769,7 @@
     <strong>本文作者： </strong>恒</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.zhangqiheng.cn/Servlet（二）之HttpServlet开发.html" title="Servlet（二）之HttpServlet开发">http://www.zhangqiheng.cn/Servlet（二）之HttpServlet开发.html</a>
+    <a href="http://www.zhangqiheng.cn/GitHub+Hexo搭建" title="GitHub + Hexo 搭建">http://www.zhangqiheng.cn/GitHub+Hexo搭建</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -531,11 +782,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"> <i class="fa fa-tag"></i> Java</a>
-          
-            <a href="/tags/Java-EE/" rel="tag"> <i class="fa fa-tag"></i> Java EE</a>
-          
-            <a href="/tags/Servlet/" rel="tag"> <i class="fa fa-tag"></i> Servlet</a>
+            <a href="/tags/Hexo/" rel="tag"> <i class="fa fa-tag"></i> Hexo</a>
           
         </div>
       
@@ -548,8 +795,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Servlet（一）之Servlet技术简介.html" rel="next" title="Servlet（一）之Servlet技术简介">
-                <i class="fa fa-chevron-left"></i> Servlet（一）之Servlet技术简介
+              <a href="/Hello-Hexo" rel="next" title="Hello Hexo">
+                <i class="fa fa-chevron-left"></i> Hello Hexo
               </a>
             
           </div>
@@ -558,8 +805,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Servlet（三）之实现一个简单的备忘录.html" rel="prev" title="Servlet（三）之实现一个简单的备忘录">
-                Servlet（三）之实现一个简单的备忘录 <i class="fa fa-chevron-right"></i>
+              <a href="/IDEA开发工具安装与破解" rel="prev" title="IDEA开发工具安装与破解">
+                IDEA开发工具安装与破解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -758,7 +1005,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Servlet创建"><span class="nav-number">1.</span> <span class="nav-text">1.Servlet创建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Servlet的配置"><span class="nav-number">2.</span> <span class="nav-text">2.Servlet的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-在web-xml文件中配置Servlet"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 在web.xml文件中配置Servlet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-采用注解配置Servlet"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 采用注解配置Servlet</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建步骤"><span class="nav-number">2.</span> <span class="nav-text">搭建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Git下载与安装"><span class="nav-number">2.1.</span> <span class="nav-text">1. Git下载与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-GitHub-账号注册"><span class="nav-number">2.2.</span> <span class="nav-text">2. GitHub 账号注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Node-js-下载与安装"><span class="nav-number">2.3.</span> <span class="nav-text">3. Node.js 下载与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-搭建个人博客Hexo"><span class="nav-number">2.4.</span> <span class="nav-text">4. 搭建个人博客Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Next下载与配置"><span class="nav-number">2.5.</span> <span class="nav-text">5. Next下载与配置</span></a></li></ol></li></ol></div>
             
 
           </div>

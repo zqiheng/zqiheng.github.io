@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="说明由于暑假电脑出了故障，重装了系统。导致本地电脑搭建的Github+Hexo博客不能正常使用，也由于时间原因到现在才有时间来恢复博客（不会断的）。现在简单记录下是如何恢复已有的Hexo博客。 恢复步骤">
+  <meta name="description" content="Hexo简介：简而言之，Hexo 是一个基于 Node.js 的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。其作者是来自台湾的tommy351大神。Hexo 因其界面简洁、美观且对各类人群（不只是程序猿）友好而广受欢迎，声望不亚于大名鼎鼎的WordPress。">
 <meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系统重装后如何恢复Hexo博客">
-<meta property="og:url" content="http://www.zhangqiheng.cn/系统重装后如何恢复Hexo博客.html">
+<meta property="og:title" content="Hello Hexo">
+<meta property="og:url" content="http://www.zhangqiheng.cn/Hello-Hexo">
 <meta property="og:site_name" content="Heng Bolg">
-<meta property="og:description" content="说明由于暑假电脑出了故障，重装了系统。导致本地电脑搭建的Github+Hexo博客不能正常使用，也由于时间原因到现在才有时间来恢复博客（不会断的）。现在简单记录下是如何恢复已有的Hexo博客。 恢复步骤">
+<meta property="og:description" content="Hexo简介：简而言之，Hexo 是一个基于 Node.js 的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。其作者是来自台湾的tommy351大神。Hexo 因其界面简洁、美观且对各类人群（不只是程序猿）友好而广受欢迎，声望不亚于大名鼎鼎的WordPress。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-20T10:54:16.869Z">
+<meta property="og:updated_time" content="2018-06-15T09:18:46.089Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系统重装后如何恢复Hexo博客">
-<meta name="twitter:description" content="说明由于暑假电脑出了故障，重装了系统。导致本地电脑搭建的Github+Hexo博客不能正常使用，也由于时间原因到现在才有时间来恢复博客（不会断的）。现在简单记录下是如何恢复已有的Hexo博客。 恢复步骤">
+<meta name="twitter:title" content="Hello Hexo">
+<meta name="twitter:description" content="Hexo简介：简而言之，Hexo 是一个基于 Node.js 的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。其作者是来自台湾的tommy351大神。Hexo 因其界面简洁、美观且对各类人群（不只是程序猿）友好而广受欢迎，声望不亚于大名鼎鼎的WordPress。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.zhangqiheng.cn/系统重装后如何恢复Hexo博客.html"/>
+  <link rel="canonical" href="http://www.zhangqiheng.cn/Hello-Hexo"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>系统重装后如何恢复Hexo博客 | Heng Bolg</title>
+  <title>Hello Hexo | Heng Bolg</title>
   
 
 
@@ -340,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhangqiheng.cn/系统重装后如何恢复Hexo博客.html">
+    <link itemprop="mainEntityOfPage" href="http://www.zhangqiheng.cn/Hello-Hexo">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="恒">
@@ -357,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">系统重装后如何恢复Hexo博客
+          <h1 class="post-title" itemprop="name headline">Hello Hexo
               
             
           </h1>
@@ -382,13 +382,9 @@
                 
               
 
-              <time title="创建时间：2018-09-20 18:00:00 / 修改时间：18:54:16" itemprop="dateCreated datePublished" datetime="2018-09-20T18:00:00+08:00">2018-09-20</time>
+              <time title="创建时间：2018-06-15 17:18:46" itemprop="dateCreated datePublished" datetime="2018-06-15T17:18:46+08:00">2018-06-15</time>
             
 
-            
-              
-
-              
             
           </span>
 
@@ -411,7 +407,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/个人博客搭建/" itemprop="url" rel="index"><span itemprop="name">个人博客搭建</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/简介/" itemprop="url" rel="index"><span itemprop="name">简介</span></a></span>
 
                 
                 
@@ -445,41 +441,12 @@
       
 
       
-        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>由于暑假电脑出了故障，重装了系统。导致本地电脑搭建的Github+Hexo博客不能正常使用，也由于时间原因到现在才有时间来恢复博客（不会断的）。现在简单记录下是如何恢复已有的Hexo博客。</p>
-<h1 id="恢复步骤"><a href="#恢复步骤" class="headerlink" title="恢复步骤"></a>恢复步骤</h1><a id="more"></a>
-<ul>
-<li><strong>重点：</strong> 重装系统前的博客有备份（整个文件，也就是与最后一次上传到GitHub保持一致，包括配置文件。PS：养成备份的好习惯。）。</li>
-</ul>
-<h2 id="第一步：恢复本地"><a href="#第一步：恢复本地" class="headerlink" title="第一步：恢复本地"></a>第一步：恢复本地</h2><p>按照搭建博客步骤重新安装Git,Node.js,Hexo。可参考《<a href="https://zqiheng.github.io/2018/06/15/GitHub+Hexo%E6%90%AD%E5%BB%BA/" target="_blank" rel="noopener">GitHub + Hexo 搭建</a>》，执行到4-1操作步骤后，进入原有hexo文件目录内输入如下命名：</p>
-<pre>
-    hexo s
-</pre>
-
-<p>如果服务器启动成功，并在浏览器中输入<strong><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></strong>可以看到博客，则表明本地恢复成功。如果不成功，检查Git,Node.js,Hexo安装是否正确，重来一遍。</p>
-<h2 id="第二步：恢复同步GitHub功能"><a href="#第二步：恢复同步GitHub功能" class="headerlink" title="第二步：恢复同步GitHub功能"></a>第二步：恢复同步GitHub功能</h2><p>第一步正确执行后，接下来我们就要开始恢复博客上传到远程Github上的功能了。可参考《<a href="https://zqiheng.github.io/2018/06/15/GitHub+Hexo%E6%90%AD%E5%BB%BA/" target="_blank" rel="noopener">GitHub + Hexo 搭建</a>》，从4.5步骤开始，从新配置用户名和邮箱。</p>
-<ul>
-<li>在Blog文件夹目录内右击打开Git Bash Here窗口，输入以下命令：</li>
-</ul>
-<pre>
-    git config --global user.name "GitHub用户名"
-    git config --global user.email "GitHub邮箱"
-</pre>
-
-<ul>
-<li><strong>重点：</strong>重新生成SSH KEY（系统重装后是没有的，需要重新生成），GitHub需要一个密钥才能与本地相连接，执行以下命名，并且连续按3次回车生成密钥（注：C 为大写）：</li>
-</ul>
-<pre>
-    ssh-keygen -t rsa -C "邮箱地址"
-</pre>
-
-<ul>
-<li><p>后面会有一个地址，可以看到。就是我们生成的密钥保存地址。即：C:/Users/用户名/.ssh文件中。打开这个目录找到 id_rsa.pub 文件，复制全部内容。</p>
-</li>
-<li><p>在网页打开GitHub，依次点击 <strong>我的头像 - Settings - SSH and GPG keys - New SSH key</strong>，将刚刚复制的密钥内容粘贴到key的输入框（可以将原来的密钥删除），然后点击Add Key，配置成功。</p>
-</li>
-</ul>
-<hr>
-<p>最后，测试一下，按照以前的方式随便写一篇文章上传一下，如何成功了，那么我们就大功告成了！！！</p>
+        <h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>简而言之，Hexo 是一个基于 Node.js 的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。其作者是来自台湾的tommy351大神。Hexo 因其界面简洁、美观且对各类人群（不只是程序猿）友好而广受欢迎，声望不亚于大名鼎鼎的WordPress。</p>
+<a id="more"></a>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><h3 id="为什么需要一个博客"><a href="#为什么需要一个博客" class="headerlink" title="为什么需要一个博客"></a>为什么需要一个博客</h3><p>对于个人网站来说,没有比博客更合适的形式了。在博客中,文章才是最主要的,一切都显得主次分明,干净利落。相比之下,论坛中主题和回复鱼龙混杂,阅读体验非常差。同时,博客比论坛的数据库小很多,便于维护。</p>
+<h3 id="为什么是静态博客"><a href="#为什么是静态博客" class="headerlink" title="为什么是静态博客"></a>为什么是静态博客</h3><p>很多人选择在虚拟主机或vps上面搭建动态博客。独立博客如此麻烦的维护工作,能不能减轻一些呢?正如阮一峰前辈所说,blogger分为三个阶段。最开始,是门户博客。之后,是独立博客。最后,觉得独立博客自己管理起来费劲,便找个别人来管的空间,自己负责写就好。如果我们能够找到这样的空间,在自己保留最大控制权前提下,由别人托管,会省去不少事情。</p>
+<p>静态博客编译之后是纯html页面,优点就是支持它的环境十分好找,例如github、gitcafe等站点都支持静态页面托管,自然是我们的首选了。</p>
+<p>但是静态博客并非没有缺点。动态博客更新文章时,脚本是不变的,只需要更新数据库。静态博客要频繁改动文件,不支持增量式上传的东西,比如ftp,就难于管理。此外,还要十分熟悉git各种命令,才能部署页面。 </p>
 
       
     </div>
@@ -501,7 +468,7 @@
     <strong>本文作者： </strong>恒</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.zhangqiheng.cn/系统重装后如何恢复Hexo博客.html" title="系统重装后如何恢复Hexo博客">http://www.zhangqiheng.cn/系统重装后如何恢复Hexo博客.html</a>
+    <a href="http://www.zhangqiheng.cn/Hello-Hexo" title="Hello Hexo">http://www.zhangqiheng.cn/Hello-Hexo</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -527,18 +494,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/IDEA-常用快捷键.html" rel="next" title="IDEA 常用快捷键">
-                <i class="fa fa-chevron-left"></i> IDEA 常用快捷键
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/进程和线程（一）概念.html" rel="prev" title="进程和线程（一）概念">
-                进程和线程（一）概念 <i class="fa fa-chevron-right"></i>
+              <a href="/GitHub+Hexo搭建" rel="prev" title="GitHub + Hexo 搭建">
+                GitHub + Hexo 搭建 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -737,7 +700,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#恢复步骤"><span class="nav-number">2.</span> <span class="nav-text">恢复步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：恢复本地"><span class="nav-number">2.1.</span> <span class="nav-text">第一步：恢复本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：恢复同步GitHub功能"><span class="nav-number">2.2.</span> <span class="nav-text">第二步：恢复同步GitHub功能</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo"><span class="nav-number">1.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介："><span class="nav-number">1.1.</span> <span class="nav-text">简介：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">1.2.</span> <span class="nav-text">说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要一个博客"><span class="nav-number">1.2.1.</span> <span class="nav-text">为什么需要一个博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么是静态博客"><span class="nav-number">1.2.2.</span> <span class="nav-text">为什么是静态博客</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

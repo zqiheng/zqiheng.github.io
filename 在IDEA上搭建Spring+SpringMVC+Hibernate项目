@@ -112,7 +112,7 @@
 <meta name="keywords" content="Java,Java EE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在IDEA上搭建Spring+SpringMVC+Hibernate项目">
-<meta property="og:url" content="http://www.zhangqiheng.cn/在IDEA上搭建Spring+SpringMVC+Hibernate项目.html">
+<meta property="og:url" content="http://www.zhangqiheng.cn/在IDEA上搭建Spring+SpringMVC+Hibernate项目">
 <meta property="og:site_name" content="Heng Bolg">
 <meta property="og:description" content="说明：本章主要介绍如何在idea上搭建一个简单的基于Maven的Spring+SpringMVC+hibernate项目。并没有细分各个业务逻辑层次划分。  参考博文  大家如果想深入剖析项目搭建步骤可参考上面博客。 重点：准备工作  安装好jdk1.8以上版本、配好环境变量 安装好Tomcat（我是Tomcat9） 安装好maven （也可选择IDEA自带的） 安装好IDEA（上篇博客已经介绍了">
 <meta property="og:locale" content="zh-CN">
@@ -160,7 +160,7 @@
 
 
 
-  <link rel="canonical" href="http://www.zhangqiheng.cn/在IDEA上搭建Spring+SpringMVC+Hibernate项目.html"/>
+  <link rel="canonical" href="http://www.zhangqiheng.cn/在IDEA上搭建Spring+SpringMVC+Hibernate项目"/>
 
 
 
@@ -374,7 +374,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhangqiheng.cn/在IDEA上搭建Spring+SpringMVC+Hibernate项目.html">
+    <link itemprop="mainEntityOfPage" href="http://www.zhangqiheng.cn/在IDEA上搭建Spring+SpringMVC+Hibernate项目">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="恒">
@@ -600,7 +600,7 @@
     <strong>本文作者： </strong>恒</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.zhangqiheng.cn/在IDEA上搭建Spring+SpringMVC+Hibernate项目.html" title="在IDEA上搭建Spring+SpringMVC+Hibernate项目">http://www.zhangqiheng.cn/在IDEA上搭建Spring+SpringMVC+Hibernate项目.html</a>
+    <a href="http://www.zhangqiheng.cn/在IDEA上搭建Spring+SpringMVC+Hibernate项目" title="在IDEA上搭建Spring+SpringMVC+Hibernate项目">http://www.zhangqiheng.cn/在IDEA上搭建Spring+SpringMVC+Hibernate项目</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -628,7 +628,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/IDEA开发工具安装与破解.html" rel="next" title="IDEA开发工具安装与破解">
+              <a href="/IDEA开发工具安装与破解" rel="next" title="IDEA开发工具安装与破解">
                 <i class="fa fa-chevron-left"></i> IDEA开发工具安装与破解
               </a>
             
@@ -638,7 +638,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/（一）SpringMVC入门.html" rel="prev" title="（一）Spring系列之SpringMVC入门">
+              <a href="/（一）SpringMVC入门" rel="prev" title="（一）Spring系列之SpringMVC入门">
                 （一）Spring系列之SpringMVC入门 <i class="fa fa-chevron-right"></i>
               </a>
             
