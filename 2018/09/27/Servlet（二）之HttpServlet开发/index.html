@@ -108,27 +108,27 @@
 
 
 
-  <meta name="description" content="&amp;emsp;&amp;emsp;引言：随着多核CPU的问世，使得多线程程序在开发中占有了更重要的位置。但是什么是进程？什么是线程？它们之间到底又有什么关系呢？下面就来详细的来介绍一下它们的概念。">
-<meta name="keywords" content="Java,Java SE">
+  <meta name="description" content="&amp;emsp;&amp;emsp;前面简单的介绍了Servlet相关的技术特点以及生命周期，下面介绍Servlet常用的开发方法及步骤。">
+<meta name="keywords" content="Java,Java EE,Servlet">
 <meta property="og:type" content="article">
-<meta property="og:title" content="进程和线程（一）概念">
-<meta property="og:url" content="http://www.zhangqiheng.cn/进程和线程（一）概念">
+<meta property="og:title" content="Servlet（二）之HttpServlet开发">
+<meta property="og:url" content="http://www.zhangqiheng.cn/2018/09/27/Servlet（二）之HttpServlet开发/index.html">
 <meta property="og:site_name" content="Heng Bolg">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;引言：随着多核CPU的问世，使得多线程程序在开发中占有了更重要的位置。但是什么是进程？什么是线程？它们之间到底又有什么关系呢？下面就来详细的来介绍一下它们的概念。">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;前面简单的介绍了Servlet相关的技术特点以及生命周期，下面介绍Servlet常用的开发方法及步骤。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/thread/thread_zhuangtai.png">
-<meta property="og:updated_time" content="2018-10-05T14:57:39.924Z">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/Servlet/HttpServlet结果1.png">
+<meta property="og:updated_time" content="2018-10-05T15:08:12.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="进程和线程（一）概念">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;引言：随着多核CPU的问世，使得多线程程序在开发中占有了更重要的位置。但是什么是进程？什么是线程？它们之间到底又有什么关系呢？下面就来详细的来介绍一下它们的概念。">
-<meta name="twitter:image" content="http://www.zhangqiheng.cn/images/thread/thread_zhuangtai.png">
+<meta name="twitter:title" content="Servlet（二）之HttpServlet开发">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;前面简单的介绍了Servlet相关的技术特点以及生命周期，下面介绍Servlet常用的开发方法及步骤。">
+<meta name="twitter:image" content="http://www.zhangqiheng.cn/images/Servlet/HttpServlet结果1.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.zhangqiheng.cn/进程和线程（一）概念"/>
+  <link rel="canonical" href="http://www.zhangqiheng.cn/2018/09/27/Servlet（二）之HttpServlet开发/"/>
 
 
 
@@ -138,7 +138,7 @@
   };
 </script>
 
-  <title>进程和线程（一）概念 | Heng Bolg</title>
+  <title>Servlet（二）之HttpServlet开发 | Heng Bolg</title>
   
 
 
@@ -342,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhangqiheng.cn/进程和线程（一）概念">
+    <link itemprop="mainEntityOfPage" href="http://www.zhangqiheng.cn/2018/09/27/Servlet（二）之HttpServlet开发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="恒">
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">进程和线程（一）概念
+          <h1 class="post-title" itemprop="name headline">Servlet（二）之HttpServlet开发
               
             
           </h1>
@@ -384,7 +384,7 @@
                 
               
 
-              <time title="创建时间：2018-09-22 22:00:00" itemprop="dateCreated datePublished" datetime="2018-09-22T22:00:00+08:00">2018-09-22</time>
+              <time title="创建时间：2018-09-27 14:00:00" itemprop="dateCreated datePublished" datetime="2018-09-27T14:00:00+08:00">2018-09-27</time>
             
 
             
@@ -401,7 +401,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-05 22:57:39" itemprop="dateModified" datetime="2018-10-05T22:57:39+08:00">2018-10-05</time>
+                <time title="修改时间：2018-10-05 23:08:12" itemprop="dateModified" datetime="2018-10-05T23:08:12+08:00">2018-10-05</time>
               
             
           </span>
@@ -425,7 +425,14 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-SE/" itemprop="url" rel="index"><span itemprop="name">Java SE</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-EE/" itemprop="url" rel="index"><span itemprop="name">Java EE</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-EE/Servlet/" itemprop="url" rel="index"><span itemprop="name">Servlet</span></a></span>
 
                 
                 
@@ -459,60 +466,37 @@
       
 
       
-        <p>&emsp;&emsp;<strong>引言：</strong>随着多核CPU的问世，使得多线程程序在开发中占有了更重要的位置。但是什么是进程？什么是线程？它们之间到底又有什么关系呢？下面就来详细的来介绍一下它们的概念。<br><a id="more"></a></p>
-<h2 id="1-什么是进程？"><a href="#1-什么是进程？" class="headerlink" title="1.什么是进程？"></a>1.什么是进程？</h2><p>&emsp;&emsp;简单一句话，进程是正在运行的程序的实例。进程是一个具有一定独立功能的程序关于某个数据集合的一次运行活动。它是操作系统动态执行的基本单元，在传统的操作系统中，进程是基本的分配单元，也是基本的执行单元。</p>
-<p>&emsp;&emsp;进程的概念主要有两点：</p>
+        <p>&emsp;&emsp;前面简单的介绍了Servlet相关的技术特点以及生命周期，下面介绍Servlet常用的开发方法及步骤。<br><a id="more"></a></p>
+<p>&emsp;&emsp;<strong>说明：</strong>在实际的开发的Web项目中，大多数我们采用Servlet技术开发时，是通过<strong>继承的HttpServlet类，而不是实现Servlet接口。</strong>HttpServlet类存放在javax.servlet.http包内，是针对使用HTTP协议的Web服务器的Servlet类。HttpServlet类通过执行Servlet接口，能够提供HTTP协议的功能。</p>
+<h1 id="1-Servlet创建"><a href="#1-Servlet创建" class="headerlink" title="1.Servlet创建"></a>1.Servlet创建</h1><p>&emsp;&emsp;创建一个Servlet，通常涉及下列4个步骤。</p>
 <ul>
-<li>进程是一个实体，每一个进程都有它自己的地址空间。一般情况下，包括文本区域（text region）、数据区域（data region）和堆栈（stack region）。文本区域存储处理器执行的代码；数据区域存储变量和进程执行期间使用的动态分配的内存；堆栈区域存储着活动过程调用的指令和本地变量。</li>
-<li>进程是一个“执行中的程序”。程序是一个没有生命的实体，只有处理器赋予程序生命时（操作系统执行之），它才能成为一个活动的实体，我们称其为进程。</li>
+<li>1）继承HttpServlet抽象类。</li>
+<li>2）重载适当的方法，如覆盖（重写）doGet()方法或doPost()方法。</li>
+<li>3）如果有HTTP请求信息的话，获取该信息。可通过调用HttpServletRequest类对象的以下3个方法获取。</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getParameterNames()     //获取请求中所有参数的名字</span><br><span class="line">getParameter()          //获取请求中指定参数的值</span><br><span class="line">getParameterValues()    //获取请求中所有参数的值</span><br></pre></td></tr></table></figure>
+<ul>
+<li>4）生成HTTP响应。HttpServletResponse类对象生成响应，并将它返回到发出请求的客户机上。它的方法允许设置“请求”标题和“响应”主体。“响应”对象还包含有getWriter()方法以返回一个PringWriter类对象。</li>
+</ul>
+<p>&emsp;&emsp;以下为按照上述步骤创建的Servlet类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">package com.heng.servlet;</span><br><span class="line"></span><br><span class="line">import javax.servlet.ServletException;</span><br><span class="line">import javax.servlet.annotation.WebServlet;</span><br><span class="line">import javax.servlet.http.HttpServlet;</span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.PrintWriter;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 第一步：继承HttpServlet类</span><br><span class="line"> */</span><br><span class="line">@WebServlet(&quot;/helloHttpServlet&quot;)</span><br><span class="line">public class MyHttpServelt extends HttpServlet &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 第二步：重写doGet()或doPost()方法</span><br><span class="line">     * @param request</span><br><span class="line">     * @param response</span><br><span class="line">     * @throws ServletException</span><br><span class="line">     * @throws IOException</span><br><span class="line">     */</span><br><span class="line">    @Override</span><br><span class="line">    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line">        /**</span><br><span class="line">         * 第三步：获取HTTP请求信息</span><br><span class="line">         */</span><br><span class="line">        String myName = request.getParameter(&quot;myName&quot;);</span><br><span class="line">        /**</span><br><span class="line">         * 第四步：生成HTTP响应</span><br><span class="line">         */</span><br><span class="line">        response.setContentType(&quot;text/html;charset=gb2312&quot;);</span><br><span class="line">        response.setHeader(&quot;Pragma&quot;,&quot;No-cache&quot;);</span><br><span class="line">        response.setDateHeader(&quot;Expires&quot;,0);</span><br><span class="line">        response.setHeader(&quot;Cache-Control&quot;,&quot;no-cache&quot;);</span><br><span class="line"></span><br><span class="line">        PrintWriter out = response.getWriter();</span><br><span class="line">        out.println(&quot;&lt;html&gt;&quot;);</span><br><span class="line">        out.println(&quot;&lt;head&gt;&lt;title&gt;一个简单的Servlet程序&lt;/title&gt;&lt;/head&gt;&quot;);</span><br><span class="line">        out.println(&quot;&lt;body&gt;&quot;);</span><br><span class="line">        out.println(&quot;&lt;h1&gt;Servlet程序&lt;/h1&gt;&quot;);</span><br><span class="line">        out.println(&quot;&lt;p style=&apos;color:red&apos;&gt;&quot;+myName+&quot;您好，欢迎使用本程序！！！&quot;);</span><br><span class="line">        out.println(&quot;&lt;/body&gt;&quot;);</span><br><span class="line">        out.println(&quot;&lt;/html&gt;&quot;);</span><br><span class="line">        out.flush();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">        this.doGet(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><img src="/images/Servlet/HttpServlet结果1.png" alt=""></p>
+<h1 id="2-Servlet的配置"><a href="#2-Servlet的配置" class="headerlink" title="2.Servlet的配置"></a>2.Servlet的配置</h1><p>创建了Servlet类后，还需要对Servlet进行配置。配置的目的是为了将创建的Servlet注册到Servlet容器之中，以方便Servlet容器对Servlet的调用。</p>
+<h2 id="2-1-在web-xml文件中配置Servlet"><a href="#2-1-在web-xml文件中配置Servlet" class="headerlink" title="2.1 在web.xml文件中配置Servlet"></a>2.1 在web.xml文件中配置Servlet</h2><p>1）Servlet的名称、类和其他选项的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">	&lt;!--Servlet名称--&gt;</span><br><span class="line">    &lt;servlet-name&gt;myServlet&lt;/servlet-name&gt;</span><br><span class="line">    &lt;!--Servlet类的全路径--&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.heng.servlet.MyServelt&lt;/servlet-class&gt;</span><br><span class="line">    &lt;!--Servlet描述信息--&gt;</span><br><span class="line">    &lt;description&gt;Simple Servlet&lt;/description&gt;</span><br><span class="line">    &lt;!--指定发布时Servlet的名称--&gt;</span><br><span class="line">    &lt;display-name&gt;Servlet&lt;/display-name&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br></pre></td></tr></table></figure>
+<p>2）Servlet的映射<br>&emsp;&emsp;在web.xml配置文件中<strong>可以给一个Servlet做多个映射，</strong>因此，可以通过不同的方法访问这个Servlet。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;!--与上面的Servlet名称一定要保持一致--&gt;</span><br><span class="line">    &lt;servlet-name&gt;myServlet&lt;/servlet-name&gt;</span><br><span class="line">    &lt;!--请求路径，格式较多。例如/*、/helloServlet、/one/*、*.do、*.action等等--&gt;</span><br><span class="line">    &lt;url-pattern&gt;/helloServlet&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
+<p>3）初始化参数<br>&emsp;&emsp;Servlet可以配置一些初始化参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;init-param&gt;</span><br><span class="line">        &lt;param-name&gt;number&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;10000&lt;/param-value&gt;</span><br><span class="line">    &lt;/init-param&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在上述代码中，指定number的参数值为10000.在Servlet中可以在init()方法体中通过getInitParameter()方法访问这些初始化参数。</p>
+<p>4）启动装入优先权<br>&emsp;&emsp;启动装入优先权通过<strong><load-on-startup></load-on-startup></strong>元素指定。</p>
 <hr>
-<p>&emsp;&emsp;<strong>特征</strong></p>
-<ul>
-<li>动态性：进程的实质是程序在多道程序系统中的一次执行过程，进程是动态产生，动态消亡的；</li>
-<li>并发性：任何进程都可以同其他进程一起并发执行；</li>
-<li>独立性：进程是一个能独立运行的基本单位，同时也是系统分配资源和调度的独立单位；</li>
-<li>异步性：由于进程间的相互制约，使进程具有执行的间断性，即进程按各自独立的、不可预知的速度向前推进；</li>
-<li>结构特征：进程由程序、数据和进程控制块三部分组成。</li>
-</ul>
+<p><strong>重点</strong></p>
+<h2 id="2-2-采用注解配置Servlet"><a href="#2-2-采用注解配置Servlet" class="headerlink" title="2.2 采用注解配置Servlet"></a>2.2 采用注解配置Servlet</h2><p>&emsp;&emsp;采用注解配置Servlet的基本语法如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import javax.servlet.annotation.WebServlet;</span><br><span class="line"></span><br><span class="line">@WebServlet(</span><br><span class="line">urlPatterns = &#123;&quot;/映射地址&quot;&#125;,asyncSupported=true|false,loadOnStartup = -1,</span><br><span class="line">name = &quot;Servlet名称&quot;,displayName = &quot;显示名称&quot;,</span><br><span class="line">initParams = &#123;@WebInitParam(name = &quot;username&quot;,value = &quot;值&quot;)&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在上面的语法中，urlPatterns属性用于指定映射地址；asyncSupported属性用于指定是否支持异步操作模式；loadOnStartup属性用于指定Servlet的加载顺序；name属性用于指定Servlet的name属性；displayName属性用于指定该Servlet的显示名；initParams属性用于指定一组Servlet初始化参数。</p>
 <hr>
-<p>&emsp;&emsp;<strong>状态</strong><br>&emsp;&emsp;进程执行时的间断性，决定了进程可能具有多种状态。事实上，运行中的进程可能具有以下三种基本状态。</p>
-<p><strong>1）就绪状态（Ready）：</strong><br>&emsp;&emsp;进程已获得除处理器外的所需资源，等待分配处理器资源；只要分配了处理器进程就可执行。就绪进程可以按多个优先级来划分队列。例如，当一个进程由于时间片用完而进入就绪状态时，排入低优先级队列；当进程由I/O操作完成而进入就绪状态时，排入高优先级队列。</p>
-<p><strong>2）运行状态(Running)：</strong><br>&emsp;&emsp;进程占用处理器资源；处于此状态的进程的数目小于等于处理器的数目。在没有其他进程可以执行时(如所有进程都在阻塞状态)，通常会自动执行系统的空闲进程。</p>
-<p><strong>3）阻塞状态(Blocked)：</strong><br>&emsp;&emsp;由于进程等待某种条件（如I/O操作或进程同步），在条件满足之前无法继续执行。该事件发生前即使把处理器资源分配给该进程，也无法运行。</p>
-<hr>
-<h2 id="2-什么是线程？"><a href="#2-什么是线程？" class="headerlink" title="2.什么是线程？"></a>2.什么是线程？</h2><p>&emsp;&emsp;<strong>线程的引入：</strong></p>
-<ul>
-<li>60年代，在OS中能拥有资源和独立运行的基本单位是进程，然而随着计算机技术的发展，进程出现了很多弊端，一是由于进程是资源拥有者，创建、撤消与切换存在较大的时空开销，因此需要引入轻型进程；二是由于对称多处理机（SMP）出现，可以满足多个运行单位，而多个进程并行开销过大。因此在80年代，出现了能独立运行的基本单位——线程（Threads）。</li>
-</ul>
-<p>&emsp;&emsp;一个进程包含一个或多个线程。线程是程序运行最小的调度单位。线程是进程中的一个实体，是被系统独立调度和分派的基本单位，线程自己不拥有系统资源，只拥有一点儿在运行中必不可少的资源，但它可与同属一个进程的其它线程共享进程所拥有的全部资源。一个线程可以创建和撤消另一个线程，同一进程中的多个线程之间可以并发执行。</p>
-<p>&emsp;&emsp;多线程编程可以是程序具有多条并发执行线索，就像日常工作中由多人同时合作完成一个任务。这在很多情况下可以改善程序的响应性能，提高资源的利用效率，在多核CPU年代，这显得尤为重要。然而滥用多线程也有可能给程序带来意想不到的错误，减低程序执行的效率。</p>
-<p>&emsp;&emsp;使用多线程开发<strong>优点</strong>：</p>
-<ul>
-<li>在多核CPU系统中，使用线程可以提高程序响应速度，提高CPU和内存的利用率；</li>
-<li>多线程开发可以将耗时操作放入子线程，提高效率；</li>
-<li>资源利用率更好；</li>
-<li>程序设计在某些情况下更简单，改善程序结构，降低耦合性；</li>
-<li>程序响应更快；</li>
-<li>可以随时停止任务；</li>
-<li>等等…</li>
-</ul>
-<p>&emsp;&emsp;使用多线程开发<strong>缺点</strong>：</p>
-<ul>
-<li>等候共享资源时造成程序的运行速度变缓慢。这些共享资源主要是独占性的资源，如打印机等；</li>
-<li>对线程进行管理要求额外的CPU开销。线程的使用会给系统带来上下文切换的额外负担；</li>
-<li>在某些情况下可能会造成线程的死锁。即较长时间的等待或者资源竞争以及死锁等；</li>
-<li>对共享变量同时进行读写的不可预测性错误等等。</li>
-</ul>
-<p>&emsp;&emsp;总之有优点肯定就会有缺点，毕竟谁也不能做到十全十美。后面会讲到Java开发中是如何避免这些缺点的。</p>
-<p>&emsp;&emsp;<strong>线程的五种状态</strong><br><img src="/images/thread/thread_zhuangtai.png" alt=""></p>
-<p>1)新建状态<br>&emsp;&emsp;使用new运算符创建一个线程后，该线程仅仅是一个空对象，系统没有分配资源，称该线程处于创建状态（new thread）。</p>
-<p>2)可运行状态<br>&emsp;&emsp;使用<strong>start()</strong>方法启动一个线程后，系统为该线程分配了除CPU外的所需资源，是该线程处于可运行状态（Runnable）。</p>
-<p>3）运行中状态<br>&emsp;&emsp;Java运行系统通过调度选中一个Runnable的线程，使其占有CPU并转为运行中状态（Running）。此时，系统真正执行线程的<strong>run()</strong>方法。</p>
-<p>4）阻塞状态<br>&emsp;&emsp;一个正在运行的线程因某种原因不能继续运行时，进入阻塞状态（Blocked）。</p>
-<p>5）死亡状态<br>&emsp;&emsp;线程结束后是死亡状态（Dead）。</p>
-<hr>
-<p>&emsp;&emsp;OK，基础概念知识就先写到这里，后面会讲解到如何建立一个线程，以及多线程编程。    </p>
 
       
     </div>
@@ -534,7 +518,7 @@
     <strong>本文作者： </strong>恒</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.zhangqiheng.cn/进程和线程（一）概念" title="进程和线程（一）概念">http://www.zhangqiheng.cn/进程和线程（一）概念</a>
+    <a href="http://www.zhangqiheng.cn/2018/09/27/Servlet（二）之HttpServlet开发/" title="Servlet（二）之HttpServlet开发">http://www.zhangqiheng.cn/2018/09/27/Servlet（二）之HttpServlet开发/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -549,7 +533,9 @@
           
             <a href="/tags/Java/" rel="tag"> <i class="fa fa-tag"></i> Java</a>
           
-            <a href="/tags/Java-SE/" rel="tag"> <i class="fa fa-tag"></i> Java SE</a>
+            <a href="/tags/Java-EE/" rel="tag"> <i class="fa fa-tag"></i> Java EE</a>
+          
+            <a href="/tags/Servlet/" rel="tag"> <i class="fa fa-tag"></i> Servlet</a>
           
         </div>
       
@@ -562,8 +548,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/系统重装后如何恢复Hexo博客" rel="next" title="系统重装后如何恢复Hexo博客">
-                <i class="fa fa-chevron-left"></i> 系统重装后如何恢复Hexo博客
+              <a href="/2018/09/27/Servlet（一）之Servlet技术简介/" rel="next" title="Servlet（一）之Servlet技术简介">
+                <i class="fa fa-chevron-left"></i> Servlet（一）之Servlet技术简介
               </a>
             
           </div>
@@ -572,8 +558,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/进程和线程（二）线程的创建" rel="prev" title="进程和线程（二）线程的创建">
-                进程和线程（二）线程的创建 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/27/Servlet（三）之实现一个简单的备忘录/" rel="prev" title="Servlet（三）之实现一个简单的备忘录">
+                Servlet（三）之实现一个简单的备忘录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -772,7 +758,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是进程？"><span class="nav-number">1.</span> <span class="nav-text">1.什么是进程？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-什么是线程？"><span class="nav-number">2.</span> <span class="nav-text">2.什么是线程？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Servlet创建"><span class="nav-number">1.</span> <span class="nav-text">1.Servlet创建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Servlet的配置"><span class="nav-number">2.</span> <span class="nav-text">2.Servlet的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-在web-xml文件中配置Servlet"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 在web.xml文件中配置Servlet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-采用注解配置Servlet"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 采用注解配置Servlet</span></a></li></ol></li></ol></div>
             
 
           </div>
