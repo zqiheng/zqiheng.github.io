@@ -108,28 +108,32 @@
 
 
 
-  <meta name="description" content="&amp;emsp;&amp;emsp;前言：前面讲到了线程的使用和创建，这篇主要介绍线程的调度、同步、安全以及其它相关方法。">
-<meta name="keywords" content="Java,Java SE">
+  <meta name="description" content="&amp;emsp;&amp;emsp;前言：Struts是Apache软件基金会赞助的一个开源项目，它最初是Jakarta项目中的一个子项目。Struts2是以Webwork设计思想为核心，吸收原Struts的优点而形成的，旨在帮助程序员更为方便地运用MVC模式来开发JavaEE应用。总之，Struts就是封装了Servlet中的各种对象以及请求/响应操作，减少对Web容器的依赖。">
+<meta name="keywords" content="Java,Java EE,Struts2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="进程和线程（三）线程的同步、调度、安全">
-<meta property="og:url" content="https://zqiheng.github.io/2018/09/28/进程和线程（三）线程的同步、调度、安全/index.html">
+<meta property="og:title" content="Struts框架技术（一）">
+<meta property="og:url" content="http://www.zhangqiheng.cn/Struts框架技术.html">
 <meta property="og:site_name" content="Heng Bolg">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;前言：前面讲到了线程的使用和创建，这篇主要介绍线程的调度、同步、安全以及其它相关方法。">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;前言：Struts是Apache软件基金会赞助的一个开源项目，它最初是Jakarta项目中的一个子项目。Struts2是以Webwork设计思想为核心，吸收原Struts的优点而形成的，旨在帮助程序员更为方便地运用MVC模式来开发JavaEE应用。总之，Struts就是封装了Servlet中的各种对象以及请求/响应操作，减少对Web容器的依赖。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zqiheng.github.io/images/thread/线程调度.png">
-<meta property="og:image" content="https://zqiheng.github.io/images/thread/线程同步.png">
-<meta property="og:updated_time" content="2018-10-05T14:54:36.418Z">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/struts/mvc官网图.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/struts/web-mvc详细图.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/struts/Servlet和Struts的MVC框架区别.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/struts/Struts2简单项目结构.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/struts/Struts2简单项目运行结果1.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/struts/Struts2简单项目运行结果2.png">
+<meta property="og:updated_time" content="2018-10-15T11:54:55.534Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="进程和线程（三）线程的同步、调度、安全">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;前言：前面讲到了线程的使用和创建，这篇主要介绍线程的调度、同步、安全以及其它相关方法。">
-<meta name="twitter:image" content="https://zqiheng.github.io/images/thread/线程调度.png">
+<meta name="twitter:title" content="Struts框架技术（一）">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;前言：Struts是Apache软件基金会赞助的一个开源项目，它最初是Jakarta项目中的一个子项目。Struts2是以Webwork设计思想为核心，吸收原Struts的优点而形成的，旨在帮助程序员更为方便地运用MVC模式来开发JavaEE应用。总之，Struts就是封装了Servlet中的各种对象以及请求/响应操作，减少对Web容器的依赖。">
+<meta name="twitter:image" content="http://www.zhangqiheng.cn/images/struts/mvc官网图.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://zqiheng.github.io/2018/09/28/进程和线程（三）线程的同步、调度、安全/"/>
+  <link rel="canonical" href="http://www.zhangqiheng.cn/Struts框架技术.html"/>
 
 
 
@@ -139,7 +143,7 @@
   };
 </script>
 
-  <title>进程和线程（三）线程的同步、调度、安全 | Heng Bolg</title>
+  <title>Struts框架技术（一） | Heng Bolg</title>
   
 
 
@@ -343,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zqiheng.github.io/2018/09/28/进程和线程（三）线程的同步、调度、安全/">
+    <link itemprop="mainEntityOfPage" href="http://www.zhangqiheng.cn/Struts框架技术.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="恒">
@@ -360,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">进程和线程（三）线程的同步、调度、安全
+          <h1 class="post-title" itemprop="name headline">Struts框架技术（一）
               
             
           </h1>
@@ -385,7 +389,7 @@
                 
               
 
-              <time title="创建时间：2018-09-28 13:00:00" itemprop="dateCreated datePublished" datetime="2018-09-28T13:00:00+08:00">2018-09-28</time>
+              <time title="创建时间：2018-10-11 14:00:00" itemprop="dateCreated datePublished" datetime="2018-10-11T14:00:00+08:00">2018-10-11</time>
             
 
             
@@ -402,7 +406,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-05 22:54:36" itemprop="dateModified" datetime="2018-10-05T22:54:36+08:00">2018-10-05</time>
+                <time title="修改时间：2018-10-15 19:54:55" itemprop="dateModified" datetime="2018-10-15T19:54:55+08:00">2018-10-15</time>
               
             
           </span>
@@ -426,7 +430,14 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-SE/" itemprop="url" rel="index"><span itemprop="name">Java SE</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-EE/" itemprop="url" rel="index"><span itemprop="name">Java EE</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-EE/Struts2/" itemprop="url" rel="index"><span itemprop="name">Struts2</span></a></span>
 
                 
                 
@@ -460,108 +471,79 @@
       
 
       
-        <p>&emsp;&emsp;<strong>前言：</strong>前面讲到了线程的使用和创建，这篇主要介绍线程的调度、同步、安全以及其它相关方法。<br><a id="more"></a></p>
-<hr>
-<h1 id="1-线程的调度"><a href="#1-线程的调度" class="headerlink" title="1. 线程的调度"></a>1. 线程的调度</h1><p>&emsp;&emsp;同一时刻如果有多个线程处于可以运行状态，则它们需要排队等待CPU资源。此时每个线程自动获得一个线程的优先级（priority），优先级高低反映线程的重要或紧急程度。可运行状态的线程按优先级排队，线程调度依据优先级基础上的“先到先服务”原则。</p>
-<p>&emsp;&emsp;Java中在对线程进行调度时，采用了优先级调度策略，具体策略为：“<strong>优先级高的线程应该有更大的获取CPU资源执行的概率，优先级低的线程并不是总不能执行</strong>”。也就是说，当前正在执行的线程优先级一般不会比正在准备状态等待执行的线程优先级低。</p>
-<p>&emsp;&emsp;Java中线程的优先级用1~10之间的整数表示，数值越大优先级越高，默认优先级为5.列如，在没有特别指定的情况下，主线程的优先级为5.另外，对于子线程，其初始优先级与其父线程的优先级相同。当需要改变线程的优先级时，可以通过调用<strong>setPriority()</strong>方法来实现，下面为该方法的声明：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public final void setPriority(int newPriority);</span><br></pre></td></tr></table></figure>
+        <p>&emsp;&emsp;<strong>前言：</strong>Struts是Apache软件基金会赞助的一个开源项目，它最初是Jakarta项目中的一个子项目。Struts2是以Webwork设计思想为核心，吸收原Struts的优点而形成的，旨在帮助程序员更为方便地运用MVC模式来开发JavaEE应用。总之，<strong>Struts就是封装了Servlet中的各种对象以及请求/响应操作，减少对Web容器的依赖。</strong><br><a id="more"></a></p>
+<h1 id="1-MVC-基本思想"><a href="#1-MVC-基本思想" class="headerlink" title="1. MVC 基本思想"></a>1. MVC 基本思想</h1><h2 id="1-1-MVC思想概述"><a href="#1-1-MVC思想概述" class="headerlink" title="1.1 MVC思想概述"></a>1.1 MVC思想概述</h2><p>&emsp;&emsp;<strong>MVC并不是Java语言所特有的设计思想，也并不是Web应用所特有的思想，它是所有面向对象程序设计语言都应该遵守的规范。</strong></p>
+<p>&emsp;&emsp;MVC思想将一个应用分成三个基本部分：<strong>Model（模型）、View（视图）、Controller（控制器），</strong>这三个部分以最少的耦合来协同工作，从而提高应用的可扩展性和可维护性。</p>
+<p>&emsp;&emsp;在经典的MVC模式中，事件由控制器处理，控制器根据事件的类型改变模型或试图，反之亦然。具体地说，每个模型对应一系列的试图列表，这种对应关系通常采用注册来完成，即：把多个试图注册到同一个模型，当模型发生改变时，模型向所有注册过的视图发送通知，接下来，视图从对应的模型中获得信息，然后完成视图显示的更新。从设计模式的角度看，MVC思想非常类似于观察者模式，但与观察者模式存在少许差别：观察者模式下观察者和被观察者可以是两个互相对等的对象，但与MVC思想而言，被观察者往往只是单纯的数据体，而观察者则是单纯的视图页面。</p>
 <ul>
-<li>该方法时final的，所以在继承Thread类时不能重写该方法。参数newPriority表示需要设置的优先级别，应该是1~10之间的整数。为了便于记忆，Java中也提供了3个常量来表示比较常用的优先级别，如下表所示：</li>
+<li>相对于早期的MVC思想，Web模式下的MVC思想则又存在一些变化，对于一个普通应用程序，可以将视图注册给模型，当模型数据发生变化时，即时通知视图页面发生改变；而对于Web应用而言，即使将多个JSP页面注册给一个模型，当模型发生变化时，模型无法主动发送消息给JSP页面（因为Web应用都是基于请求/响应模式的），只有当用户请求浏览该页面时，控制器才负责调用模型数据来更新JSP页面。</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">常量</th>
-<th style="text-align:center">表示的内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">public static final int MAX_PRIORITY</td>
-<td style="text-align:center">该常量将表示线程可以具有最高的优先级</td>
-</tr>
-<tr>
-<td style="text-align:center">public static final int NORM_PRIORITY</td>
-<td style="text-align:center">该常量将表示线程可以具有默认的优先级，即5</td>
-</tr>
-<tr>
-<td style="text-align:center">public static final int MIN_PRIORITY</td>
-<td style="text-align:center">该常量将表示线程可以具有最低的优先级</td>
-</tr>
-</tbody>
-</table>
-<p>&emsp;&emsp;下面给出一个利用优先级对线程进行调度的例子。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">package com.heng.thread;</span><br><span class="line"></span><br><span class="line">class MyThread1 extends Thread&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for(int i = 1;i &lt; 10;i++)&#123;</span><br><span class="line">            System.out.print(&quot;   &lt;MyThread1&gt;&quot;+Thread.currentThread().getName()+&quot;--&quot;+i);</span><br><span class="line">            if(i % 3 == 0)&#123;</span><br><span class="line">                System.out.print(&quot;\n&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyThread2 extends Thread&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for(int i = 1;i &lt; 10;i++)&#123;</span><br><span class="line">            System.out.print(&quot;   &lt;MyThread2&gt;&quot;+Thread.currentThread().getName()+&quot;--&quot;+i);</span><br><span class="line">            if(i % 3 == 0)&#123;</span><br><span class="line">                System.out.print(&quot;\n&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class test4&#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Thread thread1 = new MyThread1();</span><br><span class="line">        Thread thread2 = new MyThread2();</span><br><span class="line"></span><br><span class="line">        thread1.setPriority(Thread.MIN_PRIORITY);</span><br><span class="line">        thread2.setPriority(Thread.MAX_PRIORITY);</span><br><span class="line"></span><br><span class="line">        thread1.start();</span><br><span class="line">        thread2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;上述代码中将两个线程分别设置为最低、最高的优先级，然后分别启动执行。在启动时，首先启动优先级低的线程。编译并运行代码，运行结果：</p>
-<p><img src="/images/thread/线程调度.png" alt=""></p>
-<p>&emsp;&emsp;在上图中，优先级高的运行完毕，优先级低的才开始运行，这与前面说的“<strong>当前正在执行的线程优先级一般不会比正在准备状态等待执行的线程优先级低</strong>”是符合的，但要特别注意，这并不是一定的。</p>
-<h1 id="2-线程的其它方法"><a href="#2-线程的其它方法" class="headerlink" title="2. 线程的其它方法"></a>2. 线程的其它方法</h1><h2 id="1）线程睡眠"><a href="#1）线程睡眠" class="headerlink" title="1）线程睡眠"></a>1）线程睡眠</h2><p>&emsp;&emsp;在线程执行的过程中，调用<strong>sleep()</strong>方法可以让线程睡眠一段指定的时间，等指定时间到达后，该线程则会苏醒，并进入准备等待执行。这是使正在执行的线程让出CPU的最简单方法之一，其声明如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public static void sleep(long millis)throws InterruptedException</span><br><span class="line">public static void sleep(long millis,int nanos)throws InterruptedException</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;sleep()方法被重载了，但上述两个方法都可以使线程进入睡眠状态。参数millis为指定线程将睡眠的毫秒数，参数namos为指定线程额外将睡眠的纳秒数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread.sleep(3*1000);  //调用方法：睡眠3秒</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;<strong>要特别注意</strong></p>
+<p>&emsp;&emsp;<strong>下图为经典MVC开发模式架构图。</strong><br><img src="/images/struts/mvc官网图.png" alt=""></p>
 <ul>
-<li>线程醒来将进入准备状态，并不能保证立刻执行，因此指定的时间使线程暂停执行的最小时间。</li>
-<li>sleep()使得一个线程进入睡眠状态，但是线程所占有的资源并没有释放（例如：锁资源）。</li>
+<li>模型：用于封装与应用程序业务逻辑相关的数据及对数据的处理方法。</li>
+<li>视图：视图是用户看到并与之交互的界面。</li>
+<li>控制器：控制器起到不同层次间的组织作用，用于控制应用程序的流程。它处理事件并做出响应，“事件”包括用户的行为和数据模型上的改变。</li>
 </ul>
-<h2 id="2）线程等待"><a href="#2）线程等待" class="headerlink" title="2）线程等待"></a>2）线程等待</h2><p>&emsp;&emsp;Object类中的<strong>wait()</strong>方法，使线程转到阻塞状态，直到其他线程调用此对象的notify()方法或notifyAll()方法唤醒。当线程执行了一个特定对象的<strong>wait()</strong>调用时，那个线程被放到与那个对象相关的等待池中。此外，<strong>调用wait()方法的线程自动释放对象的锁标志。</strong></p>
-<p>&emsp;&emsp;注意：wait()和sleep()方法本质上来说是不一样的。sleep()没有释放锁标志、释放资源，而wait()实际上放弃了锁，将资源贡献出来，直到被唤醒。</p>
-<h2 id="3）线程让步"><a href="#3）线程让步" class="headerlink" title="3）线程让步"></a>3）线程让步</h2><p>&emsp;&emsp;<strong>Thread.yield();</strong>方法，暂停当前正在执行的线程对象，把执行机会让给相同或者更高优先级的线程。</p>
-<h2 id="4）线程加入"><a href="#4）线程加入" class="headerlink" title="4）线程加入"></a>4）线程加入</h2><p>&emsp;&emsp;<strong>join()</strong>方法，等待其他线程终止。在当前线程中调用另一个线程的join()方法，则当前线程转入阻塞状体，直到另一个线程运行结束，当前线程再由阻塞转为就绪状态。</p>
-<h2 id="5）线程唤醒"><a href="#5）线程唤醒" class="headerlink" title="5）线程唤醒"></a>5）线程唤醒</h2><p>&emsp;&emsp;Object类中的<strong>notify()和notifyAll()</strong>方法可唤醒在等待池中的线程。对一个特定对象执行<strong>notify()</strong>调用时，将从对象的等待池中移走一个任意的线程，并放到<strong>锁标志等待池</strong>中，那里的线程一直在等待，直到可以获得对象的<strong>锁标志</strong>。<strong>notifyAll()</strong>方法将从对象等待池中移走所有等待那个对象的线程并放到<strong>锁标志等待池</strong>中。只有<strong>锁标志等待池</strong>中的线程能获取对象的锁标志，锁标志允许线程从上次因调用wait()而中断的地方继续运行。</p>
+<p>&emsp;&emsp;<strong>下图为Web模式下MVC开发模式架构图。</strong><br><img src="/images/struts/web-mvc详细图.png" alt=""></p>
 <hr>
-<p>注：</p>
+<p>MVC特点。</p>
 <ul>
-<li><p>自版本1.0开始JavaSE就提供了wait()，notify()以及notifyAll()方法。虽然以上所说的3个方法最常出现的地方是线程的内部，但是这些方法并不是Thread类的成员函数。实际上Java在设计的时候就充分考虑到了同步的问题，因而在设计基础类Object的时候就为其提供了这3个函数。这就意味着编写任何类都可以使用这些方法（当然某些时候这些方法是没有意义的）。</p>
-</li>
-<li><p>由于wait()，notify()和notifyAll()都是锁级别的操作，所以把他们定义在Object类中（因为锁属于对象级，每个对象都有锁）。</p>
-</li>
-<li><p>wait、notify、notifyAll只能在同步控制方法或同步控制块里面使用（即搭配synchonized 使用，用于线程同步）。</p>
-</li>
+<li>多个视图可以对应一个模型。按MVC设计模式，一个模型对应多个视图，可以减少代码的复制及代码的维护量，一旦模型发生改变，也易于维护。</li>
+<li>模型返回的数据与显示逻辑分离。模型数据可以应用任何的显示技术，例如，使用JSP页面、Velocity模板或者直接产生Excel文档等。</li>
+<li>应用被分隔为三层，降低了各层之间的耦合，提供了应用的可扩展性。</li>
+<li>概念明确，层次清晰，编写方便。</li>
+<li>MVC更符合软件工程化管理的精神。不同的层各司其职，每一层的组件具有相同的特征，有利于通过工程化和工具化产生管理程序代码。</li>
+</ul>
+<p><strong>总结：</strong></p>
+<ul>
+<li>MVC 是一种开发模式。</li>
+<li>Web三层架构（Controller、Service、Dao）是一种开发习惯，是前人留下的<strong>经验的传承。</strong></li>
+<li>两种方式在开发Web应用中往往需要结合使用。</li>
 </ul>
 <hr>
-<h1 id="3-线程的同步（重点）"><a href="#3-线程的同步（重点）" class="headerlink" title="3. 线程的同步（重点）"></a>3. 线程的同步（重点）</h1><p>&emsp;&emsp;在多线程程序中，由于同时有多个线程并发运行，有时会带来严重的问题，甚至引发错误。例如，一个银行账号在同一时刻只能由一个用户操作，如果两个用户同时操作很可能会产出错误（线程安全问题）。为了解决这些问题，在多线程开发中就需要使用一些技术来避免这些错误的发生。下面就讲讲Java使用的同步技术。</p>
-<p>&emsp;&emsp;<strong>同步方法</strong>是指用<strong>synchronized</strong>关键字修饰的方法，其与普通方法的不同是，进入同步方法执行的线程将获得同步方法所属对象的锁，一旦对象被锁，其他线程就不能执行被锁对象的任何同步方法。<strong>也就是说，线程在执行同步方法之前，首先试图获得方法所属对象的锁，如果不能获得锁就进入对象的锁等待池等待，直到别的线程释放锁，其获得锁才能执行。</strong></p>
+<h2 id="1-2-MVC实现方式"><a href="#1-2-MVC实现方式" class="headerlink" title="1.2 MVC实现方式"></a>1.2 MVC实现方式</h2><p>&emsp;&emsp;传统的JavaEE开发采用JSP+Servlet+JavaBean的方式来实现MVC，但它有一个<strong>缺陷：程序员在编写程序时必须继承HttpServlet类、覆盖doGet()和doPost()方法，严格遵守Servlet代码规范编写程序。</strong>形如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package com.heng.srvlet;</span><br><span class="line">import java.io.*;</span><br><span class="line">import javax.servlet.*;</span><br><span class="line">import javax.servlet.http.*;</span><br><span class="line"></span><br><span class="line">public class LoginServlet extends HttpServlet&#123;</span><br><span class="line">	public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException&#123;</span><br><span class="line">		//...</span><br><span class="line">	&#125;</span><br><span class="line">	public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException&#123;</span><br><span class="line">		doGet(request,response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;以上这些繁琐的代码与程序本身要实现的功能无关，仅是Java语言Servlet编程接口（API）的一部分。在开发中一旦暴露Servlet API就会大大增加编程的难度，为了屏蔽这种不必要的复杂性，减少用MVC开发Java EE的工作量，人们发明了<strong>Struts2</strong>框架。用Struts2实现的MVC系统与传统的用Servlet编写的MVC系统相比，两者在结构上的区别如下图所示（注：此图为引用Java EE使用教程（第二版）中MVC系统的两种实现方式）。<br><img src="/images/struts/Servlet和Struts的MVC框架区别.png" alt=""></p>
+<p>&emsp;&emsp;由上图可见，Struts2的解决方案是：使用Struts2框架代替了原Servlet部分作为控制器，而业务逻辑处理的功能由用户自定义编写Action去实现，与Struts2的控制器核心相分离。这样就进一步降低了系统中各部分组件的耦合度，也大大降低了编程难度。</p>
+<h1 id="2-简单的Struts2项目开发过程"><a href="#2-简单的Struts2项目开发过程" class="headerlink" title="2. 简单的Struts2项目开发过程"></a>2. 简单的Struts2项目开发过程</h1><h2 id="2-1-新建JavaWeb项目，加载Struts2的包依赖"><a href="#2-1-新建JavaWeb项目，加载Struts2的包依赖" class="headerlink" title="2.1 新建JavaWeb项目，加载Struts2的包依赖"></a>2.1 新建JavaWeb项目，加载Struts2的包依赖</h2><p>&emsp;&emsp;传统的Java EE项目Struts2框架开发，需要自己手动导入Struts2的包支持依赖。大部分的时候，使用Struts2的Java EE应用并不需要用到Struts2的全部特性，开发Struts2程序只需要用到lib下的9个jar包，包括：</p>
 <ul>
-<li>声明同步方法的基本语法。</li>
+<li>（1）传统的Struts2的5个基本类库。<ul>
+<li>struts2-core-XXX.jar：Struts2框架核心类库</li>
+<li>xwork-core-XXX.jar：Xwork项目，Struts2就是在它的基础上构建的</li>
+<li>ognl-XXX.jar：OGNL表达式语言</li>
+<li>commons-logging-XXX.jar：用于能够插入任何其他的日志系统</li>
+<li>freemarker-XXX.jar：所有的UI标记模板</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">synchronized &lt;返回类型&gt; 方法名([参数列表]) [throws &lt;异常序列&gt;]&#123;</span><br><span class="line">	//同步方法的方法体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>声明同步代码块的基本语法。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">synchronized(obj)&#123;</span><br><span class="line">	//代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;在使用同步方法时要注意以下几点。</p>
-<ul>
-<li>关键字synchronized只能标识方法或代码块，不能标识成员变量，不存在同步的成员变量。</li>
-<li>一个对象可以同时由同步与非同步方法，只有进入同步方法执行才需要获得锁，每个对象只有一个锁。若一个对象中有多个同步方法，当某线程在访问其中之一时，其他线程不能访问该对象中的任何同步方法，但可以访问非同步方法。</li>
-<li>若线程获得锁后进入睡眠或进行让步，则将带着锁一起睡眠或让步，这种做法将严重影响等待锁的线程的执行，进而影响程序的整体性能。</li>
-<li>同步方法退出时，锁将被释放，其他等待的线程可以获得锁。</li>
-</ul>
-<p>&emsp;&emsp;同步方法实例代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//标识为同步的方法</span><br><span class="line">public synchronized void myFunction()&#123;</span><br><span class="line">	System.out.println(&quot;我是一个同步的方法！&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* 标识静态的同步方法</span><br><span class="line">* 静态方法也允许同步，这样就保证了静态方法不会同时被多个线程使用</span><br><span class="line">**/</span><br><span class="line">public static synchronized void myFunnction1()&#123;</span><br><span class="line">	System.out.println(&quot;我是一个同步的静态方法！&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>其实静态同步方法在执行前，线程要获取的是方法所在类的锁，在道理上与非静态同步方法要获得方法所属对象的锁是相同的。同一时刻一个类也只能有一个静态同步方法被访问。</li>
-</ul>
-<p>&emsp;&emsp;同步代码块实例代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class myThread implements Runnable&#123;</span><br><span class="line"></span><br><span class="line">	private byte[] lock = new byte[0];        //特殊的instance变量</span><br><span class="line">	</span><br><span class="line">	public void fun()&#123;</span><br><span class="line">		synchronized(lock)&#123;</span><br><span class="line">			//doString</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;上述代码适用于没有明确的对象作为锁，只是想让一段代码块同步时，可以创建一个特殊的instance变量来充当锁，零长度的byte数组对象创建起来比任何对象都经济–查看编译后的字节码，生成零长度的byte[]数组对象只需要3条操作码，而Object lock = new Object();则需要7行操作码。</p>
-<p>&emsp;&emsp;下面用一断代码来展示前面所讲到的知识。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">package com.heng.thread;</span><br><span class="line"></span><br><span class="line">class MyRunnbale implements Runnable&#123;</span><br><span class="line"></span><br><span class="line">    private int ticket;</span><br><span class="line"></span><br><span class="line">    public MyRunnbale(int ticket)&#123;</span><br><span class="line">        this.ticket = ticket;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 实现run()方法</span><br><span class="line">     */</span><br><span class="line">    public synchronized void run() &#123;</span><br><span class="line">        while (ticket &gt; 0)&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+&quot;===》出售一张，余票:&quot;+(--ticket));</span><br><span class="line">            try&#123;</span><br><span class="line">                //Thread.sleep(1*1000);</span><br><span class="line">                if(ticket % 2 == 0)&#123;</span><br><span class="line">                    this.wait();</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    this.notifyAll();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;catch (Exception e)&#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class test3&#123;</span><br><span class="line"></span><br><span class="line">    private static int  ticket_num = 90;</span><br><span class="line"></span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        System.out.println(&quot;====================总票数： &quot;+ticket_num+&quot;=====================&quot;);</span><br><span class="line"></span><br><span class="line">        Runnable thread = new MyRunnbale(ticket_num);</span><br><span class="line"></span><br><span class="line">        new Thread(thread,&quot;窗口--1&quot;).start();</span><br><span class="line">        new Thread(thread,&quot;窗口--2&quot;).start();</span><br><span class="line">        new Thread(thread,&quot;窗口--3&quot;).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;运行结果：</p>
-<p><img src="/images/thread/线程同步.png" alt=""></p>
-<hr>
-<p>&emsp;&emsp;总结：</p>
-<ul>
-<li><p>线程同步的目的是为了保护多个线程访问一个共享资源时对资源造成破坏（同步后只能一个一个操作）。</p>
 </li>
-<li><p>线程同步方法时通过锁机制来实现的，每个对象都有切仅有一个锁，这个锁与一个特定的对象关联，线程一旦获取了对象锁，其他访问该对象的线程就无法在访问该对象的其他同步方法。</p>
-</li>
-<li><p>当多个线程等待一个对象锁时，没有获取到锁资源的线程将发生阻塞。</p>
-</li>
-<li><p>对于静态同步方法，锁时针对这个类的，锁对象是该类的Class对象。</p>
+<li>（2）附加的4个库。<ul>
+<li>commons-io-XXX.jar</li>
+<li>commons-lang-XXX.jar</li>
+<li>javassist-XXX.GA.jar</li>
+<li>commons-fileupload-XXX.jar</li>
+</ul>
 </li>
 </ul>
+<p>&emsp;&emsp;<strong>注：本次实例程序开发采用的是Idea+Maven构建项目，因此我们不需要手动导包，在pom.xml中加入如下依赖即可。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;struts2-core&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.5.13&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-在web-xml中配置Struts2核心Filter"><a href="#2-2-在web-xml中配置Struts2核心Filter" class="headerlink" title="2.2 在web.xml中配置Struts2核心Filter"></a>2.2 在web.xml中配置Struts2核心Filter</h2><p>&emsp;&emsp;<strong>重点：由于Web应用是基于请求/响应架构的应用，所以不管哪个MVC Web框架，都需要在web.xml中配置该框架的核心Servlet或Filter，这样才可以让该框架加入Web应用中。</strong></p>
+<p>&emsp;&emsp;在web.xml中加入下面代码来配置Struts2的核心过滤器（Filter）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--定义Struts2的核心Filter--&gt;</span><br><span class="line">&lt;filter&gt;</span><br><span class="line">  &lt;filter-name&gt;struts2&lt;/filter-name&gt;</span><br><span class="line">  &lt;filter-class&gt;org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line">&lt;!--让Struts2的核心Filter拦截所有请求--&gt;</span><br><span class="line">&lt;filter-mapping&gt;</span><br><span class="line">  &lt;filter-name&gt;struts2&lt;/filter-name&gt;</span><br><span class="line">  &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span><br><span class="line">&lt;/filter-mapping&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-3-实现控制器Action"><a href="#2-3-实现控制器Action" class="headerlink" title="2.3 实现控制器Action"></a>2.3 实现控制器Action</h2><p>&emsp;&emsp;基于Struts2框架的Java EE应用程序使用自定义的Action（控制器）来处理深层业务逻辑，完成用户想要完成的功能。本例定义名为“login”的控制器，判断登陆用户和密码的正确性。</p>
+<p>LoginAction.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">package cn.zqiheng.action;</span><br><span class="line"></span><br><span class="line">public class LoginAction &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 属性驱动传值</span><br><span class="line">     */</span><br><span class="line">    private String username;</span><br><span class="line">    private String password;</span><br><span class="line"></span><br><span class="line">    public String execute() throws Exception&#123;</span><br><span class="line">        System.out.println(&quot;用户名：&quot;+username+&quot;   密码：&quot;+password);</span><br><span class="line"></span><br><span class="line">        if(username.equals(&quot;heng&quot;) &amp;&amp; password.equals(&quot;123&quot;))&#123;</span><br><span class="line">            return &quot;success&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        return &quot;error&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getUsername() &#123;</span><br><span class="line">        return username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setUsername(String username) &#123;</span><br><span class="line">        this.username = username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getPassword() &#123;</span><br><span class="line">        return password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setPassword(String password) &#123;</span><br><span class="line">        this.password = password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-4-配置struts-xml"><a href="#2-4-配置struts-xml" class="headerlink" title="2.4 配置struts.xml"></a>2.4 配置struts.xml</h2><p>&emsp;&emsp;在编写好了Action（控制器）的代码之后，还需要进行配置才能让Struts2识别Action。在resources中新建文件struts.xml。</p>
+<p>struts.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;struts&gt;</span><br><span class="line"></span><br><span class="line">    &lt;package name=&quot;user&quot; namespace=&quot;/&quot; extends=&quot;struts-default&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;action name=&quot;login&quot; class=&quot;cn.zqiheng.action.LoginAction&quot;&gt;</span><br><span class="line">            &lt;result name=&quot;success&quot;&gt;/welcome.jsp&lt;/result&gt;</span><br><span class="line">            &lt;result name=&quot;error&quot;&gt;/error.jsp&lt;/result&gt;</span><br><span class="line">        &lt;/action&gt;</span><br><span class="line">    &lt;/package&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/struts&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-5-编写JSP页面"><a href="#2-5-编写JSP页面" class="headerlink" title="2.5 编写JSP页面"></a>2.5 编写JSP页面</h2><p>index.jsp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;form action=&quot;login&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;</span><br><span class="line">    密&amp;nbsp;&amp;nbsp;&amp;nbsp;码：&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br&gt;</span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>welcome.jsp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;登陆成功界面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;您好！欢迎使用本系统。&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>error.jsp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;登陆失败&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;登陆失败&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-6-配置Tomcat服务器并启动应用"><a href="#2-6-配置Tomcat服务器并启动应用" class="headerlink" title="2.6 配置Tomcat服务器并启动应用"></a>2.6 配置Tomcat服务器并启动应用</h2><p>&emsp;&emsp;项目结构如下图所示。</p>
+<p><img src="/images/struts/Struts2简单项目结构.png" alt=""></p>
+<p>&emsp;&emsp;项目运行结果如下图所示。</p>
+<p><img src="/images/struts/Struts2简单项目运行结果1.png" alt=""></p>
+<p><img src="/images/struts/Struts2简单项目运行结果2.png" alt=""></p>
 <hr>
 
       
@@ -584,7 +566,7 @@
     <strong>本文作者： </strong>恒</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://zqiheng.github.io/2018/09/28/进程和线程（三）线程的同步、调度、安全/" title="进程和线程（三）线程的同步、调度、安全">https://zqiheng.github.io/2018/09/28/进程和线程（三）线程的同步、调度、安全/</a>
+    <a href="http://www.zhangqiheng.cn/Struts框架技术.html" title="Struts框架技术（一）">http://www.zhangqiheng.cn/Struts框架技术.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -599,7 +581,9 @@
           
             <a href="/tags/Java/" rel="tag"> <i class="fa fa-tag"></i> Java</a>
           
-            <a href="/tags/Java-SE/" rel="tag"> <i class="fa fa-tag"></i> Java SE</a>
+            <a href="/tags/Java-EE/" rel="tag"> <i class="fa fa-tag"></i> Java EE</a>
+          
+            <a href="/tags/Struts2/" rel="tag"> <i class="fa fa-tag"></i> Struts2</a>
           
         </div>
       
@@ -612,8 +596,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/27/Servlet（三）之实现一个简单的备忘录/" rel="next" title="Servlet（三）之实现一个简单的备忘录">
-                <i class="fa fa-chevron-left"></i> Servlet（三）之实现一个简单的备忘录
+              <a href="/JDBC.html" rel="next" title="JDBC">
+                <i class="fa fa-chevron-left"></i> JDBC
               </a>
             
           </div>
@@ -622,8 +606,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/01/JDBC/" rel="prev" title="JDBC">
-                JDBC <i class="fa fa-chevron-right"></i>
+              <a href="/MyBatis学习总结（一）.html" rel="prev" title="MyBatis学习总结（一）">
+                MyBatis学习总结（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -822,7 +806,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-线程的调度"><span class="nav-number">1.</span> <span class="nav-text">1. 线程的调度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-线程的其它方法"><span class="nav-number">2.</span> <span class="nav-text">2. 线程的其它方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1）线程睡眠"><span class="nav-number">2.1.</span> <span class="nav-text">1）线程睡眠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2）线程等待"><span class="nav-number">2.2.</span> <span class="nav-text">2）线程等待</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3）线程让步"><span class="nav-number">2.3.</span> <span class="nav-text">3）线程让步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4）线程加入"><span class="nav-number">2.4.</span> <span class="nav-text">4）线程加入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5）线程唤醒"><span class="nav-number">2.5.</span> <span class="nav-text">5）线程唤醒</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-线程的同步（重点）"><span class="nav-number">3.</span> <span class="nav-text">3. 线程的同步（重点）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-MVC-基本思想"><span class="nav-number">1.</span> <span class="nav-text">1. MVC 基本思想</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-MVC思想概述"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 MVC思想概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-MVC实现方式"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 MVC实现方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-简单的Struts2项目开发过程"><span class="nav-number">2.</span> <span class="nav-text">2. 简单的Struts2项目开发过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-新建JavaWeb项目，加载Struts2的包依赖"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 新建JavaWeb项目，加载Struts2的包依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-在web-xml中配置Struts2核心Filter"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 在web.xml中配置Struts2核心Filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-实现控制器Action"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 实现控制器Action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-配置struts-xml"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 配置struts.xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-编写JSP页面"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 编写JSP页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-配置Tomcat服务器并启动应用"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 配置Tomcat服务器并启动应用</span></a></li></ol></li></ol></div>
             
 
           </div>
