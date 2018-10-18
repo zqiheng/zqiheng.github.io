@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="&amp;emsp;&amp;emsp;前面记录了MyBatis的一些背景、相关知识以及如何使用MyBatis进行数据库的CRUD操作，接下来就讲解Mapper XML文件和MyBatis自带的缓存机制。">
+<meta name="keywords" content="Java,Java EE,MyBatis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatis学习总结（二）">
+<meta property="og:url" content="http://www.zhangqiheng.cn/2018/10/18/MyBatis学习总结（二）/index.html">
+<meta property="og:site_name" content="Heng Bolg">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;前面记录了MyBatis的一些背景、相关知识以及如何使用MyBatis进行数据库的CRUD操作，接下来就讲解Mapper XML文件和MyBatis自带的缓存机制。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/MyBatis/MyBatis二级缓存图.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/MyBatis/分步查询结果1.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/MyBatis/分步查询结果2.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/MyBatis/一级缓存测试结果1.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/MyBatis/一级缓存测试结果2.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/MyBatis/一级缓存测试结果3.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/MyBatis/二级缓存测试结果1.png">
+<meta property="og:image" content="http://www.zhangqiheng.cn/images/MyBatis/二级缓存测试结果2.png">
+<meta property="og:updated_time" content="2018-10-18T06:29:19.730Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MyBatis学习总结（二）">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;前面记录了MyBatis的一些背景、相关知识以及如何使用MyBatis进行数据库的CRUD操作，接下来就讲解Mapper XML文件和MyBatis自带的缓存机制。">
+<meta name="twitter:image" content="http://www.zhangqiheng.cn/images/MyBatis/MyBatis二级缓存图.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://www.zhangqiheng.cn/2018/10/18/MyBatis学习总结（二）/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>MyBatis学习总结（二） | Heng Bolg</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Heng Bolg</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">世上本没有路，走的人多了也就有了路...</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhangqiheng.cn/2018/10/18/MyBatis学习总结（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="恒">
+      <meta itemprop="description" content="主要记录自己的学习记录与心得，在校学生一枚...">
+      <meta itemprop="image" content="/images/logo.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Heng Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MyBatis学习总结（二）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-18 14:00:00 / 修改时间：14:29:19" itemprop="dateCreated datePublished" datetime="2018-10-18T14:00:00+08:00">2018-10-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-EE/" itemprop="url" rel="index"><span itemprop="name">Java EE</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/Java-EE/MyBatis/" itemprop="url" rel="index"><span itemprop="name">MyBatis</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&emsp;&emsp;前面记录了MyBatis的一些背景、相关知识以及如何使用MyBatis进行数据库的CRUD操作，接下来就讲解Mapper XML文件和MyBatis自带的缓存机制。<br><a id="more"></a></p>
+<h1 id="1-Mapper-XML"><a href="#1-Mapper-XML" class="headerlink" title="1. Mapper XML"></a>1. Mapper XML</h1><p>&emsp;&emsp;<strong>MyBaits 真正强大和有魅力的地方就在于它的映射语句。</strong>它将传统的JDBC操作数据库方式进一步封装，优雅而又有内涵的编程方式，省略了大量持久层Java逻辑代码，开发人员也只需要写好SQL映射文件即可。如果拿它跟具有相同功能的 JDBC 代码进行对比，你会立即发现省掉了将近 95% 的代码。MyBatis 就是针对 SQL 构建的，并且比普通的方法做的更好。</p>
+<p>&emsp;&emsp;Mapper XML文件有几个比较重要的标签（一个Mapper XML文件对应一个namespace【命名空间】）。</p>
+<ul>
+<li>cache  ==》给定命名空间的二级缓存配置。</li>
+<li>cache-ref ==》其它命名空间的缓存引用。</li>
+<li>resultMap ==》用来描述如和从数据库结果集中来加载对象。</li>
+<li>sql ==》可以被其它语句引用的可重用代码</li>
+<li>insert ==》映射插入语句</li>
+<li>select ==》映射查询语句</li>
+<li>update ==》映射修改语句</li>
+<li>delete ==》映射删除语句</li>
+</ul>
+<p>&emsp;&emsp;以上的标签具体用法，请参考文档<a href="http://www.mybatis.org/mybatis-3/zh/sqlmap-xml.html" target="_blank" rel="noopener">Mapper XML详解</a>。这里我就不再重复，下面会用一些实例来讲解如何使用。</p>
+<hr>
+<p>注：这里简单记录一下MyBatis的分步查询和延迟加载，后面代码中会详细写到。</p>
+<p>（1）什么是分步查询和延迟加载？<br>&emsp;&emsp;在常用的的应用开发中，多数实体之间是相互关联的，我们需要查询一个实体的信息，可以获取对象的全部关联信息，但是有时候我们又想要在用的时候就可以查询出，不用的时候就不用查询。这个解决办法，MyBatis就使用 resultMap 标签和其子标签 association 来帮我们实现。</p>
+<p>（2）使用步骤</p>
+<ul>
+<li><p>在总配置文件中开启延迟加载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 开启延迟加载 --&gt;</span><br><span class="line">&lt;setting name=&quot;lazyLoadingEnabled&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">&lt;setting name=&quot;aggressiveLazyLoading&quot; value=&quot;false&quot;/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>需要在查询 select 映射语句中自定义返回类型 <strong>resultMap</strong> 并在其中使用 <strong>association</strong> 标签关联另一个查询方法。</p>
+</li>
+</ul>
+<hr>
+<h1 id="2-MyBatis-缓存机制"><a href="#2-MyBatis-缓存机制" class="headerlink" title="2. MyBatis 缓存机制"></a>2. MyBatis 缓存机制</h1><p>&emsp;&emsp;对于需要频繁查询的数据，如果没有采取相应措施，我们则需要一直重复 连接数据库-&gt;发起SQL语句-&gt;获取结果集-&gt;关闭连接，这在数据量比较的大场景下这简直就是灾难，不仅耗时、而且还容易挂掉甚至发生不可预测的问题。因此，人们为了解决这个问题，就在中间加了数据缓存技术。缓存是计算机中的一块存储区域，把数据放入到存储区域中，读取速度会很快。</p>
+<h2 id="2-1-一级缓存"><a href="#2-1-一级缓存" class="headerlink" title="2.1 一级缓存"></a>2.1 一级缓存</h2><p>&emsp;&emsp;MyBatis 的一级缓存是 SqlSession 级别的缓存，默认开启，缓存数据在第一次查询时就放入本地缓存（Loacl Cache）中。</p>
+<p>&emsp;&emsp;<strong>缓存有效期：</strong></p>
+<ul>
+<li>当不是同一个SqlSession对象时，不能跨session共享缓存数据。</li>
+<li>当SqlSession对象调用了clearCache()方法后，会自动清除当前session的缓存。</li>
+<li>当在两次相同的查询中，穿插了（新增、修改、删除）操作时，也会自动清理当前缓存。</li>
+<li>当SqlSession对象关闭时，清除缓存。</li>
+</ul>
+<p>&emsp;&emsp;一级缓存实现原理及性能分析：</p>
+<ul>
+<li>（1）基于PerpetualCache的HashMap本地存储。</li>
+<li>（2）一级缓存通过简单的Map集合来实现，并没有对Map集合的大小、容量进行限制。</li>
+<li>（3）一级缓存是一个粗粒度的缓存，没有办法去精确控制缓存中的数据是否存在时长、是否过期、以及更新缓存数据。</li>
+<li>（4）多个SqlSession对象缓存中的数据无法共享。</li>
+</ul>
+<h2 id="2-2-二级缓存"><a href="#2-2-二级缓存" class="headerlink" title="2.2 二级缓存"></a>2.2 二级缓存</h2><p>&emsp;&emsp;MyBatis 的二级缓存是Mapper（namespace）级别的缓存，即一个XML映射文件对应一个二级缓存。二级缓存与一级缓存其机制相同，默认也是采用 PerpetualCache，HashMap存储，不同在于其存储作用域范围，并且可自定义存储源，如 Ehcache。</p>
+<p>&emsp;&emsp;<strong>二级缓存需要我们自己手动配置和开启。</strong></p>
+<ul>
+<li><p>第一步：在MyBatis总配置文件中设置开启二级缓存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二步：在Mapper XML 文件中加入<cache>标签</cache></p>
+</li>
+<li><p>第三步：实体类需要实现 Serializable 接口</p>
+</li>
+<li><p>第四步：查询语句 select 标签中加入属性 useCache=”true”</p>
+</li>
+</ul>
+<p>&emsp;&emsp;<strong>二级缓存原理。（这里引用一张图）</strong><br><img src="/images/MyBatis/MyBatis二级缓存图.png" alt=""></p>
+<hr>
+<p>注：</p>
+<p>（1）和一级缓存一样，当执行了insert、update、delete等操作并commit提交后就会清空二级缓存区域。</p>
+<p>（2）查询数据过程：二级缓存 ==》一级缓存 ==》数据库</p>
+<hr>
+<h2 id="2-3-第三方缓存"><a href="#2-3-第三方缓存" class="headerlink" title="2.3 第三方缓存"></a>2.3 第三方缓存</h2><p>&emsp;&emsp;同样的，MyBatis开放了Cache接口，可以整合第三方缓存（如Redis、MemCached），这个后面在补充。</p>
+<h1 id="3-代码实例"><a href="#3-代码实例" class="headerlink" title="3. 代码实例"></a>3. 代码实例</h1><p>&emsp;&emsp;<strong>注意：其中写代码注释的比较多，是比较重要的知识点，可以仔细看下。</strong></p>
+<h2 id="3-1-实体类"><a href="#3-1-实体类" class="headerlink" title="3.1 实体类"></a>3.1 实体类</h2><p>&emsp;&emsp;前面已经讲过了如何使用MyBaits一级项目搭建过程，这里不再赘述，直接在上一个Demo中新增两个实体类，学生 Student 和班级 Clazz（为了避免和class冲突），多个学生对应一个班级。</p>
+<p>Clazz.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package cn.zqiheng.po;</span><br><span class="line"></span><br><span class="line">import java.io.Serializable;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author Heng </span><br><span class="line"> * 班级类</span><br><span class="line"> */</span><br><span class="line">public class Clazz implements Serializable &#123;</span><br><span class="line"></span><br><span class="line">    //主键id</span><br><span class="line">    private int c_id;</span><br><span class="line">    //名称</span><br><span class="line">    private String c_name;</span><br><span class="line"></span><br><span class="line">   /**</span><br><span class="line">    * 篇幅问题，这里省略了构造方法、set/get以及toString()方法。</span><br><span class="line">    */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Student.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package cn.zqiheng.po;</span><br><span class="line"></span><br><span class="line">import java.io.Serializable;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author Heng </span><br><span class="line"> * 学生类</span><br><span class="line"> */</span><br><span class="line">public class Student implements Serializable &#123;</span><br><span class="line">    //主键id</span><br><span class="line">    private int id;</span><br><span class="line">    //姓名</span><br><span class="line">    private String name;</span><br><span class="line">    //性别</span><br><span class="line">    private boolean gender;</span><br><span class="line">    //所属班级</span><br><span class="line">    private Clazz clazz;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">    * 篇幅问题，这里省略了构造方法、set/get以及toString()方法。</span><br><span class="line">    */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-2-Dao层接口"><a href="#3-2-Dao层接口" class="headerlink" title="3.2 Dao层接口"></a>3.2 Dao层接口</h2><p>ClazzDao.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">package cn.zqiheng.dao;</span><br><span class="line"></span><br><span class="line">import cn.zqiheng.po.Clazz;</span><br><span class="line"></span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author Heng</span><br><span class="line"> */</span><br><span class="line">public interface ClazzDao &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 获取所有班级列表</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    List&lt;Clazz&gt; getAllClazz();</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 根据指定id获取班级信息</span><br><span class="line">     * @param id</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    Clazz getOneClazzById(int id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>StudentDao.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package cn.zqiheng.dao;</span><br><span class="line"></span><br><span class="line">import cn.zqiheng.po.Student;</span><br><span class="line"></span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author Heng</span><br><span class="line"> */</span><br><span class="line">public interface StudentDao&#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 获取所有学生列表信息，查询数据放入二级缓存</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    List&lt;Student&gt; getAllStudent();</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 通过实现 association 标签来封装关联属性值</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    List&lt;Student&gt; getAllStudent1();</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 此方法用来演示分步查询、延迟加载</span><br><span class="line">     * @param id</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    Student getOneStudentById(int id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-3-Dao层映射Mapper-XML文件"><a href="#3-3-Dao层映射Mapper-XML文件" class="headerlink" title="3.3 Dao层映射Mapper XML文件"></a>3.3 Dao层映射Mapper XML文件</h2><p>&emsp;&emsp;<strong>注：我所有的Mapper XML配置文件单独放在Maven项目的resources资源目录下的。</strong></p>
+<p>ClazzMapper.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE mapper PUBLIC &quot;_//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;mapper namespace=&quot;cn.zqiheng.dao.ClazzDao&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;select id=&quot;getAllClazz&quot; resultType=&quot;cn.zqiheng.po.Clazz&quot;&gt;</span><br><span class="line">        select * from clazz</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--</span><br><span class="line">        实现分步查询和延迟加载，在StudentMapper.xml中关联查询</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;select id=&quot;getOneClazzById&quot; resultType=&quot;cn.zqiheng.po.Clazz&quot;&gt;</span><br><span class="line">        select * from clazz</span><br><span class="line">        where c_id = #&#123;c_id&#125;</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>注：这里写了一些注释，可仔细阅读。</strong></p>
+<hr>
+<p>StudentMapper.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE mapper PUBLIC &quot;_//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;mapper namespace=&quot;cn.zqiheng.dao.StudentDao&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--</span><br><span class="line">        开启二级缓存</span><br><span class="line">        eviction:缓存回收策略 FIFO：先进先出</span><br><span class="line">        flushInterval:刷新间隔，可以被设置为任意的正整数,而且它们代表一个合理的毫秒 形式的时间段。默认情况是不设置,也就是没有刷新间隔,缓存仅仅调用语句时刷新。</span><br><span class="line">        size:引用数目,可以被设置为任意正整数,要记住你缓存的对象数目和你运行环境的 可用内存资源数目。</span><br><span class="line">        readerOnly:只读，只读的缓存会给所有调用者返回缓 存对象的相同实例。因此这些对象不能被修改。这提供了很重要的性能优势。可读写的缓存 会返回缓存对象的拷贝(通过序列化) 。这会慢一些,但是安全,因此默认是 false。</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;cache eviction=&quot;FIFO&quot; flushInterval=&quot;60000&quot; size=&quot;512&quot; readOnly=&quot;true&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--</span><br><span class="line">        使用&lt;resultMap&gt;标签：封装自定义返回数据</span><br><span class="line">        使用&lt;association&gt;标签，可以实现对关联类的属性封装、分步查询、延迟加载。。。</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;resultMap id=&quot;studentMap&quot; type=&quot;cn.zqiheng.po.Student&quot;&gt;</span><br><span class="line">        &lt;!--</span><br><span class="line">            &lt;id&gt;为主键标签的封装格式，其余都用&lt;result&gt;标签</span><br><span class="line">        --&gt;</span><br><span class="line">        &lt;id property=&quot;id&quot; column=&quot;id&quot;/&gt;</span><br><span class="line">        &lt;result property=&quot;name&quot; column=&quot;name&quot;/&gt;</span><br><span class="line">        &lt;result property=&quot;gender&quot; column=&quot;gender&quot;/&gt;</span><br><span class="line">        &lt;!--封装关联类的属性--&gt;</span><br><span class="line">        &lt;result property=&quot;clazz.c_id&quot; column=&quot;c_id&quot;/&gt;</span><br><span class="line">        &lt;result property=&quot;clazz.c_name&quot; column=&quot;c_name&quot;/&gt;</span><br><span class="line">    &lt;/resultMap&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--</span><br><span class="line">        想要让当前查询支持二级缓存，需要在标签中加入 useCache=&quot;true&quot; ，</span><br><span class="line">        如果不需要当前查询支持缓存 改为false即可，默认为true ，</span><br><span class="line">        flushCache=&quot;true&quot; 该属性用于刷新缓存，将其设置为 true时，任何时候只要语句被调用，都会导致一级缓存和二级缓存都会被清空，默认值：false。</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;select id=&quot;getAllStudent&quot; resultMap=&quot;studentMap&quot; useCache=&quot;true&quot; flushCache=&quot;false&quot;&gt;</span><br><span class="line">        select * from student s,clazz c</span><br><span class="line">        where s.c_id = c.c_id</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 使用association代替上面封装方法 --&gt;</span><br><span class="line">    &lt;resultMap id=&quot;studentMap1&quot; type=&quot;cn.zqiheng.po.Student&quot;&gt;</span><br><span class="line">        &lt;id property=&quot;id&quot; column=&quot;id&quot;/&gt;</span><br><span class="line">        &lt;result property=&quot;name&quot; column=&quot;name&quot;/&gt;</span><br><span class="line">        &lt;result property=&quot;gender&quot; column=&quot;gender&quot;/&gt;</span><br><span class="line">        &lt;!--使用association标签封装关联属性--&gt;</span><br><span class="line">        &lt;association property=&quot;clazz&quot; javaType=&quot;cn.zqiheng.po.Clazz&quot;&gt;</span><br><span class="line">            &lt;id property=&quot;c_id&quot; column=&quot;c_id&quot;/&gt;</span><br><span class="line">            &lt;result property=&quot;c_name&quot; column=&quot;c_name&quot;/&gt;</span><br><span class="line">        &lt;/association&gt;</span><br><span class="line">    &lt;/resultMap&gt;</span><br><span class="line">    &lt;select id=&quot;getAllStudent1&quot; resultMap=&quot;studentMap1&quot;&gt;</span><br><span class="line">        select * from student s,clazz c</span><br><span class="line">        where s.c_id = c.c_id</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!---</span><br><span class="line">        分布查询+延迟加载</span><br><span class="line">        1.首先查询当前学生，得到班级id</span><br><span class="line">        2.通过班级id查询出班级的信息</span><br><span class="line">        3.将查询的班级信息封装到员工对象中</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;resultMap id=&quot;selectByStep&quot; type=&quot;cn.zqiheng.po.Student&quot;&gt;</span><br><span class="line">        &lt;id property=&quot;id&quot; column=&quot;id&quot;/&gt;</span><br><span class="line">        &lt;result property=&quot;name&quot; column=&quot;name&quot;/&gt;</span><br><span class="line">        &lt;result property=&quot;gender&quot; column=&quot;gender&quot;/&gt;</span><br><span class="line">        &lt;!--</span><br><span class="line">            使用association来实现分步查询</span><br><span class="line">            select:查询方法（全类名+方法）</span><br><span class="line">            cloumn:传入查询参数（即where 条件后的刷选条件）</span><br><span class="line"></span><br><span class="line">            注：</span><br><span class="line">            1.需要关联另一个实体查询方法并配置了相对应的Mapper XML映射语句。</span><br><span class="line">            2.运行此段代码，会发现向数据库发出了两条查询语句，如果想要实现后面的SQL语句需要的时候才加载，</span><br><span class="line">            则需要开启延迟加载，需在 mybatis 总的配置文件中进行配置，需要手动开启。（节省内存的开销和查询时间）</span><br><span class="line">        --&gt;</span><br><span class="line">        &lt;association property=&quot;clazz&quot; javaType=&quot;cn.zqiheng.po.Clazz&quot; select=&quot;cn.zqiheng.dao.ClazzDao.getOneClazzById&quot; column=&quot;c_id&quot;/&gt;</span><br><span class="line">    &lt;/resultMap&gt;</span><br><span class="line">    &lt;select id=&quot;getOneStudentById&quot; resultMap=&quot;selectByStep&quot;&gt;</span><br><span class="line">        select * from student where id = #&#123;id&#125;</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-4-Junit测试类"><a href="#3-4-Junit测试类" class="headerlink" title="3.4 Junit测试类"></a>3.4 Junit测试类</h2><p>StudnetTest.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line">import cn.zqiheng.dao.StudentDao;</span><br><span class="line">import cn.zqiheng.po.Student;</span><br><span class="line">import cn.zqiheng.tools.SqlSessionTool;</span><br><span class="line">import org.apache.ibatis.session.SqlSession;</span><br><span class="line">import org.junit.Test;</span><br><span class="line"></span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class StudentTest &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 获取所有学生信息</span><br><span class="line">     * resultMap 标签封装测似</span><br><span class="line">     */</span><br><span class="line">    @Test</span><br><span class="line">    public void getAllStudentTest()&#123;</span><br><span class="line">        SqlSession session = null;</span><br><span class="line">        try&#123;</span><br><span class="line">            session = SqlSessionTool.getSession();</span><br><span class="line"></span><br><span class="line">            StudentDao studentDao = session.getMapper(StudentDao.class);</span><br><span class="line">//            List&lt;Student&gt; list = studentDao.getAllStudent();</span><br><span class="line">            List&lt;Student&gt; list = studentDao.getAllStudent1();</span><br><span class="line">            System.out.println(list);</span><br><span class="line"></span><br><span class="line">        &#125;catch (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;finally &#123;</span><br><span class="line">            SqlSessionTool.close(session);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 在mapper映射文件中，使用&lt;resultMap&gt;和&lt;association&gt;标签实现分步查询</span><br><span class="line">     * 分步查询，延迟加载测试</span><br><span class="line">     */</span><br><span class="line">    @Test</span><br><span class="line">    public void getOneStudentByIdTest()&#123;</span><br><span class="line">        SqlSession session = null;</span><br><span class="line">        try&#123;</span><br><span class="line">            session = SqlSessionTool.getSession();</span><br><span class="line">            StudentDao studentDao = session.getMapper(StudentDao.class);</span><br><span class="line"></span><br><span class="line">            Student student = studentDao.getOneStudentById(2);</span><br><span class="line">            /**</span><br><span class="line">             * 第一步测试：只需获得学生姓名</span><br><span class="line">             */</span><br><span class="line">            System.out.println(student.getName());</span><br><span class="line">            System.out.println(&quot;---------------------------------------&quot;);</span><br><span class="line">            /**</span><br><span class="line">             * 第二步测试：需要获得学生姓名和关联的班级名称</span><br><span class="line">             */</span><br><span class="line">            System.out.println(student.getClazz().getC_name());</span><br><span class="line"></span><br><span class="line">        &#125;catch (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;finally &#123;</span><br><span class="line">            SqlSessionTool.close(session);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Mybatis 一级缓存测试</span><br><span class="line">     */</span><br><span class="line">    @Test</span><br><span class="line">    public void chcheTest()&#123;</span><br><span class="line">        SqlSession session = null;</span><br><span class="line">        try&#123;</span><br><span class="line">            session = SqlSessionTool.getSession();</span><br><span class="line">            StudentDao studentDao = session.getMapper(StudentDao.class);</span><br><span class="line"></span><br><span class="line">            List&lt;Student&gt; list = studentDao.getAllStudent();</span><br><span class="line">            System.out.println(&quot;第一次查询数据：&quot;+list);</span><br><span class="line"></span><br><span class="line">            /**</span><br><span class="line">             * 手动清理缓存</span><br><span class="line">             */</span><br><span class="line">//            session.clearCache();</span><br><span class="line">//            session.close();</span><br><span class="line"></span><br><span class="line">            List&lt;Student&gt; list2 = studentDao.getAllStudent();</span><br><span class="line">            System.out.println(&quot;第二次查询数据：&quot;+list2);</span><br><span class="line"></span><br><span class="line">        &#125;catch (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;finally &#123;</span><br><span class="line">            SqlSessionTool.close(session);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Mybatis 二级缓存测试</span><br><span class="line">     */</span><br><span class="line">    @Test</span><br><span class="line">    public void chcheTest2()&#123;</span><br><span class="line">        SqlSession session1 = null;</span><br><span class="line">        SqlSession session2 = null;</span><br><span class="line">        try&#123;</span><br><span class="line">            session1 = SqlSessionTool.getSession();</span><br><span class="line">            StudentDao studentDao = session1.getMapper(StudentDao.class);</span><br><span class="line"></span><br><span class="line">            List&lt;Student&gt; list = studentDao.getAllStudent();</span><br><span class="line">            System.out.println(&quot;第一次查询数据：&quot;+list);</span><br><span class="line"></span><br><span class="line">            /**</span><br><span class="line">             * 在新的SqlSession对象，使用二级缓存中的数据的时候，</span><br><span class="line">             * 需要手动关闭前面的SqlSession对象，数据才会加载到二级缓存</span><br><span class="line">             *</span><br><span class="line">             * 在测试的时候：第一次我们不关闭上一个会话、第二次关闭上一个会话</span><br><span class="line">             */</span><br><span class="line">            session1.close();</span><br><span class="line"></span><br><span class="line">            //新建一个会话，查询数据库</span><br><span class="line">            session2 = SqlSessionTool.getSession();</span><br><span class="line">            StudentDao studentDao2 = session2.getMapper(StudentDao.class);</span><br><span class="line"></span><br><span class="line">            List&lt;Student&gt; list2 = studentDao2.getAllStudent();</span><br><span class="line">            System.out.println(&quot;第二次查询数据：&quot;+list2);</span><br><span class="line"></span><br><span class="line">        &#125;catch (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;finally &#123;</span><br><span class="line">            SqlSessionTool.close(session1);</span><br><span class="line">            SqlSessionTool.close(session2);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-5-运行结果分析"><a href="#3-5-运行结果分析" class="headerlink" title="3.5 运行结果分析"></a>3.5 运行结果分析</h2><p>&emsp;&emsp;<strong>（1）分步查询、延迟加载测试结果分析</strong></p>
+<ul>
+<li><p>运行结果图1（此时我们只需要获取学生的姓名）<br><img src="/images/MyBatis/分步查询结果1.png" alt=""></p>
+</li>
+<li><p>运行结果图2（此时我们需要获取学生的姓名和学生所对应的班级名称）<br><img src="/images/MyBatis/分步查询结果2.png" alt=""></p>
+</li>
+</ul>
+<p>&emsp;&emsp;<strong>总结：</strong>从上面两张结果运行图中可以看出，当我们只需要获取对象本身的属性时，不会去加载关联实体信息，只有在需要的时候才去查询，这样节约内存开销和减少了耗时操作。</p>
+<p>&emsp;&emsp;<strong>(2)一级缓存测试结果分析</strong></p>
+<ul>
+<li><p>运行结果图1（此时我们在两次相同查询中间手动清理了缓存）<br><img src="/images/MyBatis/一级缓存测试结果1.png" alt=""></p>
+</li>
+<li><p>运行结果图2（此时我们在两次相同查询中间没有做任何操作（包括增删改））<br><img src="/images/MyBatis/一级缓存测试结果2.png" alt=""></p>
+</li>
+<li><p>运行结果图3（此时我们在两次相同查询中间手动关闭session）<br><img src="/images/MyBatis/一级缓存测试结果3.png" alt=""></p>
+</li>
+</ul>
+<p>&emsp;&emsp;<strong>总结：</strong>从上面几次运行结果图可以看出，在两次相同的查询操作时（同一个session），MyBatis会优先在缓存中查找数据，如果没有，才会去数据库查找。如果手动关闭当前会话，则SqlSession会话结束，自动清理缓存。</p>
+<p>&emsp;&emsp;<strong>(3)二级缓存测试结果分析</strong></p>
+<ul>
+<li><p>运行结果图1（此时我们在两次查询中间<strong>没有关闭上一个SqlSession对象会话</strong>）<br><img src="/images/MyBatis/二级缓存测试结果1.png" alt=""></p>
+</li>
+<li><p>运行结果图2（此时我们在两次查询中间<strong>关闭了上一个SqlSession对象会话</strong>）<br><img src="/images/MyBatis/二级缓存测试结果2.png" alt=""></p>
+</li>
+</ul>
+<p>&emsp;&emsp;<strong>总结：</strong>从上面运行的两次结果来看，MyBatis的二级缓存是可以被不同session共享的，并且在查询相同操作的时候，后面不需要在建立数据库连接。这为开发中数据查询速度带来了极大的方便、和高效。</p>
+<hr>
+<p>&emsp;&emsp;MyBatis只是我们在操作数据库时的一种便利工具，如何去运用它，这就要看你想不想学好它。好了，基础学习知识就到这里了，后面在补充MyBatis的进阶版。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>恒</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.zhangqiheng.cn/2018/10/18/MyBatis学习总结（二）/" title="MyBatis学习总结（二）">http://www.zhangqiheng.cn/2018/10/18/MyBatis学习总结（二）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"> <i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/Java-EE/" rel="tag"> <i class="fa fa-tag"></i> Java EE</a>
+          
+            <a href="/tags/MyBatis/" rel="tag"> <i class="fa fa-tag"></i> MyBatis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/15/MyBatis学习总结（一）/" rel="next" title="MyBatis学习总结（一）">
+                <i class="fa fa-chevron-left"></i> MyBatis学习总结（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/logo.png"
+                alt="恒" />
+            
+              <p class="site-author-name" itemprop="name">恒</p>
+              <p class="site-description motion-element" itemprop="description">主要记录自己的学习记录与心得，在校学生一枚...</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zqiheng" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zhangqiheng0117@163.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Mapper-XML"><span class="nav-number">1.</span> <span class="nav-text">1. Mapper XML</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-MyBatis-缓存机制"><span class="nav-number">2.</span> <span class="nav-text">2. MyBatis 缓存机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-一级缓存"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 一级缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-二级缓存"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 二级缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-第三方缓存"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 第三方缓存</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-代码实例"><span class="nav-number">3.</span> <span class="nav-text">3. 代码实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-实体类"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 实体类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Dao层接口"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 Dao层接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-Dao层映射Mapper-XML文件"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 Dao层映射Mapper XML文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-Junit测试类"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 Junit测试类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-运行结果分析"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 运行结果分析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">恒</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
