@@ -112,55 +112,55 @@
 <meta name="keywords" content="Java,Java EE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在IDEA上搭建Spring+SpringMVC+Hibernate项目">
-<meta property="og:url" content="http://www.zhangqiheng.cn/2018/06/19/在IDEA上搭建Spring+SpringMVC+Hibernate项目/index.html">
+<meta property="og:url" content="https://zqiheng.github.io/2018/06/19/在IDEA上搭建Spring+SpringMVC+Hibernate项目/index.html">
 <meta property="og:site_name" content="Heng">
 <meta property="og:description" content="说明：本章主要介绍如何在idea上搭建一个简单的基于Maven的Spring+SpringMVC+hibernate项目。并没有细分各个业务逻辑层次划分。  参考博文  大家如果想深入剖析项目搭建步骤可参考上面博客。 重点：准备工作  安装好jdk1.8以上版本、配好环境变量 安装好Tomcat（我是Tomcat9） 安装好maven （也可选择IDEA自带的） 安装好IDEA（上篇博客已经介绍了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/1-1新建项目.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/1-2填名称.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/1-3选择maven版本.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/1-4导入依赖包.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/1-5默认建好的目录.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/2-1导入依赖包.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/3-1建立文件夹1.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/3-1新建文件夹2.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/3-1新建文件夹3.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/3-1新建文件夹4.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/3-1完成文件夹建立.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/3-2建立spring-mvc.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/3-3创建test包.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/4-1配置服务器1.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/4-1配置服务器2.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/4-1配置服务器3.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/4-1配置服务器4.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/5-1建立类.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/6-1启动服务器.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/6-1输入数据.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/7-1需要的窗口.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/8-1创建hibernate配置文件.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/8-1创建hibernate配置文件2.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/8-1创建hibernate配置文件3.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/8-2数据库配置1.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/8-2数据库配置2.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/8-2数据库配置3.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/8-2数据库配置4.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/8-2数据库配置5.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/8-2数据库配置6.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/8-2数据库配置7.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/8-3新建studentDao.png">
-<meta property="og:image" content="http://www.zhangqiheng.cn/images/ssh/9-1结果.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/1-1新建项目.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/1-2填名称.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/1-3选择maven版本.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/1-4导入依赖包.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/1-5默认建好的目录.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/2-1导入依赖包.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/3-1建立文件夹1.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/3-1新建文件夹2.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/3-1新建文件夹3.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/3-1新建文件夹4.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/3-1完成文件夹建立.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/3-2建立spring-mvc.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/3-3创建test包.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/4-1配置服务器1.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/4-1配置服务器2.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/4-1配置服务器3.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/4-1配置服务器4.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/5-1建立类.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/6-1启动服务器.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/6-1输入数据.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/7-1需要的窗口.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/8-1创建hibernate配置文件.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/8-1创建hibernate配置文件2.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/8-1创建hibernate配置文件3.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/8-2数据库配置1.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/8-2数据库配置2.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/8-2数据库配置3.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/8-2数据库配置4.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/8-2数据库配置5.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/8-2数据库配置6.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/8-2数据库配置7.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/8-3新建studentDao.png">
+<meta property="og:image" content="https://zqiheng.github.io/images/ssh/9-1结果.png">
 <meta property="og:updated_time" content="2018-10-19T06:19:19.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在IDEA上搭建Spring+SpringMVC+Hibernate项目">
 <meta name="twitter:description" content="说明：本章主要介绍如何在idea上搭建一个简单的基于Maven的Spring+SpringMVC+hibernate项目。并没有细分各个业务逻辑层次划分。  参考博文  大家如果想深入剖析项目搭建步骤可参考上面博客。 重点：准备工作  安装好jdk1.8以上版本、配好环境变量 安装好Tomcat（我是Tomcat9） 安装好maven （也可选择IDEA自带的） 安装好IDEA（上篇博客已经介绍了">
-<meta name="twitter:image" content="http://www.zhangqiheng.cn/images/ssh/1-1新建项目.png">
+<meta name="twitter:image" content="https://zqiheng.github.io/images/ssh/1-1新建项目.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.zhangqiheng.cn/2018/06/19/在IDEA上搭建Spring+SpringMVC+Hibernate项目/"/>
+  <link rel="canonical" href="https://zqiheng.github.io/2018/06/19/在IDEA上搭建Spring+SpringMVC+Hibernate项目/"/>
 
 
 
@@ -374,7 +374,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zhangqiheng.cn/2018/06/19/在IDEA上搭建Spring+SpringMVC+Hibernate项目/">
+    <link itemprop="mainEntityOfPage" href="https://zqiheng.github.io/2018/06/19/在IDEA上搭建Spring+SpringMVC+Hibernate项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eric">
@@ -606,7 +606,7 @@
     <strong>本文作者： </strong>Eric</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.zhangqiheng.cn/2018/06/19/在IDEA上搭建Spring+SpringMVC+Hibernate项目/" title="在IDEA上搭建Spring+SpringMVC+Hibernate项目">http://www.zhangqiheng.cn/2018/06/19/在IDEA上搭建Spring+SpringMVC+Hibernate项目/</a>
+    <a href="https://zqiheng.github.io/2018/06/19/在IDEA上搭建Spring+SpringMVC+Hibernate项目/" title="在IDEA上搭建Spring+SpringMVC+Hibernate项目">https://zqiheng.github.io/2018/06/19/在IDEA上搭建Spring+SpringMVC+Hibernate项目/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -873,7 +873,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">恒</span>
+  <span class="author" itemprop="copyrightHolder">Eric</span>
 
   
 
